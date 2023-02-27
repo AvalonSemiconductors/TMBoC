@@ -12,7 +12,7 @@
 /venv/
 mgmt_core_wrapper
 mgmt_core_wrapper
-/dependencies/timing-scripts/
+/deps/timing-scripts/
 *.hier
 *.vvp
 *.class
