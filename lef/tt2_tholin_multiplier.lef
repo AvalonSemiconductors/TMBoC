@@ -1,0 +1,204 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO tt2_tholin_multiplier
+  CLASS BLOCK ;
+  FOREIGN tt2_tholin_multiplier ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 60.000 BY 90.000 ;
+  PIN io_in[0]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 3.770 86.000 4.050 90.000 ;
+    END
+  END io_in[0]
+  PIN io_in[1]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 11.130 86.000 11.410 90.000 ;
+    END
+  END io_in[1]
+  PIN io_in[2]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 18.490 86.000 18.770 90.000 ;
+    END
+  END io_in[2]
+  PIN io_in[3]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 25.850 86.000 26.130 90.000 ;
+    END
+  END io_in[3]
+  PIN io_in[4]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 33.210 86.000 33.490 90.000 ;
+    END
+  END io_in[4]
+  PIN io_in[5]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 40.570 86.000 40.850 90.000 ;
+    END
+  END io_in[5]
+  PIN io_in[6]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 47.930 86.000 48.210 90.000 ;
+    END
+  END io_in[6]
+  PIN io_in[7]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 55.290 86.000 55.570 90.000 ;
+    END
+  END io_in[7]
+  PIN io_out[0]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 3.770 0.000 4.050 4.000 ;
+    END
+  END io_out[0]
+  PIN io_out[1]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 11.130 0.000 11.410 4.000 ;
+    END
+  END io_out[1]
+  PIN io_out[2]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 18.490 0.000 18.770 4.000 ;
+    END
+  END io_out[2]
+  PIN io_out[3]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 25.850 0.000 26.130 4.000 ;
+    END
+  END io_out[3]
+  PIN io_out[4]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 33.210 0.000 33.490 4.000 ;
+    END
+  END io_out[4]
+  PIN io_out[5]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 40.570 0.000 40.850 4.000 ;
+    END
+  END io_out[5]
+  PIN io_out[6]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 47.930 0.000 48.210 4.000 ;
+    END
+  END io_out[6]
+  PIN io_out[7]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 55.290 0.000 55.570 4.000 ;
+    END
+  END io_out[7]
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 10.815 10.640 12.415 79.120 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 23.005 10.640 24.605 79.120 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 35.195 10.640 36.795 79.120 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 47.385 10.640 48.985 79.120 ;
+    END
+  END vccd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 16.910 10.640 18.510 79.120 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 29.100 10.640 30.700 79.120 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 41.290 10.640 42.890 79.120 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 53.480 10.640 55.080 79.120 ;
+    END
+  END vssd1
+  OBS
+      LAYER li1 ;
+        RECT 5.520 10.795 54.280 78.965 ;
+      LAYER met1 ;
+        RECT 3.750 10.640 55.590 79.120 ;
+      LAYER met2 ;
+        RECT 4.330 85.720 10.850 86.770 ;
+        RECT 11.690 85.720 18.210 86.770 ;
+        RECT 19.050 85.720 25.570 86.770 ;
+        RECT 26.410 85.720 32.930 86.770 ;
+        RECT 33.770 85.720 40.290 86.770 ;
+        RECT 41.130 85.720 47.650 86.770 ;
+        RECT 48.490 85.720 55.010 86.770 ;
+        RECT 3.780 4.280 55.560 85.720 ;
+        RECT 4.330 4.000 10.850 4.280 ;
+        RECT 11.690 4.000 18.210 4.280 ;
+        RECT 19.050 4.000 25.570 4.280 ;
+        RECT 26.410 4.000 32.930 4.280 ;
+        RECT 33.770 4.000 40.290 4.280 ;
+        RECT 41.130 4.000 47.650 4.280 ;
+        RECT 48.490 4.000 55.010 4.280 ;
+      LAYER met3 ;
+        RECT 10.825 10.715 55.070 79.045 ;
+  END
+END tt2_tholin_multiplier
+END LIBRARY
+

@@ -1,0 +1,45 @@
+{
+    "DESIGN_NAME": "tholin_avalonsemi_5401",
+    "DESIGN_IS_CORE": 0,
+    "VERILOG_FILES": ["dir::../../verilog/rtl/defines.v", "dir::../../verilog/rtl/logisim_common/arith/Adder.v", "dir::../../verilog/rtl/logisim_common/arith/Comparator.v", "dir::../../verilog/rtl/logisim_common/arith/FullAdder.v", "dir::../../verilog/rtl/logisim_common/gates/AND_GATE.v", "dir::../../verilog/rtl/logisim_common/gates/AND_GATE_BUS.v", "dir::../../verilog/rtl/logisim_common/gates/NAND_GATE.v", "dir::../../verilog/rtl/logisim_common/gates/NAND_GATE_BUS.v", "dir::../../verilog/rtl/logisim_common/gates/NOR_GATE.v", "dir::../../verilog/rtl/logisim_common/gates/OR_GATE.v", "dir::../../verilog/rtl/logisim_common/gates/OR_GATE_BUS_4_INPUTS.v", "dir::../../verilog/rtl/logisim_common/gates/XOR_GATE_ONEHOT.v", "dir::../../verilog/rtl/logisim_common/memory/D_FLIPFLOP.v", "dir::../../verilog/rtl/logisim_common/memory/REGISTER_FLIP_FLOP.v", "dir::../../verilog/rtl/logisim_common/plexers/Demultiplexer_16.v", "dir::../../verilog/rtl/AS5401/clock_gen_2.v", "dir::../../verilog/rtl/AS5401/CPU.v", "dir::../../verilog/rtl/AS5401/dest_reg_sel_new.v", "dir::../../verilog/rtl/AS5401/div.v", "dir::../../verilog/rtl/AS5401/eq_0.v", "dir::../../verilog/rtl/AS5401/inst_dec.v", "dir::../../verilog/rtl/AS5401/int_memory.v", "dir::../../verilog/rtl/AS5401/logisimTopLevelShell.v", "dir::../../verilog/rtl/AS5401/main.v", "dir::../../verilog/rtl/AS5401/mul2.v", "dir::../../verilog/rtl/AS5401/output_logic.v"],
+    "CLOCK_PERIOD": 10,
+    "CLOCK_PORT": "clk",
+    "CLOCK_NET": "clk",
+    "FP_SIZING": "absolute",
+    "DIE_AREA": "0 0 150 150",
+    "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
+    "PL_BASIC_PLACEMENT": 0,
+    "PL_TARGET_DENSITY": 0.55,
+    "VDD_NETS": ["vccd1"],
+    "GND_NETS": ["vssd1"],
+    "DIODE_INSERTION_STRATEGY": 4,
+    "RUN_CVC": 1,
+    "pdk::sky130*": {
+        "FP_CORE_UTIL": 45,
+        "RT_MAX_LAYER": "met4",
+        "scl::sky130_fd_sc_hd": {
+            "CLOCK_PERIOD": 10
+        },
+        "scl::sky130_fd_sc_hdll": {
+            "CLOCK_PERIOD": 10
+        },
+        "scl::sky130_fd_sc_hs": {
+            "CLOCK_PERIOD": 8
+        },
+        "scl::sky130_fd_sc_ls": {
+            "CLOCK_PERIOD": 10,
+            "SYNTH_MAX_FANOUT": 5
+        },
+        "scl::sky130_fd_sc_ms": {
+            "CLOCK_PERIOD": 10
+        }
+    },
+    "pdk::gf180mcuC": {
+        "STD_CELL_LIBRARY": "gf180mcu_fd_sc_mcu7t5v0",
+        "CLOCK_PERIOD": 24.0,
+        "FP_CORE_UTIL": 40,
+        "RT_MAX_LAYER": "Metal4",
+        "SYNTH_MAX_FANOUT": 4,
+        "PL_TARGET_DENSITY": 0.45
+    }
+}

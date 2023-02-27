@@ -1,0 +1,120 @@
+magic
+tech sky130B
+magscale 1 2
+timestamp 1674825769
+<< obsli1 >>
+rect 1104 2159 27876 26673
+<< obsm1 >>
+rect 1104 2128 28032 26704
+<< metal2 >>
+rect 1858 28200 1914 29000
+rect 5446 28200 5502 29000
+rect 9034 28200 9090 29000
+rect 12622 28200 12678 29000
+rect 16210 28200 16266 29000
+rect 19798 28200 19854 29000
+rect 23386 28200 23442 29000
+rect 26974 28200 27030 29000
+<< obsm2 >>
+rect 1490 28144 1802 28200
+rect 1970 28144 5390 28200
+rect 5558 28144 8978 28200
+rect 9146 28144 12566 28200
+rect 12734 28144 16154 28200
+rect 16322 28144 19742 28200
+rect 19910 28144 23330 28200
+rect 23498 28144 26918 28200
+rect 27086 28144 28026 28200
+rect 1490 2071 28026 28144
+<< metal3 >>
+rect 0 26800 800 26920
+rect 0 23264 800 23384
+rect 0 19728 800 19848
+rect 0 16192 800 16312
+rect 0 12656 800 12776
+rect 0 9120 800 9240
+rect 0 5584 800 5704
+rect 0 2048 800 2168
+<< obsm3 >>
+rect 880 26720 28030 26893
+rect 800 23464 28030 26720
+rect 880 23184 28030 23464
+rect 800 19928 28030 23184
+rect 880 19648 28030 19928
+rect 800 16392 28030 19648
+rect 880 16112 28030 16392
+rect 800 12856 28030 16112
+rect 880 12576 28030 12856
+rect 800 9320 28030 12576
+rect 880 9040 28030 9320
+rect 800 5784 28030 9040
+rect 880 5504 28030 5784
+rect 800 2248 28030 5504
+rect 880 2075 28030 2248
+<< metal4 >>
+rect 4290 2128 4610 26704
+rect 7636 2128 7956 26704
+rect 10982 2128 11302 26704
+rect 14328 2128 14648 26704
+rect 17674 2128 17994 26704
+rect 21020 2128 21340 26704
+rect 24366 2128 24686 26704
+rect 27712 2128 28032 26704
+<< labels >>
+rlabel metal3 s 0 2048 800 2168 6 clk
+port 1 nsew signal input
+rlabel metal3 s 0 9120 800 9240 6 io_in[0]
+port 2 nsew signal input
+rlabel metal3 s 0 12656 800 12776 6 io_in[1]
+port 3 nsew signal input
+rlabel metal3 s 0 16192 800 16312 6 io_in[2]
+port 4 nsew signal input
+rlabel metal3 s 0 19728 800 19848 6 io_in[3]
+port 5 nsew signal input
+rlabel metal3 s 0 23264 800 23384 6 io_in[4]
+port 6 nsew signal input
+rlabel metal3 s 0 26800 800 26920 6 io_in[5]
+port 7 nsew signal input
+rlabel metal2 s 1858 28200 1914 29000 6 io_out[0]
+port 8 nsew signal output
+rlabel metal2 s 5446 28200 5502 29000 6 io_out[1]
+port 9 nsew signal output
+rlabel metal2 s 9034 28200 9090 29000 6 io_out[2]
+port 10 nsew signal output
+rlabel metal2 s 12622 28200 12678 29000 6 io_out[3]
+port 11 nsew signal output
+rlabel metal2 s 16210 28200 16266 29000 6 io_out[4]
+port 12 nsew signal output
+rlabel metal2 s 19798 28200 19854 29000 6 io_out[5]
+port 13 nsew signal output
+rlabel metal2 s 23386 28200 23442 29000 6 io_out[6]
+port 14 nsew signal output
+rlabel metal2 s 26974 28200 27030 29000 6 io_out[7]
+port 15 nsew signal output
+rlabel metal3 s 0 5584 800 5704 6 rst
+port 16 nsew signal input
+rlabel metal4 s 4290 2128 4610 26704 6 vccd1
+port 17 nsew power bidirectional
+rlabel metal4 s 10982 2128 11302 26704 6 vccd1
+port 17 nsew power bidirectional
+rlabel metal4 s 17674 2128 17994 26704 6 vccd1
+port 17 nsew power bidirectional
+rlabel metal4 s 24366 2128 24686 26704 6 vccd1
+port 17 nsew power bidirectional
+rlabel metal4 s 7636 2128 7956 26704 6 vssd1
+port 18 nsew ground bidirectional
+rlabel metal4 s 14328 2128 14648 26704 6 vssd1
+port 18 nsew ground bidirectional
+rlabel metal4 s 21020 2128 21340 26704 6 vssd1
+port 18 nsew ground bidirectional
+rlabel metal4 s 27712 2128 28032 26704 6 vssd1
+port 18 nsew ground bidirectional
+<< properties >>
+string FIXED_BBOX 0 0 29000 29000
+string LEFclass BLOCK
+string LEFview TRUE
+string GDS_END 2043316
+string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/TBB1143/runs/23_01_27_14_20/results/signoff/tholin_avalonsemi_tbb1143.magic.gds
+string GDS_START 390184
+<< end >>
+

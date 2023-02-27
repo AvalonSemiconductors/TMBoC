@@ -1,3 +1,15 @@
 # Caravel user project includes	     
--v $(USER_PROJECT_VERILOG)/gl/user_project_wrapper.v	     
--v $(USER_PROJECT_VERILOG)/gl/user_proj_example.v     
+-v $(USER_PROJECT_VERILOG)/gl/user_project_wrapper.v
+-v $(USER_PROJECT_VERILOG)/gl/multiplexer.v
+-v $(USER_PROJECT_VERILOG)/gl/tholin_avalonsemi_5401.v
+-v $(USER_PROJECT_VERILOG)/gl/tholin_avalonsemi_tbb1143.v
+-v $(USER_PROJECT_VERILOG)/gl/tt2_tholin_diceroll.v
+-v $(USER_PROJECT_VERILOG)/gl/tt2_tholin_multiplexed_counter.v
+-v $(USER_PROJECT_VERILOG)/gl/tt2_tholin_multiplier.v
+-v $(USER_PROJECT_VERILOG)/gl/tt2_tholin_namebadge.v
+-v $(USER_PROJECT_VERILOG)/gl/wrapped_MC14500.v
+-v $(USER_PROJECT_VERILOG)/gl/wrapped_6502.v
+-v $(USER_PROJECT_VERILOG)/gl/wrapped_as1802.v
+-v $(USER_PROJECT_VERILOG)/gl/wrapped_as2650.v
+-v $(USER_PROJECT_VERILOG)/gl/tune_player.v
+-v $(USER_PROJECT_VERILOG)/gl/posit_unit.v

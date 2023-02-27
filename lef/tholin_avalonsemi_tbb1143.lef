@@ -1,0 +1,213 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO tholin_avalonsemi_tbb1143
+  CLASS BLOCK ;
+  FOREIGN tholin_avalonsemi_tbb1143 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 145.000 BY 145.000 ;
+  PIN clk
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 10.240 4.000 10.840 ;
+    END
+  END clk
+  PIN io_in[0]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 45.600 4.000 46.200 ;
+    END
+  END io_in[0]
+  PIN io_in[1]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 63.280 4.000 63.880 ;
+    END
+  END io_in[1]
+  PIN io_in[2]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 80.960 4.000 81.560 ;
+    END
+  END io_in[2]
+  PIN io_in[3]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 98.640 4.000 99.240 ;
+    END
+  END io_in[3]
+  PIN io_in[4]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 116.320 4.000 116.920 ;
+    END
+  END io_in[4]
+  PIN io_in[5]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 134.000 4.000 134.600 ;
+    END
+  END io_in[5]
+  PIN io_out[0]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 9.290 141.000 9.570 145.000 ;
+    END
+  END io_out[0]
+  PIN io_out[1]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 27.230 141.000 27.510 145.000 ;
+    END
+  END io_out[1]
+  PIN io_out[2]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 45.170 141.000 45.450 145.000 ;
+    END
+  END io_out[2]
+  PIN io_out[3]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 63.110 141.000 63.390 145.000 ;
+    END
+  END io_out[3]
+  PIN io_out[4]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 81.050 141.000 81.330 145.000 ;
+    END
+  END io_out[4]
+  PIN io_out[5]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 98.990 141.000 99.270 145.000 ;
+    END
+  END io_out[5]
+  PIN io_out[6]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 116.930 141.000 117.210 145.000 ;
+    END
+  END io_out[6]
+  PIN io_out[7]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 134.870 141.000 135.150 145.000 ;
+    END
+  END io_out[7]
+  PIN rst
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 27.920 4.000 28.520 ;
+    END
+  END rst
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 21.450 10.640 23.050 133.520 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 54.910 10.640 56.510 133.520 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 88.370 10.640 89.970 133.520 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 121.830 10.640 123.430 133.520 ;
+    END
+  END vccd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 38.180 10.640 39.780 133.520 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 71.640 10.640 73.240 133.520 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 105.100 10.640 106.700 133.520 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 138.560 10.640 140.160 133.520 ;
+    END
+  END vssd1
+  OBS
+      LAYER li1 ;
+        RECT 5.520 10.795 139.380 133.365 ;
+      LAYER met1 ;
+        RECT 5.520 10.640 140.160 133.520 ;
+      LAYER met2 ;
+        RECT 7.450 140.720 9.010 141.000 ;
+        RECT 9.850 140.720 26.950 141.000 ;
+        RECT 27.790 140.720 44.890 141.000 ;
+        RECT 45.730 140.720 62.830 141.000 ;
+        RECT 63.670 140.720 80.770 141.000 ;
+        RECT 81.610 140.720 98.710 141.000 ;
+        RECT 99.550 140.720 116.650 141.000 ;
+        RECT 117.490 140.720 134.590 141.000 ;
+        RECT 135.430 140.720 140.130 141.000 ;
+        RECT 7.450 10.355 140.130 140.720 ;
+      LAYER met3 ;
+        RECT 4.400 133.600 140.150 134.465 ;
+        RECT 4.000 117.320 140.150 133.600 ;
+        RECT 4.400 115.920 140.150 117.320 ;
+        RECT 4.000 99.640 140.150 115.920 ;
+        RECT 4.400 98.240 140.150 99.640 ;
+        RECT 4.000 81.960 140.150 98.240 ;
+        RECT 4.400 80.560 140.150 81.960 ;
+        RECT 4.000 64.280 140.150 80.560 ;
+        RECT 4.400 62.880 140.150 64.280 ;
+        RECT 4.000 46.600 140.150 62.880 ;
+        RECT 4.400 45.200 140.150 46.600 ;
+        RECT 4.000 28.920 140.150 45.200 ;
+        RECT 4.400 27.520 140.150 28.920 ;
+        RECT 4.000 11.240 140.150 27.520 ;
+        RECT 4.400 10.375 140.150 11.240 ;
+  END
+END tholin_avalonsemi_tbb1143
+END LIBRARY
+

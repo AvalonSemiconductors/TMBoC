@@ -1,0 +1,95 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO tune_player
+  CLASS BLOCK ;
+  FOREIGN tune_player ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 120.000 BY 120.000 ;
+  PIN OP
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 98.340 4.000 99.540 ;
+    END
+  END OP
+  PIN clk
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 19.460 4.000 20.660 ;
+    END
+  END clk
+  PIN rst
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 58.900 4.000 60.100 ;
+    END
+  END rst
+  PIN vccd1
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 18.290 10.640 19.890 109.040 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 45.430 10.640 47.030 109.040 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 72.570 10.640 74.170 109.040 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 99.710 10.640 101.310 109.040 ;
+    END
+  END vccd1
+  PIN vssd1
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 31.860 10.640 33.460 109.040 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 59.000 10.640 60.600 109.040 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 86.140 10.640 87.740 109.040 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 113.280 10.640 114.880 109.040 ;
+    END
+  END vssd1
+  OBS
+      LAYER li1 ;
+        RECT 5.520 10.795 114.080 108.885 ;
+      LAYER met1 ;
+        RECT 5.520 10.640 114.880 109.040 ;
+      LAYER met2 ;
+        RECT 7.920 10.695 114.850 108.985 ;
+      LAYER met3 ;
+        RECT 4.000 99.940 114.870 108.965 ;
+        RECT 4.400 97.940 114.870 99.940 ;
+        RECT 4.000 60.500 114.870 97.940 ;
+        RECT 4.400 58.500 114.870 60.500 ;
+        RECT 4.000 21.060 114.870 58.500 ;
+        RECT 4.400 19.060 114.870 21.060 ;
+        RECT 4.000 10.715 114.870 19.060 ;
+      LAYER met4 ;
+        RECT 75.735 19.895 85.740 52.865 ;
+        RECT 88.140 19.895 98.145 52.865 ;
+  END
+END tune_player
+END LIBRARY
+

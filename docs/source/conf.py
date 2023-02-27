@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2020 Efabless Corporation
+# SPDX-FileCopyrightText: 2023 Tholin
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,22 +20,9 @@
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
-
-# -- Project information -----------------------------------------------------
-
-project = 'CIIC Harness'
-copyright = '2020, efabless'
-author = 'efabless'
+project = 'Tholin’s Misc. Box of Circuits'
+copyright = '2023, Tholin'
+author = 'Tholin'
 
 
 # -- General configuration ---------------------------------------------------
@@ -57,9 +44,7 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
     'build',
-    'Thumbs.db',
-    # Files included in other rst files.
-    'introduction.rst',
+    'Thumbs.db'
 ]
 
 
@@ -68,7 +53,7 @@ exclude_patterns = [
 html_theme_options = {
     'header_links' : [
         ("Home", 'index', False, 'home'),
-        ("GitHub", "https://github.com/efabless/caravel", True, 'code'),
+        ("GitHub", "https://github.com/AvalonSemiconductors", True, 'code'),
     ],
     'hide_symbiflow_links': True,
     'license_url' : 'https://www.apache.org/licenses/LICENSE-2.0',
