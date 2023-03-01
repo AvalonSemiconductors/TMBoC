@@ -140,6 +140,7 @@ always @(posedge clk) begin
 		addr_out_buff <= 0;
 		instr_cycle <= 0;
 		will_interrupt <= 0;
+		mem_cycle <= 0;
 	end else begin
 		if(mem_cycle != 0) begin
 			mem_cycle <= mem_cycle + 1;
