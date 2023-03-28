@@ -43,14 +43,14 @@ module dice(input CLK, input RST, input ROLL, output [7:0] LEDS);
 				dp = 0;
 			end
 			if(clkdiv != 8'b10100000) begin
-				counter = counter + 1;
+				counter <= counter + 1;
 				if(counter == clkdiv) begin
-					counter = 0;
-					clkdiv = clkdiv + 1;
+					counter <= 0;
+					clkdiv <= clkdiv + 1;
 					if(random[2:0] > 5) begin
-						bcd[2:0] = random[2:0] - 4;
+						bcd[2:0] <= random[2:0] - 4;
 					end else begin
-						bcd[2:0] = random[2:0] + 1;
+						bcd[2:0] <= random[2:0] + 1;
 					end
 				end
 			end else begin

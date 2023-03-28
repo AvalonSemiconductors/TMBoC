@@ -1,29 +1,29 @@
 ###############################################################################
 # Created by write_sdc
-# Fri Jan 27 12:48:47 2023
+# Tue Mar 28 10:56:56 2023
 ###############################################################################
 current_design tt2_tholin_multiplier
 ###############################################################################
 # Timing Constraints
 ###############################################################################
-create_clock -name __VIRTUAL_CLK__ -period 10.0000 
+create_clock -name __VIRTUAL_CLK__ -period 25.0000 
 set_clock_uncertainty 0.2500 __VIRTUAL_CLK__
-set_input_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[0]}]
-set_input_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[1]}]
-set_input_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[2]}]
-set_input_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[3]}]
-set_input_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[4]}]
-set_input_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[5]}]
-set_input_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[6]}]
-set_input_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[7]}]
-set_output_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[0]}]
-set_output_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[1]}]
-set_output_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[2]}]
-set_output_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[3]}]
-set_output_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[4]}]
-set_output_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[5]}]
-set_output_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[6]}]
-set_output_delay 2.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[7]}]
+set_input_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[0]}]
+set_input_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[1]}]
+set_input_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[2]}]
+set_input_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[3]}]
+set_input_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[4]}]
+set_input_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[5]}]
+set_input_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[6]}]
+set_input_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_in[7]}]
+set_output_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[0]}]
+set_output_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[1]}]
+set_output_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[2]}]
+set_output_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[3]}]
+set_output_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[4]}]
+set_output_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[5]}]
+set_output_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[6]}]
+set_output_delay 5.0000 -clock [get_clocks {__VIRTUAL_CLK__}] -add_delay [get_ports {io_out[7]}]
 ###############################################################################
 # Environment
 ###############################################################################

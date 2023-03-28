@@ -6,13 +6,13 @@ MACRO tt2_tholin_diceroll
   CLASS BLOCK ;
   FOREIGN tt2_tholin_diceroll ;
   ORIGIN 0.000 0.000 ;
-  SIZE 100.000 BY 100.000 ;
+  SIZE 120.000 BY 120.000 ;
   PIN clk
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 16.650 96.000 16.930 100.000 ;
+        RECT 19.870 116.000 20.150 120.000 ;
     END
   END clk
   PIN io_in
@@ -20,7 +20,7 @@ MACRO tt2_tholin_diceroll
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 82.890 96.000 83.170 100.000 ;
+        RECT 99.910 116.000 100.190 120.000 ;
     END
   END io_in
   PIN io_out[0]
@@ -28,7 +28,7 @@ MACRO tt2_tholin_diceroll
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 6.070 0.000 6.350 4.000 ;
+        RECT 8.370 0.000 8.650 4.000 ;
     END
   END io_out[0]
   PIN io_out[1]
@@ -36,7 +36,7 @@ MACRO tt2_tholin_diceroll
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 18.490 0.000 18.770 4.000 ;
+        RECT 23.090 0.000 23.370 4.000 ;
     END
   END io_out[1]
   PIN io_out[2]
@@ -44,7 +44,7 @@ MACRO tt2_tholin_diceroll
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 30.910 0.000 31.190 4.000 ;
+        RECT 37.810 0.000 38.090 4.000 ;
     END
   END io_out[2]
   PIN io_out[3]
@@ -52,7 +52,7 @@ MACRO tt2_tholin_diceroll
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 43.330 0.000 43.610 4.000 ;
+        RECT 52.530 0.000 52.810 4.000 ;
     END
   END io_out[3]
   PIN io_out[4]
@@ -60,7 +60,7 @@ MACRO tt2_tholin_diceroll
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 55.750 0.000 56.030 4.000 ;
+        RECT 67.250 0.000 67.530 4.000 ;
     END
   END io_out[4]
   PIN io_out[5]
@@ -68,7 +68,7 @@ MACRO tt2_tholin_diceroll
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 68.170 0.000 68.450 4.000 ;
+        RECT 81.970 0.000 82.250 4.000 ;
     END
   END io_out[5]
   PIN io_out[6]
@@ -76,7 +76,7 @@ MACRO tt2_tholin_diceroll
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 80.590 0.000 80.870 4.000 ;
+        RECT 96.690 0.000 96.970 4.000 ;
     END
   END io_out[6]
   PIN io_out[7]
@@ -84,7 +84,7 @@ MACRO tt2_tholin_diceroll
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 93.010 0.000 93.290 4.000 ;
+        RECT 111.410 0.000 111.690 4.000 ;
     END
   END io_out[7]
   PIN rst
@@ -92,7 +92,7 @@ MACRO tt2_tholin_diceroll
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 49.770 96.000 50.050 100.000 ;
+        RECT 59.890 116.000 60.170 120.000 ;
     END
   END rst
   PIN vccd1
@@ -100,19 +100,19 @@ MACRO tt2_tholin_diceroll
     USE POWER ;
     PORT
       LAYER met4 ;
-        RECT 15.815 10.640 17.415 87.280 ;
+        RECT 18.290 10.640 19.890 109.040 ;
     END
     PORT
       LAYER met4 ;
-        RECT 38.010 10.640 39.610 87.280 ;
+        RECT 45.430 10.640 47.030 109.040 ;
     END
     PORT
       LAYER met4 ;
-        RECT 60.205 10.640 61.805 87.280 ;
+        RECT 72.570 10.640 74.170 109.040 ;
     END
     PORT
       LAYER met4 ;
-        RECT 82.400 10.640 84.000 87.280 ;
+        RECT 99.710 10.640 101.310 109.040 ;
     END
   END vccd1
   PIN vssd1
@@ -120,57 +120,61 @@ MACRO tt2_tholin_diceroll
     USE GROUND ;
     PORT
       LAYER met4 ;
-        RECT 26.910 10.640 28.510 87.280 ;
+        RECT 31.860 10.640 33.460 109.040 ;
     END
     PORT
       LAYER met4 ;
-        RECT 49.105 10.640 50.705 87.280 ;
+        RECT 59.000 10.640 60.600 109.040 ;
     END
     PORT
       LAYER met4 ;
-        RECT 71.300 10.640 72.900 87.280 ;
+        RECT 86.140 10.640 87.740 109.040 ;
     END
     PORT
       LAYER met4 ;
-        RECT 93.495 10.640 95.095 87.280 ;
+        RECT 113.280 10.640 114.880 109.040 ;
     END
   END vssd1
   OBS
       LAYER nwell ;
-        RECT 5.330 82.905 94.490 85.735 ;
-        RECT 5.330 77.465 94.490 80.295 ;
-        RECT 5.330 72.025 94.490 74.855 ;
-        RECT 5.330 66.585 94.490 69.415 ;
-        RECT 5.330 61.145 94.490 63.975 ;
-        RECT 5.330 55.705 94.490 58.535 ;
-        RECT 5.330 50.265 94.490 53.095 ;
-        RECT 5.330 44.825 94.490 47.655 ;
-        RECT 5.330 39.385 94.490 42.215 ;
-        RECT 5.330 33.945 94.490 36.775 ;
-        RECT 5.330 28.505 94.490 31.335 ;
-        RECT 5.330 23.065 94.490 25.895 ;
-        RECT 5.330 17.625 94.490 20.455 ;
-        RECT 5.330 12.185 94.490 15.015 ;
+        RECT 5.330 104.665 114.270 107.495 ;
+        RECT 5.330 99.225 114.270 102.055 ;
+        RECT 5.330 93.785 114.270 96.615 ;
+        RECT 5.330 88.345 114.270 91.175 ;
+        RECT 5.330 82.905 114.270 85.735 ;
+        RECT 5.330 77.465 114.270 80.295 ;
+        RECT 5.330 72.025 114.270 74.855 ;
+        RECT 5.330 66.585 114.270 69.415 ;
+        RECT 5.330 61.145 114.270 63.975 ;
+        RECT 5.330 55.705 114.270 58.535 ;
+        RECT 5.330 50.265 114.270 53.095 ;
+        RECT 5.330 44.825 114.270 47.655 ;
+        RECT 5.330 39.385 114.270 42.215 ;
+        RECT 5.330 33.945 114.270 36.775 ;
+        RECT 5.330 28.505 114.270 31.335 ;
+        RECT 5.330 23.065 114.270 25.895 ;
+        RECT 5.330 17.625 114.270 20.455 ;
+        RECT 5.330 12.185 114.270 15.015 ;
       LAYER li1 ;
-        RECT 5.520 10.795 94.300 87.125 ;
+        RECT 5.520 10.795 114.080 108.885 ;
       LAYER met1 ;
-        RECT 5.520 10.640 95.095 87.280 ;
+        RECT 5.520 10.640 114.880 109.040 ;
       LAYER met2 ;
-        RECT 6.080 95.720 16.370 96.290 ;
-        RECT 17.210 95.720 49.490 96.290 ;
-        RECT 50.330 95.720 82.610 96.290 ;
-        RECT 83.450 95.720 95.065 96.290 ;
-        RECT 6.080 4.280 95.065 95.720 ;
-        RECT 6.630 4.000 18.210 4.280 ;
-        RECT 19.050 4.000 30.630 4.280 ;
-        RECT 31.470 4.000 43.050 4.280 ;
-        RECT 43.890 4.000 55.470 4.280 ;
-        RECT 56.310 4.000 67.890 4.280 ;
-        RECT 68.730 4.000 80.310 4.280 ;
-        RECT 81.150 4.000 92.730 4.280 ;
-        RECT 93.570 4.000 95.065 4.280 ;
+        RECT 8.380 115.720 19.590 116.690 ;
+        RECT 20.430 115.720 59.610 116.690 ;
+        RECT 60.450 115.720 99.630 116.690 ;
+        RECT 100.470 115.720 114.850 116.690 ;
+        RECT 8.380 4.280 114.850 115.720 ;
+        RECT 8.930 4.000 22.810 4.280 ;
+        RECT 23.650 4.000 37.530 4.280 ;
+        RECT 38.370 4.000 52.250 4.280 ;
+        RECT 53.090 4.000 66.970 4.280 ;
+        RECT 67.810 4.000 81.690 4.280 ;
+        RECT 82.530 4.000 96.410 4.280 ;
+        RECT 97.250 4.000 111.130 4.280 ;
+        RECT 111.970 4.000 114.850 4.280 ;
       LAYER met3 ;
-        RECT 15.825 10.715 95.085 87.205 ;
+        RECT 18.300 10.715 114.870 108.965 ;
   END
 END tt2_tholin_diceroll
 END LIBRARY

@@ -78,7 +78,7 @@ module user_project_wrapper #(
 	output [2:0] user_irq
 );
 
-wire [26:0] dsi_all;
+wire [27:0] dsi_all;
 
 wire [7:0] dso_multiplier;
 
@@ -119,6 +119,10 @@ wire rst_tune;
 
 wire [3:0] dso_posit;
 wire rst_posit;
+
+wire [27:0] dso_as512512512;
+wire oeb_as512512512;
+wire rst_as512512512;
 
 wire design_clk;
 
@@ -181,6 +185,10 @@ multiplexer proj_multiplexer(
 	
 	.dso_posit(dso_posit),
 	.rst_posit(rst_posit),
+	
+	.dso_as512512512(dso_as512512512),
+	.oeb_as512512512(oeb_as512512512),
+	.rst_as512512512(rst_as512512512),
 	
 	.design_clk_o(design_clk)
 );
@@ -316,6 +324,18 @@ posit_unit posit_unit(
 	.rst(rst_posit),
 	.io_in(dsi_all[2:0]),
 	.io_out(dso_posit)
+);
+
+wrapped_as512512512 wrapped_as512512512(
+`ifdef USE_POWER_PINS
+	.vccd1(vccd1),	// User area 1 1.8V power
+	.vssd1(vssd1),	// User area 1 digital ground
+`endif
+	.clk(design_clk),
+	.rst(rst_as512512512),
+	.io_in(dsi_all[26:0]),
+	.io_out(dso_as512512512),
+	.io_oeb(oeb_as512512512)
 );
 
 endmodule	// user_project_wrapper

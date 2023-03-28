@@ -1,17 +1,17 @@
 ###############################################################################
 # Created by write_sdc
-# Thu Feb  9 20:57:20 2023
+# Tue Mar 28 12:50:37 2023
 ###############################################################################
 current_design tune_player
 ###############################################################################
 # Timing Constraints
 ###############################################################################
-create_clock -name clk -period 10.0000 [get_ports {clk}]
+create_clock -name clk -period 25.0000 [get_ports {clk}]
 set_clock_transition 0.1500 [get_clocks {clk}]
 set_clock_uncertainty 0.2500 clk
 set_propagated_clock [get_clocks {clk}]
-set_input_delay 2.0000 -clock [get_clocks {clk}] -add_delay [get_ports {rst}]
-set_output_delay 2.0000 -clock [get_clocks {clk}] -add_delay [get_ports {OP}]
+set_input_delay 5.0000 -clock [get_clocks {clk}] -add_delay [get_ports {rst}]
+set_output_delay 5.0000 -clock [get_clocks {clk}] -add_delay [get_ports {OP}]
 ###############################################################################
 # Environment
 ###############################################################################

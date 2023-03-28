@@ -1,186 +1,110 @@
-`define OP_ADD 3'b000
-`define OP_SUB 3'b001
-`define OP_ADC 3'b010
-`define OP_SBC 3'b011
-`define OP_AND 3'b100
-`define OP_OR  3'b101
-`define OP_XOR 3'b110
-//May make invert part of LD
+`define OP_ADD 4'b0000
+`define OP_SUB 4'b0001
+`define OP_ADC 4'b0010
+`define OP_SBC 4'b0011
+`define OP_AND 4'b0100
+`define OP_OR  4'b0101
+`define OP_XOR 4'b0110
+`define OP_LD  4'b0111
+`define OP_MUL 4'b1000
+`define OP_RSH 4'b1001
+`define OP_LSH 4'b1010
+`define OP_ASR 4'b1011
+`define OP_LSC 4'b1100
+`define OP_RSC 4'b1101
+
+`define WORD_SIZE 512
+`define BLOCK_COUNT 32
+`define OP_SIZE 5
+
+`define HAS_MUL
 
 module ALU512(
-	input [511:0] in1,
-	input [511:0] in2,
+	input [`WORD_SIZE-1:0] in1,
+	input [`WORD_SIZE-1:0] in2,
 	input carry_in,
 
-	output [511:0] res,
+	output [`WORD_SIZE-1:0] res,
 	
-	input [4:0] op_size,
-	input [4:0] op_offset1,
-	input [4:0] op_offset2,
+	input [`OP_SIZE-1:0] op_size,
+	input [`OP_SIZE-1:0] op_offset1,
+	input [`OP_SIZE-1:0] op_offset2,
+
+	input [`OP_SIZE-1:0] out_size,
+	input sign_extend,
 	
-	input [2:0] operation,
+	input [3:0] operation,
 	
 	output carry,
-	output zero
+	output zero,
+	
+	output [`WORD_SIZE-1:0] in1_shifted,
+	output [`WORD_SIZE-1:0] in2_shifted,
+	
+	input clk,
+	input rst,
+	input start,
+	output reg ready
 );
 
-reg [31:0] op_mask_words_base;
-always @(*) begin
-	case(op_size)
-		0:  op_mask_words_base = 32'b00000000_00000000_00000000_00000001;
-		1:  op_mask_words_base = 32'b00000000_00000000_00000000_00000011;
-		2:  op_mask_words_base = 32'b00000000_00000000_00000000_00000111;
-		3:  op_mask_words_base = 32'b00000000_00000000_00000000_00001111;
-		4:  op_mask_words_base = 32'b00000000_00000000_00000000_00011111;
-		5:  op_mask_words_base = 32'b00000000_00000000_00000000_00111111;
-		6:  op_mask_words_base = 32'b00000000_00000000_00000000_01111111;
-		7:  op_mask_words_base = 32'b00000000_00000000_00000000_11111111;
-		8:  op_mask_words_base = 32'b00000000_00000000_00000001_11111111;
-		9:  op_mask_words_base = 32'b00000000_00000000_00000011_11111111;
-		10: op_mask_words_base = 32'b00000000_00000000_00000111_11111111;
-		11: op_mask_words_base = 32'b00000000_00000000_00001111_11111111;
-		12: op_mask_words_base = 32'b00000000_00000000_00011111_11111111;
-		13: op_mask_words_base = 32'b00000000_00000000_00111111_11111111;
-		14: op_mask_words_base = 32'b00000000_00000000_01111111_11111111;
-		15: op_mask_words_base = 32'b00000000_00000000_11111111_11111111;
-		16: op_mask_words_base = 32'b00000000_00000001_11111111_11111111;
-		17: op_mask_words_base = 32'b00000000_00000011_11111111_11111111;
-		18: op_mask_words_base = 32'b00000000_00000111_11111111_11111111;
-		19: op_mask_words_base = 32'b00000000_00001111_11111111_11111111;
-		20: op_mask_words_base = 32'b00000000_00011111_11111111_11111111;
-		21: op_mask_words_base = 32'b00000000_00111111_11111111_11111111;
-		22: op_mask_words_base = 32'b00000000_01111111_11111111_11111111;
-		23: op_mask_words_base = 32'b00000000_11111111_11111111_11111111;
-		24: op_mask_words_base = 32'b00000001_11111111_11111111_11111111;
-		25: op_mask_words_base = 32'b00000011_11111111_11111111_11111111;
-		26: op_mask_words_base = 32'b00000111_11111111_11111111_11111111;
-		27: op_mask_words_base = 32'b00001111_11111111_11111111_11111111;
-		28: op_mask_words_base = 32'b00011111_11111111_11111111_11111111;
-		29: op_mask_words_base = 32'b00111111_11111111_11111111_11111111;
-		30: op_mask_words_base = 32'b01111111_11111111_11111111_11111111;
-		31: op_mask_words_base = 32'b11111111_11111111_11111111_11111111;
-	endcase
-end
-wire [31:0] op_mask_words1 = op_mask_words_base << op_offset1;
-wire [31:0] op_mask_words2 = op_mask_words_base << op_offset2;
+wire [`BLOCK_COUNT-1:0] op_mask_words_base;
+alu_mask_rom_32 alu_mask_rom_32_1(op_size, op_mask_words_base);
+wire [`BLOCK_COUNT-1:0] op_mask_words1 = op_mask_words_base << op_offset1;
+wire [`BLOCK_COUNT-1:0] op_mask_words2 = op_mask_words_base << op_offset2;
 
-wire [511:0] op_mask_bits1 = {
-	{16{op_mask_words1[31]}},
-	{16{op_mask_words1[30]}},
-	{16{op_mask_words1[29]}},
-	{16{op_mask_words1[28]}},
-	{16{op_mask_words1[27]}},
-	{16{op_mask_words1[26]}},
-	{16{op_mask_words1[25]}},
-	{16{op_mask_words1[24]}},
-	{16{op_mask_words1[23]}},
-	{16{op_mask_words1[22]}},
-	{16{op_mask_words1[21]}},
-	{16{op_mask_words1[20]}},
-	{16{op_mask_words1[19]}},
-	{16{op_mask_words1[18]}},
-	{16{op_mask_words1[17]}},
-	{16{op_mask_words1[16]}},
-	{16{op_mask_words1[15]}},
-	{16{op_mask_words1[14]}},
-	{16{op_mask_words1[13]}},
-	{16{op_mask_words1[12]}},
-	{16{op_mask_words1[11]}},
-	{16{op_mask_words1[10]}},
-	{16{op_mask_words1[ 9]}},
-	{16{op_mask_words1[ 8]}},
-	{16{op_mask_words1[ 7]}},
-	{16{op_mask_words1[ 6]}},
-	{16{op_mask_words1[ 5]}},
-	{16{op_mask_words1[ 4]}},
-	{16{op_mask_words1[ 3]}},
-	{16{op_mask_words1[ 2]}},
-	{16{op_mask_words1[ 1]}},
-	{16{op_mask_words1[ 0]}},
-};
+wire [`BLOCK_COUNT-1:0] op_mask_output_base;
+alu_mask_rom_32 alu_mask_rom_32_2(op_size, op_mask_output_base);
+wire [`BLOCK_COUNT-1:0] op_mask_output = op_mask_output_base << op_offset1;
 
-wire [511:0] op_mask_bits2 = {
-	{16{op_mask_words2[31]}},
-	{16{op_mask_words2[30]}},
-	{16{op_mask_words2[29]}},
-	{16{op_mask_words2[28]}},
-	{16{op_mask_words2[27]}},
-	{16{op_mask_words2[26]}},
-	{16{op_mask_words2[25]}},
-	{16{op_mask_words2[24]}},
-	{16{op_mask_words2[23]}},
-	{16{op_mask_words2[22]}},
-	{16{op_mask_words2[21]}},
-	{16{op_mask_words2[20]}},
-	{16{op_mask_words2[19]}},
-	{16{op_mask_words2[18]}},
-	{16{op_mask_words2[17]}},
-	{16{op_mask_words2[16]}},
-	{16{op_mask_words2[15]}},
-	{16{op_mask_words2[14]}},
-	{16{op_mask_words2[13]}},
-	{16{op_mask_words2[12]}},
-	{16{op_mask_words2[11]}},
-	{16{op_mask_words2[10]}},
-	{16{op_mask_words2[ 9]}},
-	{16{op_mask_words2[ 8]}},
-	{16{op_mask_words2[ 7]}},
-	{16{op_mask_words2[ 6]}},
-	{16{op_mask_words2[ 5]}},
-	{16{op_mask_words2[ 4]}},
-	{16{op_mask_words2[ 3]}},
-	{16{op_mask_words2[ 2]}},
-	{16{op_mask_words2[ 1]}},
-	{16{op_mask_words2[ 0]}},
-};
+wire [`WORD_SIZE-1:0] op_mask_bits1;
+genvar i;
+generate
+	for(i = 0; i < `BLOCK_COUNT; i = i + 1) begin
+		assign op_mask_bits1[(i+1)*16-1:i*16] = {16{op_mask_words1[i]}};
+	end
+endgenerate
 
-wire [511:0] op_mask_bits_out = {
-	{16{op_mask_words_base[31]}},
-	{16{op_mask_words_base[30]}},
-	{16{op_mask_words_base[29]}},
-	{16{op_mask_words_base[28]}},
-	{16{op_mask_words_base[27]}},
-	{16{op_mask_words_base[26]}},
-	{16{op_mask_words_base[25]}},
-	{16{op_mask_words_base[24]}},
-	{16{op_mask_words_base[23]}},
-	{16{op_mask_words_base[22]}},
-	{16{op_mask_words_base[21]}},
-	{16{op_mask_words_base[20]}},
-	{16{op_mask_words_base[19]}},
-	{16{op_mask_words_base[18]}},
-	{16{op_mask_words_base[17]}},
-	{16{op_mask_words_base[16]}},
-	{16{op_mask_words_base[15]}},
-	{16{op_mask_words_base[14]}},
-	{16{op_mask_words_base[13]}},
-	{16{op_mask_words_base[12]}},
-	{16{op_mask_words_base[11]}},
-	{16{op_mask_words_base[10]}},
-	{16{op_mask_words_base[ 9]}},
-	{16{op_mask_words_base[ 8]}},
-	{16{op_mask_words_base[ 7]}},
-	{16{op_mask_words_base[ 6]}},
-	{16{op_mask_words_base[ 5]}},
-	{16{op_mask_words_base[ 4]}},
-	{16{op_mask_words_base[ 3]}},
-	{16{op_mask_words_base[ 2]}},
-	{16{op_mask_words_base[ 1]}},
-	{16{op_mask_words_base[ 0]}},
-};
+wire [`WORD_SIZE-1:0] op_mask_bits2;
+generate
+	for(i = 0; i < `BLOCK_COUNT; i = i + 1) begin
+		assign op_mask_bits2[(i+1)*16-1:i*16] = {16{op_mask_words2[i]}};
+	end
+endgenerate
 
-wire [511:0] arg1 = (in1 & op_mask_bits) >> (op_offset1 << 4);
-wire [511:0] arg2 = (in2 & op_mask_bits) >> (op_offset2 << 4);
-wire [511:0] inv_arg2 = ((~in2) & op_mask_bits) >> (op_offset2 << 4);
+wire [`WORD_SIZE-1:0] op_mask_bits_out;
+generate
+	for(i = 0; i < `BLOCK_COUNT; i = i + 1) begin
+		assign op_mask_bits_out[(i+1)*16-1:i*16] = {16{op_mask_output[i]}};
+	end
+endgenerate
 
-wire [511:0] orig1 = in1 & (~op_mask_bits);
+wire [`OP_SIZE+3:0] shift_by1 = op_offset1 << 4;
+wire [`OP_SIZE+3:0] shift_by2 = op_offset2 << 4;
 
-wire [512:0] add_res = arg1 + (operation == `OP_SUB ? inv_arg2 : arg2) + (operation == `OP_SUB) + ((operation == `OP_SBC || operation == `OP_ADC) & carry_in);
-wire [511:0] and_res = arg1 & arg2;
-wire [511:0] or_res = arg1 | arg2;
-wire [511:0] xor_res = arg1 ^ arg2;
+wire [`WORD_SIZE-1:0] arg1 = (in1 & op_mask_bits1) >> shift_by1;
+wire [`WORD_SIZE-1:0] arg2 = (in2 & op_mask_bits2) >> shift_by2;
+wire [`WORD_SIZE-1:0] inv_arg2 = ((~in2) & op_mask_bits2) >> shift_by2;
 
-reg [511:0] ALU_res;
+assign in1_shifted = arg1;
+assign in2_shifted = arg2;
+
+wire [`WORD_SIZE-1:0] orig1 = in1 & (~op_mask_bits_out);
+
+wire [`OP_SIZE+4:0] aaa = (op_size + 1) << 4;
+wire [`OP_SIZE+4:0] aaan1 = aaa - 1;
+wire add_carry = (operation == `OP_SUB) + ((operation == `OP_SBC | operation == `OP_ADC) & carry_in);
+wire [`WORD_SIZE:0] add_res = arg1 + ((operation == `OP_SUB || operation == `OP_SBC) ? inv_arg2 : arg2) + add_carry;
+wire [`WORD_SIZE-1:0] and_res = arg1 & arg2;
+wire [`WORD_SIZE-1:0] or_res = arg1 | arg2;
+wire [`WORD_SIZE-1:0] xor_res = arg1 ^ arg2;
+wire [`WORD_SIZE-1:0] rsh_res = arg2 >> 1;
+wire [`WORD_SIZE-1:0] lsh_res = arg2 << 1;
+
+`ifdef HAS_MUL
+reg [`WORD_SIZE-1:0] mul_res;
+`endif
+
+reg [`WORD_SIZE-1:0] ALU_res;
 always @(*) begin
 	case(operation)
 		`OP_ADD: ALU_res = add_res;
@@ -190,12 +114,53 @@ always @(*) begin
 		`OP_AND: ALU_res = and_res;
 		`OP_OR:  ALU_res = or_res;
 		`OP_XOR: ALU_res = xor_res;
+		`OP_LD:  ALU_res = arg2;
+`ifdef HAS_MUL
+		`OP_MUL: ALU_res = mul_res;
+`endif
+		`OP_RSH: ALU_res = rsh_res;
+		`OP_LSH: ALU_res = lsh_res;
+		`OP_ASR: ALU_res = rsh_res | (arg2 & (1 << aaan1));
+		`OP_LSC: ALU_res = lsh_res | carry_in;
+		`OP_RSC: ALU_res = rsh_res | (carry_in << aaan1);
 	endcase
 end
-wire [511:0] ALU_res_masked = ALU_res & op_mask_bits_out;
 
-assign carry = add_res[(op_size + 1) << 4];
+
+`ifdef HAS_MUL
+reg [`WORD_SIZE-1:0] muli_1;
+reg [`WORD_SIZE-1:0] muli_2;
+
+always @(posedge clk) begin
+	if(rst) begin
+		ready <= 1;
+	end else begin
+		if(start && operation == `OP_MUL) begin
+			ready <= 0;
+			muli_1 <= arg1;
+			muli_2 <= arg2;
+			mul_res <= 0;
+		end else begin
+			if(!ready) begin
+				muli_1 <= {1'b0, muli_1[`WORD_SIZE-1:1]};
+				if(muli_1[0]) begin
+					mul_res = mul_res + muli_2;
+				end
+				muli_2 <= {muli_2[`WORD_SIZE-2:0], 1'b0};
+				ready = muli_1 == 0;
+			end
+		end
+	end
+end
+`endif
+
+wire [`WORD_SIZE-1:0] ALU_res_shifted = ALU_res << shift_by1;
+wire [`WORD_SIZE-1:0] ALU_res_masked = ALU_res_shifted & op_mask_bits_out;
+
+//TODO: Sign extend
+
+assign carry = operation == `OP_ADD || operation == `OP_ADC || operation == `OP_SUB || operation == `OP_SBC ? add_res[aaa] : ((operation == `OP_RSH || operation == `OP_RSC) ? arg2[0] : ((operation == `OP_LSH || operation == `OP_LSC) ? arg2[aaan1] : carry_in));
 assign zero = ALU_res_masked == 0;
-assign res = orig1 | (ALU_res_masked << (op_offset1 << 4));
+assign res = orig1 | ALU_res_masked;
 
 endmodule

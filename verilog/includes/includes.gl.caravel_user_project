@@ -13,3 +13,4 @@
 -v $(USER_PROJECT_VERILOG)/gl/wrapped_as2650.v
 -v $(USER_PROJECT_VERILOG)/gl/tune_player.v
 -v $(USER_PROJECT_VERILOG)/gl/posit_unit.v
+-v $(USER_PROJECT_VERILOG)/gl/wrapped_as512512512.v

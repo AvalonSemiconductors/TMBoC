@@ -2,23 +2,33 @@
     "DESIGN_NAME": "tt2_tholin_multiplexed_counter",
     "DESIGN_IS_CORE": 0,
     "VERILOG_FILES": ["dir::../../verilog/rtl/defines.v", "dir::../../verilog/rtl/logisim_common/arith/Comparator.v", "dir::../../verilog/rtl/logisim_common/gates/AND_GATE.v", "dir::../../verilog/rtl/logisim_common/gates/OR_GATE.v", "dir::../../verilog/rtl/logisim_common/memory/D_FLIPFLOP.v", "dir::../../verilog/rtl/logisim_common/plexers/Multiplexer_bus_4.v", "dir::../../verilog/rtl/MultiplexedCounter/bcd_to_seg.v", "dir::../../verilog/rtl/MultiplexedCounter/custom_counter_3.v", "dir::../../verilog/rtl/MultiplexedCounter/custom_counter_4.v", "dir::../../verilog/rtl/MultiplexedCounter/custom_counter_10.v", "dir::../../verilog/rtl/MultiplexedCounter/full_counter.v", "dir::../../verilog/rtl/MultiplexedCounter/main.v", "dir::../../verilog/rtl/MultiplexedCounter/seconds_counter.v", "dir::../../verilog/rtl/MultiplexedCounter/logisimTopLevelShell.v"],
-    "CLOCK_PERIOD": 10,
+    "CLOCK_PERIOD": 25,
     "CLOCK_PORT": "clk",
     "CLOCK_NET": "clk",
     "FP_SIZING": "absolute",
-    "DIE_AREA": "0 0 90 90",
+    "DIE_AREA": "0 0 100 100",
     "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
+    "NO_SYNTH_CELL_LIST": "dir::no_synth.cells",
+    "DRC_EXCLUDE_CELL_LIST": "dir::drc_exclude.cells",
     "PL_BASIC_PLACEMENT": 0,
-    "PL_TARGET_DENSITY": 0.55,
+    "PL_TARGET_DENSITY": 0.35,
+    "PL_RESIZER_SETUP_SLACK_MARGIN": 0.4,
+    "PL_RESIZER_MAX_SLEW_MARGIN": 50,
+    "GLB_RESIZER_MAX_SLEW_MARGIN": 50,
+    "GLB_RESIZER_SETUP_SLACK_MARGIN": 0.2,
+    "GRT_MAX_DIODE_INS_ITERS": 5,
+    "GRT_ANT_ITERS": 5,
+    "MAGIC_DEF_LABELS": 0,
+    "SYNTH_BUFFERING": 0,
     "VDD_NETS": ["vccd1"],
     "GND_NETS": ["vssd1"],
-    "DIODE_INSERTION_STRATEGY": 4,
+    "DIODE_INSERTION_STRATEGY": 3,
     "RUN_CVC": 1,
     "pdk::sky130*": {
         "FP_CORE_UTIL": 45,
         "RT_MAX_LAYER": "met4",
         "scl::sky130_fd_sc_hd": {
-            "CLOCK_PERIOD": 10
+            "CLOCK_PERIOD": 25
         },
         "scl::sky130_fd_sc_hdll": {
             "CLOCK_PERIOD": 10

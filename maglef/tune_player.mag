@@ -1,25 +1,25 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1675976272
+timestamp 1680007869
 << obsli1 >>
 rect 1104 2159 22816 21777
 << obsm1 >>
-rect 1104 2128 22976 21808
+rect 934 2128 22976 21808
 << obsm2 >>
-rect 1584 2139 22970 21797
+rect 938 2139 22970 21797
 << metal3 >>
-rect 0 19668 800 19908
-rect 0 11780 800 12020
-rect 0 3892 800 4132
+rect 0 19728 800 19848
+rect 0 11840 800 11960
+rect 0 3952 800 4072
 << obsm3 >>
-rect 800 19988 22974 21793
-rect 880 19588 22974 19988
-rect 800 12100 22974 19588
-rect 880 11700 22974 12100
-rect 800 4212 22974 11700
-rect 880 3812 22974 4212
-rect 800 2143 22974 3812
+rect 800 19928 22974 21793
+rect 880 19648 22974 19928
+rect 800 12040 22974 19648
+rect 880 11760 22974 12040
+rect 800 4152 22974 11760
+rect 880 3872 22974 4152
+rect 800 2143 22974 3872
 << metal4 >>
 rect 3658 2128 3978 21808
 rect 6372 2128 6692 21808
@@ -30,14 +30,13 @@ rect 17228 2128 17548 21808
 rect 19942 2128 20262 21808
 rect 22656 2128 22976 21808
 << obsm4 >>
-rect 15147 3979 17148 10573
-rect 17628 3979 19629 10573
+rect 15147 7379 15213 11117
 << labels >>
-rlabel metal3 s 0 19668 800 19908 6 OP
+rlabel metal3 s 0 19728 800 19848 6 OP
 port 1 nsew signal output
-rlabel metal3 s 0 3892 800 4132 6 clk
+rlabel metal3 s 0 3952 800 4072 6 clk
 port 2 nsew signal input
-rlabel metal3 s 0 11780 800 12020 6 rst
+rlabel metal3 s 0 11840 800 11960 6 rst
 port 3 nsew signal input
 rlabel metal4 s 3658 2128 3978 21808 6 vccd1
 port 4 nsew power bidirectional
@@ -59,8 +58,8 @@ port 5 nsew ground bidirectional
 string FIXED_BBOX 0 0 24000 24000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 1275808
-string GDS_FILE /run/media/tholin/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/TunePlayer/runs/23_02_09_21_56/results/signoff/tune_player.magic.gds
-string GDS_START 416620
+string GDS_END 1320522
+string GDS_FILE /run/media/tholin/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/TunePlayer/runs/23_03_28_14_49/results/signoff/tune_player.magic.gds
+string GDS_START 527900
 << end >>
 

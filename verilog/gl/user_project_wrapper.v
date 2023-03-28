@@ -1,18 +1,18 @@
 module user_project_wrapper (user_clock2,
+    vccd1,
+    vccd2,
+    vdda1,
+    vdda2,
+    vssa1,
+    vssa2,
+    vssd1,
+    vssd2,
     wb_clk_i,
     wb_rst_i,
     wbs_ack_o,
     wbs_cyc_i,
     wbs_stb_i,
     wbs_we_i,
-    vssa2,
-    vdda2,
-    vssa1,
-    vdda1,
-    vssd2,
-    vccd2,
-    vssd1,
-    vccd1,
     analog_io,
     io_in,
     io_oeb,
@@ -26,20 +26,20 @@ module user_project_wrapper (user_clock2,
     wbs_dat_o,
     wbs_sel_i);
  input user_clock2;
+ input vccd1;
+ input vccd2;
+ input vdda1;
+ input vdda2;
+ input vssa1;
+ input vssa2;
+ input vssd1;
+ input vssd2;
  input wb_clk_i;
  input wb_rst_i;
  output wbs_ack_o;
  input wbs_cyc_i;
  input wbs_stb_i;
  input wbs_we_i;
- input vssa2;
- input vdda2;
- input vssa1;
- input vdda1;
- input vssd2;
- input vccd2;
- input vssd1;
- input vccd1;
  inout [28:0] analog_io;
  input [37:0] io_in;
  output [37:0] io_oeb;
@@ -73,6 +73,7 @@ module user_project_wrapper (user_clock2,
  wire \dsi_all[24] ;
  wire \dsi_all[25] ;
  wire \dsi_all[26] ;
+ wire \dsi_all[27] ;
  wire \dsi_all[2] ;
  wire \dsi_all[3] ;
  wire \dsi_all[4] ;
@@ -170,6 +171,34 @@ module user_project_wrapper (user_clock2,
  wire \dso_as2650[7] ;
  wire \dso_as2650[8] ;
  wire \dso_as2650[9] ;
+ wire \dso_as512512512[0] ;
+ wire \dso_as512512512[10] ;
+ wire \dso_as512512512[11] ;
+ wire \dso_as512512512[12] ;
+ wire \dso_as512512512[13] ;
+ wire \dso_as512512512[14] ;
+ wire \dso_as512512512[15] ;
+ wire \dso_as512512512[16] ;
+ wire \dso_as512512512[17] ;
+ wire \dso_as512512512[18] ;
+ wire \dso_as512512512[19] ;
+ wire \dso_as512512512[1] ;
+ wire \dso_as512512512[20] ;
+ wire \dso_as512512512[21] ;
+ wire \dso_as512512512[22] ;
+ wire \dso_as512512512[23] ;
+ wire \dso_as512512512[24] ;
+ wire \dso_as512512512[25] ;
+ wire \dso_as512512512[26] ;
+ wire \dso_as512512512[27] ;
+ wire \dso_as512512512[2] ;
+ wire \dso_as512512512[3] ;
+ wire \dso_as512512512[4] ;
+ wire \dso_as512512512[5] ;
+ wire \dso_as512512512[6] ;
+ wire \dso_as512512512[7] ;
+ wire \dso_as512512512[8] ;
+ wire \dso_as512512512[9] ;
  wire \dso_as5401[0] ;
  wire \dso_as5401[10] ;
  wire \dso_as5401[11] ;
@@ -250,12 +279,14 @@ module user_project_wrapper (user_clock2,
  wire oeb_6502;
  wire oeb_as1802;
  wire oeb_as2650;
+ wire oeb_as512512512;
  wire oeb_as5401;
  wire oeb_mc14500;
  wire rst_6502;
  wire rst_LCD;
  wire rst_as1802;
  wire rst_as2650;
+ wire rst_as512512512;
  wire rst_as5401;
  wire rst_counter;
  wire rst_diceroll;
@@ -280,16 +311,19 @@ module user_project_wrapper (user_clock2,
     .oeb_6502(oeb_6502),
     .oeb_as1802(oeb_as1802),
     .oeb_as2650(oeb_as2650),
+    .oeb_as512512512(oeb_as512512512),
     .oeb_as5401(oeb_as5401),
     .oeb_mc14500(oeb_mc14500),
     .rst_6502(rst_6502),
     .rst_LCD(rst_LCD),
     .rst_as1802(rst_as1802),
     .rst_as2650(rst_as2650),
+    .rst_as512512512(rst_as512512512),
     .rst_as5401(rst_as5401),
     .rst_counter(rst_counter),
     .rst_diceroll(rst_diceroll),
     .rst_mc14500(rst_mc14500),
+    .rst_posit(rst_posit),
     .rst_tbb1143(rst_tbb1143),
     .rst_tune(rst_tune),
     .vccd1(vccd1),
@@ -300,7 +334,8 @@ module user_project_wrapper (user_clock2,
     .wbs_cyc_i(wbs_cyc_i),
     .wbs_stb_i(wbs_stb_i),
     .wbs_we_i(wbs_we_i),
-    .dsi_all({\dsi_all[26] ,
+    .dsi_all({\dsi_all[27] ,
+    \dsi_all[26] ,
     \dsi_all[25] ,
     \dsi_all[24] ,
     \dsi_all[23] ,
@@ -416,6 +451,34 @@ module user_project_wrapper (user_clock2,
     \dso_as2650[2] ,
     \dso_as2650[1] ,
     \dso_as2650[0] }),
+    .dso_as512512512({\dso_as512512512[27] ,
+    \dso_as512512512[26] ,
+    \dso_as512512512[25] ,
+    \dso_as512512512[24] ,
+    \dso_as512512512[23] ,
+    \dso_as512512512[22] ,
+    \dso_as512512512[21] ,
+    \dso_as512512512[20] ,
+    \dso_as512512512[19] ,
+    \dso_as512512512[18] ,
+    \dso_as512512512[17] ,
+    \dso_as512512512[16] ,
+    \dso_as512512512[15] ,
+    \dso_as512512512[14] ,
+    \dso_as512512512[13] ,
+    \dso_as512512512[12] ,
+    \dso_as512512512[11] ,
+    \dso_as512512512[10] ,
+    \dso_as512512512[9] ,
+    \dso_as512512512[8] ,
+    \dso_as512512512[7] ,
+    \dso_as512512512[6] ,
+    \dso_as512512512[5] ,
+    \dso_as512512512[4] ,
+    \dso_as512512512[3] ,
+    \dso_as512512512[2] ,
+    \dso_as512512512[1] ,
+    \dso_as512512512[0] }),
     .dso_as5401({\dso_as5401[26] ,
     \dso_as5401[25] ,
     \dso_as5401[24] ,
@@ -480,6 +543,10 @@ module user_project_wrapper (user_clock2,
     \dso_multiplier[2] ,
     \dso_multiplier[1] ,
     \dso_multiplier[0] }),
+    .dso_posit({\dso_posit[3] ,
+    \dso_posit[2] ,
+    \dso_posit[1] ,
+    \dso_posit[0] }),
     .dso_tbb1143({\dso_tbb1143[7] ,
     \dso_tbb1143[6] ,
     \dso_tbb1143[5] ,
@@ -998,4 +1065,64 @@ module user_project_wrapper (user_clock2,
     \dso_as2650[2] ,
     \dso_as2650[1] ,
     \dso_as2650[0] }));
+ wrapped_as512512512 wrapped_as512512512 (.clk(design_clk),
+    .io_oeb(oeb_as512512512),
+    .rst(rst_as512512512),
+    .vccd1(vccd1),
+    .vssd1(vssd1),
+    .io_in({\dsi_all[26] ,
+    \dsi_all[25] ,
+    \dsi_all[24] ,
+    \dsi_all[23] ,
+    \dsi_all[22] ,
+    \dsi_all[21] ,
+    \dsi_all[20] ,
+    \dsi_all[19] ,
+    \dsi_all[18] ,
+    \dsi_all[17] ,
+    \dsi_all[16] ,
+    \dsi_all[15] ,
+    \dsi_all[14] ,
+    \dsi_all[13] ,
+    \dsi_all[12] ,
+    \dsi_all[11] ,
+    \dsi_all[10] ,
+    \dsi_all[9] ,
+    \dsi_all[8] ,
+    \dsi_all[7] ,
+    \dsi_all[6] ,
+    \dsi_all[5] ,
+    \dsi_all[4] ,
+    \dsi_all[3] ,
+    \dsi_all[2] ,
+    \dsi_all[1] ,
+    \dsi_all[0] }),
+    .io_out({\dso_as512512512[27] ,
+    \dso_as512512512[26] ,
+    \dso_as512512512[25] ,
+    \dso_as512512512[24] ,
+    \dso_as512512512[23] ,
+    \dso_as512512512[22] ,
+    \dso_as512512512[21] ,
+    \dso_as512512512[20] ,
+    \dso_as512512512[19] ,
+    \dso_as512512512[18] ,
+    \dso_as512512512[17] ,
+    \dso_as512512512[16] ,
+    \dso_as512512512[15] ,
+    \dso_as512512512[14] ,
+    \dso_as512512512[13] ,
+    \dso_as512512512[12] ,
+    \dso_as512512512[11] ,
+    \dso_as512512512[10] ,
+    \dso_as512512512[9] ,
+    \dso_as512512512[8] ,
+    \dso_as512512512[7] ,
+    \dso_as512512512[6] ,
+    \dso_as512512512[5] ,
+    \dso_as512512512[4] ,
+    \dso_as512512512[3] ,
+    \dso_as512512512[2] ,
+    \dso_as512512512[1] ,
+    \dso_as512512512[0] }));
 endmodule

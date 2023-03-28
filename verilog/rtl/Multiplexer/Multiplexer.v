@@ -19,7 +19,7 @@ module multiplexer(
 	input wbs_stb_i,
 	output wbs_ack_o,
 	
-	output [26:0] dsi_all,
+	output [27:0] dsi_all,
 
 	input [7:0] dso_multiplier,
 	
@@ -61,6 +61,10 @@ module multiplexer(
 	input [3:0] dso_posit,
 	output rst_posit,
 	
+	input [27:0] dso_as512512512,
+	input oeb_as512512512,
+	output rst_as512512512,
+	
 	output design_clk_o
 );
 
@@ -73,7 +77,7 @@ reg [31:0] wbs_o_buff;
 reg wb_feedback_delay;
 reg wb_ready;
 reg [23:0] wb_counter;
-reg [26:0] wb_io_override;
+reg [27:0] wb_io_override;
 assign wbs_dat_o = wbs_o_buff;
 assign wbs_ack_o = wb_ready;
 
@@ -84,13 +88,14 @@ reg [3:0] design_addr;
 wire design_rst = wb_override ? wb_rst_override : io_in[9];
 wire design_clk = wb_override ? (wb_single_step ? wb_clk_override : wb_clk_i) : io_in[10];
 assign design_clk_o = design_clk;
-reg [26:0] design_outs;
-reg [26:0] design_oebs;
-wire [26:0] design_ins = wb_override ? (wb_io_override & design_oebs) : io_in[37:11];
+reg [27:0] design_outs;
+reg [27:0] design_oebs;
+wire [27:0] design_ins = wb_override ? (wb_io_override & design_oebs) : {io_in[0], io_in[37:11]};
 assign dsi_all = design_ins;
 
-assign io_oeb = {design_oebs, 2'b11, 4'b1111, 5'b11111};
-assign io_out = {design_outs, 2'b00, 4'b0000, 5'b00000};
+assign io_oeb = {design_oebs[26:0], 2'b11, 4'b1111, 4'b0000, design_oebs[27]};
+//assign io_out = {design_outs, 2'b00, 4'b0000, 5'b00000};
+assign io_out = {design_outs[26:0], 2'b00, 4'b0000, wb_counter[4:1], design_outs[27]};
 
 always @(posedge design_clk) begin
 	if(!wb_rst_i) begin
@@ -120,9 +125,9 @@ always @(posedge wb_clk_i) begin
 				wbs_o_buff <= {26'b0, wb_design_addr_override, wb_rst_override, wb_override};
 			end else if(wbs_adr_i[22]) begin
 				if(wbs_we_i) begin
-					wb_io_override <= wbs_dat_i[26:0];
+					wb_io_override <= wbs_dat_i[27:0];
 				end
-				wbs_o_buff <= {5'b00000, design_outs & ~design_oebs};
+				wbs_o_buff <= {4'b0000, design_outs & ~design_oebs};
 			end else if(wbs_adr_i[21]) begin
 				if(wbs_we_i) begin
 					wb_counter <= wbs_dat_i[23:0];
@@ -132,7 +137,7 @@ always @(posedge wb_clk_i) begin
 			end
 		end
 		design_addr <= wb_override ? wb_design_addr_override : io_in[8:5];
-		#5;
+		#5; //TODO: Do not depend on this anymore
 		wb_feedback_delay <= wb_valid;
 		wb_ready <= wb_feedback_delay;
 	end
@@ -141,58 +146,62 @@ end
 always @(*) begin
 	case(design_addr)
 		0: begin
-			design_outs = {11'h000, dso_multiplier, 8'h00};
-			design_oebs = {11'h7FF, 8'h00, 8'hFF};
+			design_outs = {12'h000, dso_multiplier, 8'h00};
+			design_oebs = {12'hFFF, 8'h00, 8'hFF};
 		end
 		1: begin
-			design_outs = dso_as5401;
-			design_oebs = {17'b0, 6'b111111, oeb_as5401, oeb_as5401, oeb_as5401, oeb_as5401};
+			design_outs = {1'b0, dso_as5401};
+			design_oebs = {1'b1, 17'b0, 6'b111111, oeb_as5401, oeb_as5401, oeb_as5401, oeb_as5401};
 		end
 		2: begin
-			design_outs = {18'hAAAA, dso_diceroll, 1'b0};
-			design_oebs = {26'b0, 1'b1};
+			design_outs = {19'h1AAAA, dso_diceroll, 1'b0};
+			design_oebs = {27'b0, 1'b1};
 		end
 		3: begin
-			design_outs = {19'b0, dso_LCD};
-			design_oebs = {19'h7FFFF, 8'h00};
+			design_outs = {20'b0, dso_LCD};
+			design_oebs = {20'hFFFFF, 8'h00};
 		end
 		4: begin
-			design_outs = {14'b0, dso_mc14500, 4'b0000};
-			design_oebs = {14'h3FFF, 8'h00, oeb_mc14500, 4'b1111};
+			design_outs = {15'b0, dso_mc14500, 4'b0000};
+			design_oebs = {15'h7FFF, 8'h00, oeb_mc14500, 4'b1111};
 		end
 		5: begin
-			design_outs = {15'b0, dso_counter};
-			design_oebs = {15'h7FFF, 12'b0};
+			design_outs = {16'b0, dso_counter};
+			design_oebs = {16'hFFFF, 12'b0};
 		end
 		6: begin
-			design_outs = {13'b0, dso_tbb1143, 6'b0};
-			design_oebs = {13'h1FFF, 8'h00, 6'b111111};
+			design_outs = {14'b0, dso_tbb1143, 6'b0};
+			design_oebs = {14'h3FFF, 8'h00, 6'b111111};
 		end
 		7: begin
-			design_outs = dso_as2650;
-			design_oebs = {19'h00000, oeb_as2650, oeb_as2650, oeb_as2650, oeb_as2650, oeb_as2650, oeb_as2650, oeb_as2650, oeb_as2650};
+			design_outs = {1'b0, dso_as2650};
+			design_oebs = {1'b1, 19'h00000, {8{oeb_as2650}}};
 		end
 		8: begin
-			design_outs = dso_6502;
-			design_oebs = {17'h00000, 2'b11, oeb_6502, oeb_6502, oeb_6502, oeb_6502, oeb_6502, oeb_6502, oeb_6502, oeb_6502};
+			design_outs = {1'b1, dso_6502};
+			design_oebs = {18'h00000, 2'b11, {8{oeb_6502}}};
 		end
 		9: begin
-			design_outs = dso_as1802;
-			design_oebs = {14'h0000, 5'b11111, oeb_as1802, oeb_as1802, oeb_as1802, oeb_as1802, oeb_as1802, oeb_as1802, oeb_as1802, oeb_as1802};
+			design_outs = {1'b1, dso_as1802};
+			design_oebs = {15'h0000, 5'b11111, {8{oeb_as1802}}};
 		end
 		10: begin
-			design_outs = {28{dso_tune}};
+			design_outs = {29{dso_tune}};
 			design_oebs = 0;
 		end
 		11: begin
-			design_outs = {24'h000000, dso_posit};
-			design_oebs = {24'hFFFFFF, 1'b0, 3'b111};
+			design_outs = {1'b1, 24'h000000, dso_posit};
+			design_oebs = {1'b0, 24'hFFFFFF, 1'b0, 3'b111};
+		end
+		12: begin
+			design_outs = dso_as512512512;
+			design_oebs = {1'b0, 1'b1, 2'b00, 1'b1, 1'b0, 1'b1, 5'b00000, {16{oeb_as512512512}}};
 		end
 		
 		//Invalid address
 		default: begin
-			design_outs = 27'b000010001010011000101001100; //'RTFM' in base64
-			design_oebs = 27'b0;
+			design_outs = 28'b0000010001010011000101001100; //'RTFM' in base64
+			design_oebs = 28'b0;
 		end
 	endcase
 end
@@ -218,5 +227,7 @@ assign rst_as1802 = design_rst || (design_addr != 9);
 assign rst_tune = design_rst || (design_addr != 10);
 
 assign rst_posit = design_rst || (design_addr != 11);
+
+assign rst_as512512512 = design_rst || (design_addr != 12);
 
 endmodule

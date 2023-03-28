@@ -12,7 +12,7 @@ MACRO posit_unit
     USE SIGNAL ;
     PORT
       LAYER met3 ;
-        RECT 0.000 243.180 4.000 244.380 ;
+        RECT 0.000 243.480 4.000 244.080 ;
     END
   END clk
   PIN io_in[0]
@@ -20,7 +20,7 @@ MACRO posit_unit
     USE SIGNAL ;
     PORT
       LAYER met3 ;
-        RECT 0.000 35.100 4.000 36.300 ;
+        RECT 0.000 35.400 4.000 36.000 ;
     END
   END io_in[0]
   PIN io_in[1]
@@ -28,7 +28,7 @@ MACRO posit_unit
     USE SIGNAL ;
     PORT
       LAYER met3 ;
-        RECT 0.000 104.460 4.000 105.660 ;
+        RECT 0.000 104.760 4.000 105.360 ;
     END
   END io_in[1]
   PIN io_in[2]
@@ -36,39 +36,39 @@ MACRO posit_unit
     USE SIGNAL ;
     PORT
       LAYER met3 ;
-        RECT 0.000 173.820 4.000 175.020 ;
+        RECT 0.000 174.120 4.000 174.720 ;
     END
   END io_in[2]
   PIN io_out[0]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
     PORT
-      LAYER met2 ;
-        RECT 43.650 0.000 44.210 4.000 ;
+      LAYER met3 ;
+        RECT 346.000 43.560 350.000 44.160 ;
     END
   END io_out[0]
   PIN io_out[1]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
     PORT
-      LAYER met2 ;
-        RECT 131.050 0.000 131.610 4.000 ;
+      LAYER met3 ;
+        RECT 346.000 130.600 350.000 131.200 ;
     END
   END io_out[1]
   PIN io_out[2]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
     PORT
-      LAYER met2 ;
-        RECT 218.450 0.000 219.010 4.000 ;
+      LAYER met3 ;
+        RECT 346.000 217.640 350.000 218.240 ;
     END
   END io_out[2]
   PIN io_out[3]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
     PORT
-      LAYER met2 ;
-        RECT 305.850 0.000 306.410 4.000 ;
+      LAYER met3 ;
+        RECT 346.000 304.680 350.000 305.280 ;
     END
   END io_out[3]
   PIN rst
@@ -76,7 +76,7 @@ MACRO posit_unit
     USE SIGNAL ;
     PORT
       LAYER met3 ;
-        RECT 0.000 312.540 4.000 313.740 ;
+        RECT 0.000 312.840 4.000 313.440 ;
     END
   END rst
   PIN vccd1
@@ -111,32 +111,35 @@ MACRO posit_unit
       LAYER li1 ;
         RECT 5.520 10.795 344.080 337.365 ;
       LAYER met1 ;
-        RECT 5.520 10.640 344.080 337.520 ;
+        RECT 4.670 10.640 345.390 337.520 ;
       LAYER met2 ;
-        RECT 7.000 4.280 341.680 337.465 ;
-        RECT 7.000 4.000 43.370 4.280 ;
-        RECT 44.490 4.000 130.770 4.280 ;
-        RECT 131.890 4.000 218.170 4.280 ;
-        RECT 219.290 4.000 305.570 4.280 ;
-        RECT 306.690 4.000 341.680 4.280 ;
+        RECT 4.690 10.695 345.370 337.465 ;
       LAYER met3 ;
-        RECT 4.000 314.140 329.830 337.445 ;
-        RECT 4.400 312.140 329.830 314.140 ;
-        RECT 4.000 244.780 329.830 312.140 ;
-        RECT 4.400 242.780 329.830 244.780 ;
-        RECT 4.000 175.420 329.830 242.780 ;
-        RECT 4.400 173.420 329.830 175.420 ;
-        RECT 4.000 106.060 329.830 173.420 ;
-        RECT 4.400 104.060 329.830 106.060 ;
-        RECT 4.000 36.700 329.830 104.060 ;
-        RECT 4.400 34.700 329.830 36.700 ;
-        RECT 4.000 10.715 329.830 34.700 ;
+        RECT 4.000 313.840 346.000 337.445 ;
+        RECT 4.400 312.440 346.000 313.840 ;
+        RECT 4.000 305.680 346.000 312.440 ;
+        RECT 4.000 304.280 345.600 305.680 ;
+        RECT 4.000 244.480 346.000 304.280 ;
+        RECT 4.400 243.080 346.000 244.480 ;
+        RECT 4.000 218.640 346.000 243.080 ;
+        RECT 4.000 217.240 345.600 218.640 ;
+        RECT 4.000 175.120 346.000 217.240 ;
+        RECT 4.400 173.720 346.000 175.120 ;
+        RECT 4.000 131.600 346.000 173.720 ;
+        RECT 4.000 130.200 345.600 131.600 ;
+        RECT 4.000 105.760 346.000 130.200 ;
+        RECT 4.400 104.360 346.000 105.760 ;
+        RECT 4.000 44.560 346.000 104.360 ;
+        RECT 4.000 43.160 345.600 44.560 ;
+        RECT 4.000 36.400 346.000 43.160 ;
+        RECT 4.400 35.000 346.000 36.400 ;
+        RECT 4.000 10.715 346.000 35.000 ;
       LAYER met4 ;
-        RECT 15.935 17.175 20.640 290.185 ;
-        RECT 23.040 17.175 97.440 290.185 ;
-        RECT 99.840 17.175 174.240 290.185 ;
-        RECT 176.640 17.175 251.040 290.185 ;
-        RECT 253.440 17.175 289.505 290.185 ;
+        RECT 36.175 19.895 97.440 286.785 ;
+        RECT 99.840 19.895 174.240 286.785 ;
+        RECT 176.640 19.895 251.040 286.785 ;
+        RECT 253.440 19.895 327.840 286.785 ;
+        RECT 330.240 19.895 335.505 286.785 ;
   END
 END posit_unit
 END LIBRARY

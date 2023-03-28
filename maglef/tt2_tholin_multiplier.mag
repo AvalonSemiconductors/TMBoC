@@ -1,20 +1,12 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1674823764
+timestamp 1680001061
 << obsli1 >>
 rect 1104 2159 10856 15793
 << obsm1 >>
 rect 750 2128 11118 15824
 << metal2 >>
-rect 754 17200 810 18000
-rect 2226 17200 2282 18000
-rect 3698 17200 3754 18000
-rect 5170 17200 5226 18000
-rect 6642 17200 6698 18000
-rect 8114 17200 8170 18000
-rect 9586 17200 9642 18000
-rect 11058 17200 11114 18000
 rect 754 0 810 800
 rect 2226 0 2282 800
 rect 3698 0 3754 800
@@ -24,14 +16,7 @@ rect 8114 0 8170 800
 rect 9586 0 9642 800
 rect 11058 0 11114 800
 << obsm2 >>
-rect 866 17144 2170 17354
-rect 2338 17144 3642 17354
-rect 3810 17144 5114 17354
-rect 5282 17144 6586 17354
-rect 6754 17144 8058 17354
-rect 8226 17144 9530 17354
-rect 9698 17144 11002 17354
-rect 756 856 11112 17144
+rect 756 856 11112 16561
 rect 866 800 2170 856
 rect 2338 800 3642 856
 rect 3810 800 5114 856
@@ -39,8 +24,31 @@ rect 5282 800 6586 856
 rect 6754 800 8058 856
 rect 8226 800 9530 856
 rect 9698 800 11002 856
+<< metal3 >>
+rect 0 16464 800 16584
+rect 0 14288 800 14408
+rect 0 12112 800 12232
+rect 0 9936 800 10056
+rect 0 7760 800 7880
+rect 0 5584 800 5704
+rect 0 3408 800 3528
+rect 0 1232 800 1352
 << obsm3 >>
-rect 2165 2143 11014 15809
+rect 880 16384 11014 16557
+rect 800 14488 11014 16384
+rect 880 14208 11014 14488
+rect 800 12312 11014 14208
+rect 880 12032 11014 12312
+rect 800 10136 11014 12032
+rect 880 9856 11014 10136
+rect 800 7960 11014 9856
+rect 880 7680 11014 7960
+rect 800 5784 11014 7680
+rect 880 5504 11014 5784
+rect 800 3608 11014 5504
+rect 880 3328 11014 3608
+rect 800 1432 11014 3328
+rect 880 1259 11014 1432
 << metal4 >>
 rect 2163 2128 2483 15824
 rect 3382 2128 3702 15824
@@ -51,21 +59,21 @@ rect 8258 2128 8578 15824
 rect 9477 2128 9797 15824
 rect 10696 2128 11016 15824
 << labels >>
-rlabel metal2 s 754 17200 810 18000 6 io_in[0]
+rlabel metal3 s 0 1232 800 1352 6 io_in[0]
 port 1 nsew signal input
-rlabel metal2 s 2226 17200 2282 18000 6 io_in[1]
+rlabel metal3 s 0 3408 800 3528 6 io_in[1]
 port 2 nsew signal input
-rlabel metal2 s 3698 17200 3754 18000 6 io_in[2]
+rlabel metal3 s 0 5584 800 5704 6 io_in[2]
 port 3 nsew signal input
-rlabel metal2 s 5170 17200 5226 18000 6 io_in[3]
+rlabel metal3 s 0 7760 800 7880 6 io_in[3]
 port 4 nsew signal input
-rlabel metal2 s 6642 17200 6698 18000 6 io_in[4]
+rlabel metal3 s 0 9936 800 10056 6 io_in[4]
 port 5 nsew signal input
-rlabel metal2 s 8114 17200 8170 18000 6 io_in[5]
+rlabel metal3 s 0 12112 800 12232 6 io_in[5]
 port 6 nsew signal input
-rlabel metal2 s 9586 17200 9642 18000 6 io_in[6]
+rlabel metal3 s 0 14288 800 14408 6 io_in[6]
 port 7 nsew signal input
-rlabel metal2 s 11058 17200 11114 18000 6 io_in[7]
+rlabel metal3 s 0 16464 800 16584 6 io_in[7]
 port 8 nsew signal input
 rlabel metal2 s 754 0 810 800 6 io_out[0]
 port 9 nsew signal output
@@ -103,8 +111,8 @@ port 18 nsew ground bidirectional
 string FIXED_BBOX 0 0 12000 18000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 468956
-string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/4x4-multiply/runs/23_01_27_13_48/results/signoff/tt2_tholin_multiplier.magic.gds
-string GDS_START 168726
+string GDS_END 533758
+string GDS_FILE /run/media/tholin/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/4x4-multiply/runs/23_03_28_12_56/results/signoff/tt2_tholin_multiplier.magic.gds
+string GDS_START 232398
 << end >>
 

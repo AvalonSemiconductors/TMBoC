@@ -60,3 +60,9 @@
 -v $(USER_PROJECT_VERILOG)/rtl/PositUnit/PACoGen/posit_add.v
 -v $(USER_PROJECT_VERILOG)/rtl/PositUnit/PACoGen/posit_mult.v
 -v $(USER_PROJECT_VERILOG)/rtl/PositUnit/PACoGen/posit_div.v
+-v $(USER_PROJECT_VERILOG)/rtl/as512512512/alu.v
+-v $(USER_PROJECT_VERILOG)/rtl/as512512512/as512512512.v
+-v $(USER_PROJECT_VERILOG)/rtl/as512512512/wrapped_as512512512.v
+-v $(USER_PROJECT_VERILOG)/rtl/as512512512/alu_mask_rom.v
+-v $(USER_PROJECT_VERILOG)/rtl/as512512512/uart.v
+-v $(USER_PROJECT_VERILOG)/rtl/as512512512/spi.v

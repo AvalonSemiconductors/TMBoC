@@ -1,7 +1,7 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1674824566
+timestamp 1680002699
 << nwell >>
 rect 1066 22021 23866 22342
 rect 1066 20933 23866 21499
@@ -25,7 +25,7 @@ rect 1066 2437 23866 3003
 << obsli1 >>
 rect 1104 2159 23828 22321
 << obsm1 >>
-rect 1104 2048 23987 22352
+rect 1104 1164 23987 22352
 << metal2 >>
 rect 2502 24200 2558 25000
 rect 7470 24200 7526 25000
@@ -111,7 +111,7 @@ rect 22210 734 22686 856
 rect 22854 734 23330 856
 rect 23498 734 23981 856
 << obsm3 >>
-rect 1853 1939 23985 22337
+rect 2313 2143 23985 22337
 << metal4 >>
 rect 3784 2128 4104 22352
 rect 6624 2128 6944 22352
@@ -122,14 +122,13 @@ rect 17986 2128 18306 22352
 rect 20827 2128 21147 22352
 rect 23667 2128 23987 22352
 << obsm4 >>
-rect 3371 2048 3704 20773
-rect 4184 2048 6544 20773
-rect 7024 2048 9385 20773
-rect 9865 2048 12225 20773
-rect 12705 2048 15066 20773
-rect 15546 2048 17906 20773
-rect 18386 2048 20365 20773
-rect 3371 1939 20365 2048
+rect 5395 4659 6544 20773
+rect 7024 4659 9385 20773
+rect 9865 4659 12225 20773
+rect 12705 4659 15066 20773
+rect 15546 4659 17906 20773
+rect 18386 4659 20747 20773
+rect 21227 4659 22389 20773
 << labels >>
 rlabel metal2 s 2502 24200 2558 25000 6 clk
 port 1 nsew signal input
@@ -231,8 +230,8 @@ port 42 nsew ground bidirectional
 string FIXED_BBOX 0 0 25000 25000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 2255536
-string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/LCD/runs/23_01_27_13_58/results/signoff/tt2_tholin_namebadge.magic.gds
-string GDS_START 633934
+string GDS_END 2588334
+string GDS_FILE /run/media/tholin/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/LCD/runs/23_03_28_13_20/results/signoff/tt2_tholin_namebadge.magic.gds
+string GDS_START 906428
 << end >>
 
