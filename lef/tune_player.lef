@@ -6,13 +6,13 @@ MACRO tune_player
   CLASS BLOCK ;
   FOREIGN tune_player ;
   ORIGIN 0.000 0.000 ;
-  SIZE 120.000 BY 120.000 ;
+  SIZE 110.000 BY 110.000 ;
   PIN OP
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
     PORT
       LAYER met3 ;
-        RECT 0.000 98.640 4.000 99.240 ;
+        RECT 0.000 91.160 4.000 91.760 ;
     END
   END OP
   PIN clk
@@ -20,7 +20,7 @@ MACRO tune_player
     USE SIGNAL ;
     PORT
       LAYER met3 ;
-        RECT 0.000 19.760 4.000 20.360 ;
+        RECT 0.000 17.720 4.000 18.320 ;
     END
   END clk
   PIN rst
@@ -28,7 +28,7 @@ MACRO tune_player
     USE SIGNAL ;
     PORT
       LAYER met3 ;
-        RECT 0.000 59.200 4.000 59.800 ;
+        RECT 0.000 54.440 4.000 55.040 ;
     END
   END rst
   PIN vccd1
@@ -36,19 +36,19 @@ MACRO tune_player
     USE POWER ;
     PORT
       LAYER met4 ;
-        RECT 18.290 10.640 19.890 109.040 ;
+        RECT 17.080 10.640 18.680 98.160 ;
     END
     PORT
       LAYER met4 ;
-        RECT 45.430 10.640 47.030 109.040 ;
+        RECT 41.805 10.640 43.405 98.160 ;
     END
     PORT
       LAYER met4 ;
-        RECT 72.570 10.640 74.170 109.040 ;
+        RECT 66.530 10.640 68.130 98.160 ;
     END
     PORT
       LAYER met4 ;
-        RECT 99.710 10.640 101.310 109.040 ;
+        RECT 91.255 10.640 92.855 98.160 ;
     END
   END vccd1
   PIN vssd1
@@ -56,38 +56,36 @@ MACRO tune_player
     USE GROUND ;
     PORT
       LAYER met4 ;
-        RECT 31.860 10.640 33.460 109.040 ;
+        RECT 29.440 10.640 31.040 98.160 ;
     END
     PORT
       LAYER met4 ;
-        RECT 59.000 10.640 60.600 109.040 ;
+        RECT 54.165 10.640 55.765 98.160 ;
     END
     PORT
       LAYER met4 ;
-        RECT 86.140 10.640 87.740 109.040 ;
+        RECT 78.890 10.640 80.490 98.160 ;
     END
     PORT
       LAYER met4 ;
-        RECT 113.280 10.640 114.880 109.040 ;
+        RECT 103.615 10.640 105.215 98.160 ;
     END
   END vssd1
   OBS
       LAYER li1 ;
-        RECT 5.520 10.795 114.080 108.885 ;
+        RECT 5.520 10.795 104.420 98.005 ;
       LAYER met1 ;
-        RECT 4.670 10.640 114.880 109.040 ;
+        RECT 5.520 10.640 105.215 98.160 ;
       LAYER met2 ;
-        RECT 4.690 10.695 114.850 108.985 ;
+        RECT 7.920 10.695 105.185 98.105 ;
       LAYER met3 ;
-        RECT 4.000 99.640 114.870 108.965 ;
-        RECT 4.400 98.240 114.870 99.640 ;
-        RECT 4.000 60.200 114.870 98.240 ;
-        RECT 4.400 58.800 114.870 60.200 ;
-        RECT 4.000 20.760 114.870 58.800 ;
-        RECT 4.400 19.360 114.870 20.760 ;
-        RECT 4.000 10.715 114.870 19.360 ;
-      LAYER met4 ;
-        RECT 75.735 36.895 76.065 55.585 ;
+        RECT 4.000 92.160 105.205 98.085 ;
+        RECT 4.400 90.760 105.205 92.160 ;
+        RECT 4.000 55.440 105.205 90.760 ;
+        RECT 4.400 54.040 105.205 55.440 ;
+        RECT 4.000 18.720 105.205 54.040 ;
+        RECT 4.400 17.320 105.205 18.720 ;
+        RECT 4.000 10.715 105.205 17.320 ;
   END
 END tune_player
 END LIBRARY

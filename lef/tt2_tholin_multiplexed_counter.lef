@@ -6,13 +6,13 @@ MACRO tt2_tholin_multiplexed_counter
   CLASS BLOCK ;
   FOREIGN tt2_tholin_multiplexed_counter ;
   ORIGIN 0.000 0.000 ;
-  SIZE 100.000 BY 100.000 ;
+  SIZE 90.000 BY 90.000 ;
   PIN clk
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 24.930 96.000 25.210 100.000 ;
+        RECT 22.170 86.000 22.450 90.000 ;
     END
   END clk
   PIN io_out[0]
@@ -28,7 +28,7 @@ MACRO tt2_tholin_multiplexed_counter
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 87.030 0.000 87.310 4.000 ;
+        RECT 77.830 0.000 78.110 4.000 ;
     END
   END io_out[10]
   PIN io_out[11]
@@ -36,7 +36,7 @@ MACRO tt2_tholin_multiplexed_counter
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 95.310 0.000 95.590 4.000 ;
+        RECT 85.190 0.000 85.470 4.000 ;
     END
   END io_out[11]
   PIN io_out[1]
@@ -44,7 +44,7 @@ MACRO tt2_tholin_multiplexed_counter
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 12.510 0.000 12.790 4.000 ;
+        RECT 11.590 0.000 11.870 4.000 ;
     END
   END io_out[1]
   PIN io_out[2]
@@ -52,7 +52,7 @@ MACRO tt2_tholin_multiplexed_counter
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 20.790 0.000 21.070 4.000 ;
+        RECT 18.950 0.000 19.230 4.000 ;
     END
   END io_out[2]
   PIN io_out[3]
@@ -60,7 +60,7 @@ MACRO tt2_tholin_multiplexed_counter
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 29.070 0.000 29.350 4.000 ;
+        RECT 26.310 0.000 26.590 4.000 ;
     END
   END io_out[3]
   PIN io_out[4]
@@ -68,7 +68,7 @@ MACRO tt2_tholin_multiplexed_counter
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 37.350 0.000 37.630 4.000 ;
+        RECT 33.670 0.000 33.950 4.000 ;
     END
   END io_out[4]
   PIN io_out[5]
@@ -76,7 +76,7 @@ MACRO tt2_tholin_multiplexed_counter
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 45.630 0.000 45.910 4.000 ;
+        RECT 41.030 0.000 41.310 4.000 ;
     END
   END io_out[5]
   PIN io_out[6]
@@ -84,7 +84,7 @@ MACRO tt2_tholin_multiplexed_counter
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 53.910 0.000 54.190 4.000 ;
+        RECT 48.390 0.000 48.670 4.000 ;
     END
   END io_out[6]
   PIN io_out[7]
@@ -92,7 +92,7 @@ MACRO tt2_tholin_multiplexed_counter
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 62.190 0.000 62.470 4.000 ;
+        RECT 55.750 0.000 56.030 4.000 ;
     END
   END io_out[7]
   PIN io_out[8]
@@ -100,7 +100,7 @@ MACRO tt2_tholin_multiplexed_counter
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 70.470 0.000 70.750 4.000 ;
+        RECT 63.110 0.000 63.390 4.000 ;
     END
   END io_out[8]
   PIN io_out[9]
@@ -108,7 +108,7 @@ MACRO tt2_tholin_multiplexed_counter
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 78.750 0.000 79.030 4.000 ;
+        RECT 70.470 0.000 70.750 4.000 ;
     END
   END io_out[9]
   PIN rst
@@ -116,7 +116,7 @@ MACRO tt2_tholin_multiplexed_counter
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 74.610 96.000 74.890 100.000 ;
+        RECT 67.250 86.000 67.530 90.000 ;
     END
   END rst
   PIN vccd1
@@ -124,19 +124,19 @@ MACRO tt2_tholin_multiplexed_counter
     USE POWER ;
     PORT
       LAYER met4 ;
-        RECT 15.815 10.640 17.415 87.280 ;
+        RECT 14.550 10.640 16.150 79.120 ;
     END
     PORT
       LAYER met4 ;
-        RECT 38.010 10.640 39.610 87.280 ;
+        RECT 34.215 10.640 35.815 79.120 ;
     END
     PORT
       LAYER met4 ;
-        RECT 60.205 10.640 61.805 87.280 ;
+        RECT 53.880 10.640 55.480 79.120 ;
     END
     PORT
       LAYER met4 ;
-        RECT 82.400 10.640 84.000 87.280 ;
+        RECT 73.545 10.640 75.145 79.120 ;
     END
   END vccd1
   PIN vssd1
@@ -144,44 +144,44 @@ MACRO tt2_tholin_multiplexed_counter
     USE GROUND ;
     PORT
       LAYER met4 ;
-        RECT 26.910 10.640 28.510 87.280 ;
+        RECT 24.380 10.640 25.980 79.120 ;
     END
     PORT
       LAYER met4 ;
-        RECT 49.105 10.640 50.705 87.280 ;
+        RECT 44.045 10.640 45.645 79.120 ;
     END
     PORT
       LAYER met4 ;
-        RECT 71.300 10.640 72.900 87.280 ;
+        RECT 63.710 10.640 65.310 79.120 ;
     END
     PORT
       LAYER met4 ;
-        RECT 93.495 10.640 95.095 87.280 ;
+        RECT 83.375 10.640 84.975 79.120 ;
     END
   END vssd1
   OBS
       LAYER li1 ;
-        RECT 5.520 10.795 94.300 87.125 ;
+        RECT 5.520 10.795 84.180 78.965 ;
       LAYER met1 ;
-        RECT 4.210 10.640 95.610 87.280 ;
+        RECT 4.210 10.640 85.490 79.120 ;
       LAYER met2 ;
-        RECT 4.240 95.720 24.650 96.000 ;
-        RECT 25.490 95.720 74.330 96.000 ;
-        RECT 75.170 95.720 95.580 96.000 ;
-        RECT 4.240 4.280 95.580 95.720 ;
-        RECT 4.790 4.000 12.230 4.280 ;
-        RECT 13.070 4.000 20.510 4.280 ;
-        RECT 21.350 4.000 28.790 4.280 ;
-        RECT 29.630 4.000 37.070 4.280 ;
-        RECT 37.910 4.000 45.350 4.280 ;
-        RECT 46.190 4.000 53.630 4.280 ;
-        RECT 54.470 4.000 61.910 4.280 ;
-        RECT 62.750 4.000 70.190 4.280 ;
-        RECT 71.030 4.000 78.470 4.280 ;
-        RECT 79.310 4.000 86.750 4.280 ;
-        RECT 87.590 4.000 95.030 4.280 ;
+        RECT 4.240 85.720 21.890 86.000 ;
+        RECT 22.730 85.720 66.970 86.000 ;
+        RECT 67.810 85.720 85.460 86.000 ;
+        RECT 4.240 4.280 85.460 85.720 ;
+        RECT 4.790 4.000 11.310 4.280 ;
+        RECT 12.150 4.000 18.670 4.280 ;
+        RECT 19.510 4.000 26.030 4.280 ;
+        RECT 26.870 4.000 33.390 4.280 ;
+        RECT 34.230 4.000 40.750 4.280 ;
+        RECT 41.590 4.000 48.110 4.280 ;
+        RECT 48.950 4.000 55.470 4.280 ;
+        RECT 56.310 4.000 62.830 4.280 ;
+        RECT 63.670 4.000 70.190 4.280 ;
+        RECT 71.030 4.000 77.550 4.280 ;
+        RECT 78.390 4.000 84.910 4.280 ;
       LAYER met3 ;
-        RECT 15.825 10.715 95.085 87.205 ;
+        RECT 14.560 10.715 84.965 79.045 ;
   END
 END tt2_tholin_multiplexed_counter
 END LIBRARY

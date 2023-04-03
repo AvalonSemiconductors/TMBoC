@@ -6,13 +6,13 @@ MACRO tholin_avalonsemi_5401
   CLASS BLOCK ;
   FOREIGN tholin_avalonsemi_5401 ;
   ORIGIN 0.000 0.000 ;
-  SIZE 200.000 BY 200.000 ;
+  SIZE 180.000 BY 180.000 ;
   PIN clk
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 8.830 196.000 9.110 200.000 ;
+        RECT 8.830 176.000 9.110 180.000 ;
     END
   END clk
   PIN io_in[0]
@@ -20,7 +20,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 41.950 196.000 42.230 200.000 ;
+        RECT 38.270 176.000 38.550 180.000 ;
     END
   END io_in[0]
   PIN io_in[1]
@@ -28,7 +28,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 58.510 196.000 58.790 200.000 ;
+        RECT 52.990 176.000 53.270 180.000 ;
     END
   END io_in[1]
   PIN io_in[2]
@@ -36,7 +36,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 75.070 196.000 75.350 200.000 ;
+        RECT 67.710 176.000 67.990 180.000 ;
     END
   END io_in[2]
   PIN io_in[3]
@@ -44,7 +44,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 91.630 196.000 91.910 200.000 ;
+        RECT 82.430 176.000 82.710 180.000 ;
     END
   END io_in[3]
   PIN io_in[4]
@@ -52,7 +52,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 108.190 196.000 108.470 200.000 ;
+        RECT 97.150 176.000 97.430 180.000 ;
     END
   END io_in[4]
   PIN io_in[5]
@@ -60,7 +60,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 124.750 196.000 125.030 200.000 ;
+        RECT 111.870 176.000 112.150 180.000 ;
     END
   END io_in[5]
   PIN io_in[6]
@@ -68,7 +68,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 141.310 196.000 141.590 200.000 ;
+        RECT 126.590 176.000 126.870 180.000 ;
     END
   END io_in[6]
   PIN io_in[7]
@@ -76,7 +76,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 157.870 196.000 158.150 200.000 ;
+        RECT 141.310 176.000 141.590 180.000 ;
     END
   END io_in[7]
   PIN io_in[8]
@@ -84,7 +84,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 174.430 196.000 174.710 200.000 ;
+        RECT 156.030 176.000 156.310 180.000 ;
     END
   END io_in[8]
   PIN io_in[9]
@@ -92,7 +92,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 190.990 196.000 191.270 200.000 ;
+        RECT 170.750 176.000 171.030 180.000 ;
     END
   END io_in[9]
   PIN io_oeb
@@ -100,7 +100,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met3 ;
-        RECT 196.000 99.320 200.000 99.920 ;
+        RECT 176.000 89.120 180.000 89.720 ;
     END
   END io_oeb
   PIN io_out[0]
@@ -108,7 +108,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 4.230 0.000 4.510 4.000 ;
+        RECT 6.070 0.000 6.350 4.000 ;
     END
   END io_out[0]
   PIN io_out[10]
@@ -116,7 +116,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 77.830 0.000 78.110 4.000 ;
+        RECT 70.470 0.000 70.750 4.000 ;
     END
   END io_out[10]
   PIN io_out[11]
@@ -124,7 +124,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 85.190 0.000 85.470 4.000 ;
+        RECT 76.910 0.000 77.190 4.000 ;
     END
   END io_out[11]
   PIN io_out[12]
@@ -132,7 +132,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 92.550 0.000 92.830 4.000 ;
+        RECT 83.350 0.000 83.630 4.000 ;
     END
   END io_out[12]
   PIN io_out[13]
@@ -140,7 +140,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 99.910 0.000 100.190 4.000 ;
+        RECT 89.790 0.000 90.070 4.000 ;
     END
   END io_out[13]
   PIN io_out[14]
@@ -148,7 +148,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 107.270 0.000 107.550 4.000 ;
+        RECT 96.230 0.000 96.510 4.000 ;
     END
   END io_out[14]
   PIN io_out[15]
@@ -156,7 +156,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 114.630 0.000 114.910 4.000 ;
+        RECT 102.670 0.000 102.950 4.000 ;
     END
   END io_out[15]
   PIN io_out[16]
@@ -164,7 +164,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 121.990 0.000 122.270 4.000 ;
+        RECT 109.110 0.000 109.390 4.000 ;
     END
   END io_out[16]
   PIN io_out[17]
@@ -172,7 +172,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 129.350 0.000 129.630 4.000 ;
+        RECT 115.550 0.000 115.830 4.000 ;
     END
   END io_out[17]
   PIN io_out[18]
@@ -180,7 +180,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 136.710 0.000 136.990 4.000 ;
+        RECT 121.990 0.000 122.270 4.000 ;
     END
   END io_out[18]
   PIN io_out[19]
@@ -188,7 +188,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 144.070 0.000 144.350 4.000 ;
+        RECT 128.430 0.000 128.710 4.000 ;
     END
   END io_out[19]
   PIN io_out[1]
@@ -196,7 +196,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 11.590 0.000 11.870 4.000 ;
+        RECT 12.510 0.000 12.790 4.000 ;
     END
   END io_out[1]
   PIN io_out[20]
@@ -204,7 +204,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 151.430 0.000 151.710 4.000 ;
+        RECT 134.870 0.000 135.150 4.000 ;
     END
   END io_out[20]
   PIN io_out[21]
@@ -212,7 +212,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 158.790 0.000 159.070 4.000 ;
+        RECT 141.310 0.000 141.590 4.000 ;
     END
   END io_out[21]
   PIN io_out[22]
@@ -220,7 +220,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 166.150 0.000 166.430 4.000 ;
+        RECT 147.750 0.000 148.030 4.000 ;
     END
   END io_out[22]
   PIN io_out[23]
@@ -228,7 +228,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 173.510 0.000 173.790 4.000 ;
+        RECT 154.190 0.000 154.470 4.000 ;
     END
   END io_out[23]
   PIN io_out[24]
@@ -236,7 +236,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 180.870 0.000 181.150 4.000 ;
+        RECT 160.630 0.000 160.910 4.000 ;
     END
   END io_out[24]
   PIN io_out[25]
@@ -244,7 +244,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 188.230 0.000 188.510 4.000 ;
+        RECT 167.070 0.000 167.350 4.000 ;
     END
   END io_out[25]
   PIN io_out[26]
@@ -252,7 +252,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 195.590 0.000 195.870 4.000 ;
+        RECT 173.510 0.000 173.790 4.000 ;
     END
   END io_out[26]
   PIN io_out[2]
@@ -268,7 +268,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 26.310 0.000 26.590 4.000 ;
+        RECT 25.390 0.000 25.670 4.000 ;
     END
   END io_out[3]
   PIN io_out[4]
@@ -276,7 +276,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 33.670 0.000 33.950 4.000 ;
+        RECT 31.830 0.000 32.110 4.000 ;
     END
   END io_out[4]
   PIN io_out[5]
@@ -284,7 +284,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 41.030 0.000 41.310 4.000 ;
+        RECT 38.270 0.000 38.550 4.000 ;
     END
   END io_out[5]
   PIN io_out[6]
@@ -292,7 +292,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 48.390 0.000 48.670 4.000 ;
+        RECT 44.710 0.000 44.990 4.000 ;
     END
   END io_out[6]
   PIN io_out[7]
@@ -300,7 +300,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 55.750 0.000 56.030 4.000 ;
+        RECT 51.150 0.000 51.430 4.000 ;
     END
   END io_out[7]
   PIN io_out[8]
@@ -308,7 +308,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 63.110 0.000 63.390 4.000 ;
+        RECT 57.590 0.000 57.870 4.000 ;
     END
   END io_out[8]
   PIN io_out[9]
@@ -316,7 +316,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 70.470 0.000 70.750 4.000 ;
+        RECT 64.030 0.000 64.310 4.000 ;
     END
   END io_out[9]
   PIN rst
@@ -324,7 +324,7 @@ MACRO tholin_avalonsemi_5401
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 25.390 196.000 25.670 200.000 ;
+        RECT 23.550 176.000 23.830 180.000 ;
     END
   END rst
   PIN vccd1
@@ -332,11 +332,19 @@ MACRO tholin_avalonsemi_5401
     USE POWER ;
     PORT
       LAYER met4 ;
-        RECT 21.040 10.640 22.640 187.920 ;
+        RECT 25.820 10.640 27.420 168.880 ;
     END
     PORT
       LAYER met4 ;
-        RECT 174.640 10.640 176.240 187.920 ;
+        RECT 68.025 10.640 69.625 168.880 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 110.230 10.640 111.830 168.880 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 152.435 10.640 154.035 168.880 ;
     END
   END vccd1
   PIN vssd1
@@ -344,61 +352,104 @@ MACRO tholin_avalonsemi_5401
     USE GROUND ;
     PORT
       LAYER met4 ;
-        RECT 97.840 10.640 99.440 187.920 ;
+        RECT 46.920 10.640 48.520 168.880 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 89.125 10.640 90.725 168.880 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 131.330 10.640 132.930 168.880 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 173.535 10.640 175.135 168.880 ;
     END
   END vssd1
   OBS
+      LAYER nwell ;
+        RECT 5.330 164.505 174.530 167.335 ;
+        RECT 5.330 159.065 174.530 161.895 ;
+        RECT 5.330 153.625 174.530 156.455 ;
+        RECT 5.330 148.185 174.530 151.015 ;
+        RECT 5.330 142.745 174.530 145.575 ;
+        RECT 5.330 137.305 174.530 140.135 ;
+        RECT 5.330 131.865 174.530 134.695 ;
+        RECT 5.330 126.425 174.530 129.255 ;
+        RECT 5.330 120.985 174.530 123.815 ;
+        RECT 5.330 115.545 174.530 118.375 ;
+        RECT 5.330 110.105 174.530 112.935 ;
+        RECT 5.330 104.665 174.530 107.495 ;
+        RECT 5.330 99.225 174.530 102.055 ;
+        RECT 5.330 93.785 174.530 96.615 ;
+        RECT 5.330 88.345 174.530 91.175 ;
+        RECT 5.330 82.905 174.530 85.735 ;
+        RECT 5.330 77.465 174.530 80.295 ;
+        RECT 5.330 72.025 174.530 74.855 ;
+        RECT 5.330 66.585 174.530 69.415 ;
+        RECT 5.330 61.145 174.530 63.975 ;
+        RECT 5.330 55.705 174.530 58.535 ;
+        RECT 5.330 50.265 174.530 53.095 ;
+        RECT 5.330 44.825 174.530 47.655 ;
+        RECT 5.330 39.385 174.530 42.215 ;
+        RECT 5.330 33.945 174.530 36.775 ;
+        RECT 5.330 28.505 174.530 31.335 ;
+        RECT 5.330 23.065 174.530 25.895 ;
+        RECT 5.330 17.625 174.530 20.455 ;
+        RECT 5.330 12.185 174.530 15.015 ;
       LAYER li1 ;
-        RECT 5.520 10.795 194.120 187.765 ;
+        RECT 5.520 10.795 174.340 168.725 ;
       LAYER met1 ;
-        RECT 4.210 10.640 195.890 187.920 ;
+        RECT 5.520 10.640 175.135 168.880 ;
       LAYER met2 ;
-        RECT 4.240 195.720 8.550 196.250 ;
-        RECT 9.390 195.720 25.110 196.250 ;
-        RECT 25.950 195.720 41.670 196.250 ;
-        RECT 42.510 195.720 58.230 196.250 ;
-        RECT 59.070 195.720 74.790 196.250 ;
-        RECT 75.630 195.720 91.350 196.250 ;
-        RECT 92.190 195.720 107.910 196.250 ;
-        RECT 108.750 195.720 124.470 196.250 ;
-        RECT 125.310 195.720 141.030 196.250 ;
-        RECT 141.870 195.720 157.590 196.250 ;
-        RECT 158.430 195.720 174.150 196.250 ;
-        RECT 174.990 195.720 190.710 196.250 ;
-        RECT 191.550 195.720 195.860 196.250 ;
-        RECT 4.240 4.280 195.860 195.720 ;
-        RECT 4.790 4.000 11.310 4.280 ;
-        RECT 12.150 4.000 18.670 4.280 ;
-        RECT 19.510 4.000 26.030 4.280 ;
-        RECT 26.870 4.000 33.390 4.280 ;
-        RECT 34.230 4.000 40.750 4.280 ;
-        RECT 41.590 4.000 48.110 4.280 ;
-        RECT 48.950 4.000 55.470 4.280 ;
-        RECT 56.310 4.000 62.830 4.280 ;
-        RECT 63.670 4.000 70.190 4.280 ;
-        RECT 71.030 4.000 77.550 4.280 ;
-        RECT 78.390 4.000 84.910 4.280 ;
-        RECT 85.750 4.000 92.270 4.280 ;
-        RECT 93.110 4.000 99.630 4.280 ;
-        RECT 100.470 4.000 106.990 4.280 ;
-        RECT 107.830 4.000 114.350 4.280 ;
-        RECT 115.190 4.000 121.710 4.280 ;
-        RECT 122.550 4.000 129.070 4.280 ;
-        RECT 129.910 4.000 136.430 4.280 ;
-        RECT 137.270 4.000 143.790 4.280 ;
-        RECT 144.630 4.000 151.150 4.280 ;
-        RECT 151.990 4.000 158.510 4.280 ;
-        RECT 159.350 4.000 165.870 4.280 ;
-        RECT 166.710 4.000 173.230 4.280 ;
-        RECT 174.070 4.000 180.590 4.280 ;
-        RECT 181.430 4.000 187.950 4.280 ;
-        RECT 188.790 4.000 195.310 4.280 ;
+        RECT 6.080 175.720 8.550 176.530 ;
+        RECT 9.390 175.720 23.270 176.530 ;
+        RECT 24.110 175.720 37.990 176.530 ;
+        RECT 38.830 175.720 52.710 176.530 ;
+        RECT 53.550 175.720 67.430 176.530 ;
+        RECT 68.270 175.720 82.150 176.530 ;
+        RECT 82.990 175.720 96.870 176.530 ;
+        RECT 97.710 175.720 111.590 176.530 ;
+        RECT 112.430 175.720 126.310 176.530 ;
+        RECT 127.150 175.720 141.030 176.530 ;
+        RECT 141.870 175.720 155.750 176.530 ;
+        RECT 156.590 175.720 170.470 176.530 ;
+        RECT 171.310 175.720 175.105 176.530 ;
+        RECT 6.080 4.280 175.105 175.720 ;
+        RECT 6.630 3.670 12.230 4.280 ;
+        RECT 13.070 3.670 18.670 4.280 ;
+        RECT 19.510 3.670 25.110 4.280 ;
+        RECT 25.950 3.670 31.550 4.280 ;
+        RECT 32.390 3.670 37.990 4.280 ;
+        RECT 38.830 3.670 44.430 4.280 ;
+        RECT 45.270 3.670 50.870 4.280 ;
+        RECT 51.710 3.670 57.310 4.280 ;
+        RECT 58.150 3.670 63.750 4.280 ;
+        RECT 64.590 3.670 70.190 4.280 ;
+        RECT 71.030 3.670 76.630 4.280 ;
+        RECT 77.470 3.670 83.070 4.280 ;
+        RECT 83.910 3.670 89.510 4.280 ;
+        RECT 90.350 3.670 95.950 4.280 ;
+        RECT 96.790 3.670 102.390 4.280 ;
+        RECT 103.230 3.670 108.830 4.280 ;
+        RECT 109.670 3.670 115.270 4.280 ;
+        RECT 116.110 3.670 121.710 4.280 ;
+        RECT 122.550 3.670 128.150 4.280 ;
+        RECT 128.990 3.670 134.590 4.280 ;
+        RECT 135.430 3.670 141.030 4.280 ;
+        RECT 141.870 3.670 147.470 4.280 ;
+        RECT 148.310 3.670 153.910 4.280 ;
+        RECT 154.750 3.670 160.350 4.280 ;
+        RECT 161.190 3.670 166.790 4.280 ;
+        RECT 167.630 3.670 173.230 4.280 ;
+        RECT 174.070 3.670 175.105 4.280 ;
       LAYER met3 ;
-        RECT 21.050 100.320 196.000 187.845 ;
-        RECT 21.050 98.920 195.600 100.320 ;
-        RECT 21.050 10.715 196.000 98.920 ;
+        RECT 25.830 90.120 176.000 168.805 ;
+        RECT 25.830 88.720 175.600 90.120 ;
+        RECT 25.830 10.715 176.000 88.720 ;
       LAYER met4 ;
-        RECT 141.055 113.055 141.385 158.945 ;
+        RECT 124.495 115.775 124.825 154.185 ;
   END
 END tholin_avalonsemi_5401
 END LIBRARY
