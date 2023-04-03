@@ -1,0 +1,64 @@
+name: GDS Build
+
+on: [ push, workflow_dispatch ]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  gds:
+    runs-on: ubuntu-latest
+    env:
+      OPENLANE_ROOT: /home/runner/openlane
+      PDK_ROOT: /home/runner/pdk
+      PDK: sky130B
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Install PDK
+        make: setup
+
+      - name: Harden using OpenLane
+        run: |
+          rm -rf gds
+          make 4x4-multiply
+          make AS1802
+          make AS2650
+          make AS5401
+          make Diceroll
+          make LCD
+          make MC14500
+          make MOS6502
+          make MultiplexedCounter
+          make Multiplexer
+          make PositUnit
+          make TBB1143
+          make TunePlayer
+          make AS512512512
+          make user_project_wrapper
+          make compress
+
+      - name: Tarball GDS outputs
+        run: |
+          tar -cf /tmp/gds.tar -C ./gds
+
+      - name: Upload GDS to cache
+        uses: actions/cache@v3
+        with:
+          path: /tmp/gds.tar
+          key: ${{ runner.os }}-gds-${{ github.run_id }}
+
+      - name: Upload failure logs
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: error-gds
+          path: |
+            /home/runner/work/TMBoC/TMBoC/openlane/*/runs/*
