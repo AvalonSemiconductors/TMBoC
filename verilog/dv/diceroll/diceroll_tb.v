@@ -140,7 +140,7 @@ module diceroll_tb;
 	reg [7:0] last_stage;
 	initial begin
 		$dumpfile("diceroll.vcd");
-		$dumpvars(0, diceroll_tb);
+		$dumpvars(0, diceroll_tb.uut.mprj.tt2_tholin_diceroll);
 
 		last_stage <= 0;
 		repeat (32000) begin

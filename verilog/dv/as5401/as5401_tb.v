@@ -135,12 +135,12 @@ module as5401_tb;
 			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_36) ;
 			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_37) ;
 		end
-	`endif 
+	`endif
 
 	reg [7:0] last_stage;
 	initial begin
 		$dumpfile("as5401.vcd");
-		$dumpvars(0, as5401_tb);
+		$dumpvars(0, as5401_tb.uut.mprj.tholin_avalonsemi_5401);
 
 		last_stage <= 0;
 		repeat (10000) begin

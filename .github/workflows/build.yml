@@ -27,6 +27,7 @@ jobs:
 
       - name: Harden using OpenLane
         run: |
+          make uncompress
           make 4x4-multiply
           make AS1802
           make AS2650

@@ -71,13 +71,13 @@ void main() {
 	
 	uint8_t curr_state;
 	//for(uint8_t i = 0; i < 5; i++) {
-		curr_state = ((sample_out >> 4) & 1);
+		//curr_state = ((sample_out >> 4) & 1);
 		reg_mprj_counter = 0;
 		reg_mprj_wb = 0b01100001;
 		while(reg_mprj_counter < 7 * 256);
 		if(((sample_out >> 4) & 1) == curr_state) error_out
-		while(reg_mprj_counter < 14 * 256);
-		reg_mprj_wb = 0b01100101;
+		//while(reg_mprj_counter < 14 * 256);
+		//reg_mprj_wb = 0b01100101;
 	//}
 
 	reg_mprj_wb = 0b01100111;

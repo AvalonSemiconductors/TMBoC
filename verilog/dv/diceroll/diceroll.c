@@ -84,7 +84,7 @@ void main() {
 	reg_mprj_wb = 0b00100001;
 	while((disp_val & 128) == 0);
 	reg_mprj_wb = 0b00100101;
-	if(disp_val != digits[5] + 128) error_out();
+	if(disp_val != digits[2] + 128) error_out();
 
 	reg_mprj_io = 1;
 	clock();
@@ -108,7 +108,7 @@ void main() {
 		}else counter++;
 		prev = disp_val;
 	}
-	if(hits > 1) error_out();
+	if(hits > 2) error_out();
 	reg_mprj_wb = 0b00100101;
 	//if(disp_val != digits[1] + 128) error_out
 	

@@ -20,21 +20,10 @@ module wrapped_as2650(
 	input wire clk,
 	input wire rst,
 
-	input wire [7:0] io_in,
+	input wire [8:0] io_in,
 	output wire [26:0] io_out,
 	output wire io_oeb
 );
-
-	reg [15:0] lfsr;
-	
-	always @(posedge clk) begin
-		if(rst) begin
-			lfsr <= 16'hAAAA;
-		end else begin
-			lfsr <= {lfsr[0], lfsr[15], lfsr[14] ^ lfsr[0], lfsr[13] ^ lfsr[0], lfsr[12] ,lfsr[11] ^ lfsr[0], lfsr[10:1]};
-		end
-	end
-
 	as2650 as2650(
 		.clk(clk),
 		.reset(rst),
@@ -42,7 +31,7 @@ module wrapped_as2650(
 		.dbus_in(io_in[7:0]),
 		.dbus_out(io_out[7:0]),
 		.oeb(io_oeb),
-		.sense(lfsr[5]),
+		.sense(io_in[8]),
 		.d_c(io_out[25]),
 		.m_io(io_out[24]),
 		.wrp(io_out[23]),

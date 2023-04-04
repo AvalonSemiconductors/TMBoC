@@ -23,7 +23,7 @@ module tholin_avalonsemi_5401(
 	reg [7:0] out_buff;
 	reg [3:0] clock_state;
 	
-	wire [3:0] cpu_din = clock_state == 4'b0001 ? insin : (I_flag ? insin : din);
+	wire [3:0] cpu_din = clock_state == 4'b0010 ? insin : (I_flag ? insin : din);
 	
 	wire s_D0 = cpu_din[0];
 	wire s_D1 = cpu_din[1];

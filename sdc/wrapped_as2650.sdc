@@ -1,6 +1,6 @@
 ###############################################################################
 # Created by write_sdc
-# Thu Mar 30 20:57:33 2023
+# Tue Apr  4 10:33:03 2023
 ###############################################################################
 current_design wrapped_as2650
 ###############################################################################
@@ -18,6 +18,7 @@ set_input_delay 5.0000 -clock [get_clocks {clk}] -add_delay [get_ports {io_in[4]
 set_input_delay 5.0000 -clock [get_clocks {clk}] -add_delay [get_ports {io_in[5]}]
 set_input_delay 5.0000 -clock [get_clocks {clk}] -add_delay [get_ports {io_in[6]}]
 set_input_delay 5.0000 -clock [get_clocks {clk}] -add_delay [get_ports {io_in[7]}]
+set_input_delay 5.0000 -clock [get_clocks {clk}] -add_delay [get_ports {io_in[8]}]
 set_input_delay 5.0000 -clock [get_clocks {clk}] -add_delay [get_ports {rst}]
 set_output_delay 5.0000 -clock [get_clocks {clk}] -add_delay [get_ports {io_oeb}]
 set_output_delay 5.0000 -clock [get_clocks {clk}] -add_delay [get_ports {io_out[0]}]
@@ -80,6 +81,7 @@ set_load -pin_load 0.0334 [get_ports {io_out[1]}]
 set_load -pin_load 0.0334 [get_ports {io_out[0]}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {clk}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {rst}]
+set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {io_in[8]}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {io_in[7]}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {io_in[6]}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {io_in[5]}]

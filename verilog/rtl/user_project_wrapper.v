@@ -276,7 +276,7 @@ wrapped_as2650 wrapped_as2650(
 `endif
 	.clk(design_clk),
 	.rst(rst_as2650),
-	.io_in(dsi_all[7:0]),
+	.io_in({dsi_all[27], dsi_all[7:0]}),
 	.io_out(dso_as2650),
 	.io_oeb(oeb_as2650)
 );
