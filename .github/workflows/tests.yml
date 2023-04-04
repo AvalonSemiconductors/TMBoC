@@ -26,4 +26,7 @@ jobs:
         run: make setup
 
       - name: Run all tests
-        run: make verify
+        run: |
+          make verify | tee test.log
+          ! grep failed test.log
+          ! grep failure test.log

@@ -27,7 +27,6 @@ jobs:
 
       - name: Harden using OpenLane
         run: |
-          rm -rf gds
           make 4x4-multiply
           make AS1802
           make AS2650
@@ -41,7 +40,6 @@ jobs:
           make PositUnit
           make TBB1143
           make TunePlayer
-          make AS512512512
           make user_project_wrapper
           make compress
 
