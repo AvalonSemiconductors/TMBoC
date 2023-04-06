@@ -46,7 +46,7 @@ jobs:
 
       - name: Tarball GDS outputs
         run: |
-          tar -cf /tmp/gds.tar -C ./gds
+          tar -cf /tmp/gds.tar ./gds/
 
       - name: Upload GDS to cache
         uses: actions/cache@v3
@@ -60,4 +60,4 @@ jobs:
         with:
           name: error-gds
           path: |
-            /home/runner/work/TMBoC/TMBoC/openlane/*/runs/*
+            /home/runner/work/TMBoC/TMBoC/openlane/*/runs/logs/*

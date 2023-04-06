@@ -30,3 +30,12 @@ jobs:
           make verify | tee test.log
           ! grep failed test.log
           ! grep failure test.log
+
+      - name: Upload failure logs
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: error-tests
+          path: |
+            /home/runner/work/TMBoC/TMBoC/test.log
+            /home/runner/work/TMBoC/TMBoC/verilog/dv/*/*.vcd
