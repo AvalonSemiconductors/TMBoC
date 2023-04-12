@@ -41,6 +41,7 @@ jobs:
           make PositUnit
           make TBB1143
           make TunePlayer
+          make VGATest
           make user_project_wrapper
           make compress
 

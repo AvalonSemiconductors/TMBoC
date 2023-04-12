@@ -65,6 +65,9 @@ module multiplexer(
 	input oeb_as512512512,
 	output rst_as512512512,
 	
+	input [9:0] dso_vgatest,
+	output rst_vgatest,
+	
 	output design_clk_o
 );
 
@@ -197,6 +200,10 @@ always @(*) begin
 			design_outs = dso_as512512512;
 			design_oebs = {1'b0, 1'b1, 2'b00, 1'b1, 1'b0, 1'b1, 5'b00000, {16{oeb_as512512512}}};
 		end
+		13: begin
+			design_outs = {18'h00000, dso_vgatest, 1'b0};
+			design_oebs = {18'h3FFFF, 10'h000, 1'b1};
+		end
 		
 		//Invalid address
 		default: begin
@@ -229,5 +236,7 @@ assign rst_tune = design_rst || (design_addr != 10);
 assign rst_posit = design_rst || (design_addr != 11);
 
 assign rst_as512512512 = design_rst || (design_addr != 12);
+
+assign rst_vgatest = design_rst || (design_addr != 13);
 
 endmodule

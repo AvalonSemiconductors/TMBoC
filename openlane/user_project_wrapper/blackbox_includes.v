@@ -65,3 +65,6 @@
 `include "../../verilog/rtl/as512512512/uart.v"
 `include "../../verilog/rtl/as512512512/as512512512.v"
 `include "../../verilog/rtl/as512512512/wrapped_as512512512.v"
+`include "../../verilog/rtl/VGATest/bitmap.v"
+`include "../../verilog/rtl/VGATest/vgatest.v"
+`include "../../verilog/rtl/VGATest/wrapped_vgatest.v"

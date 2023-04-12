@@ -261,6 +261,16 @@ module user_project_wrapper (user_clock2,
  wire \dso_tbb1143[6] ;
  wire \dso_tbb1143[7] ;
  wire dso_tune;
+ wire \dso_vgatest[0] ;
+ wire \dso_vgatest[1] ;
+ wire \dso_vgatest[2] ;
+ wire \dso_vgatest[3] ;
+ wire \dso_vgatest[4] ;
+ wire \dso_vgatest[5] ;
+ wire \dso_vgatest[6] ;
+ wire \dso_vgatest[7] ;
+ wire \dso_vgatest[8] ;
+ wire \dso_vgatest[9] ;
  wire oeb_6502;
  wire oeb_as1802;
  wire oeb_as2650;
@@ -279,6 +289,7 @@ module user_project_wrapper (user_clock2,
  wire rst_posit;
  wire rst_tbb1143;
  wire rst_tune;
+ wire rst_vgatest;
 
  posit_unit posit_unit (.clk(design_clk),
     .rst(rst_posit),
@@ -1083,5 +1094,18 @@ module user_project_wrapper (user_clock2,
     \dso_as512512512[2] ,
     \dso_as512512512[1] ,
     \dso_as512512512[0] }));
+ wrapped_vgatest wrapped_vgatest (.clk(design_clk),
+    .io_in(\dsi_all[0] ),
+    .rst(rst_vgatest),
+    .io_out({\dso_vgatest[9] ,
+    \dso_vgatest[8] ,
+    \dso_vgatest[7] ,
+    \dso_vgatest[6] ,
+    \dso_vgatest[5] ,
+    \dso_vgatest[4] ,
+    \dso_vgatest[3] ,
+    \dso_vgatest[2] ,
+    \dso_vgatest[1] ,
+    \dso_vgatest[0] }));
 endmodule
 

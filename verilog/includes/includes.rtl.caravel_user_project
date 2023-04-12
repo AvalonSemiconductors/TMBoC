@@ -66,3 +66,6 @@
 -v $(USER_PROJECT_VERILOG)/rtl/as512512512/alu_mask_rom.v
 -v $(USER_PROJECT_VERILOG)/rtl/as512512512/uart.v
 -v $(USER_PROJECT_VERILOG)/rtl/as512512512/spi.v
+-v $(USER_PROJECT_VERILOG)/rtl/VGATest/bitmap.v
+-v $(USER_PROJECT_VERILOG)/rtl/VGATest/vgatest.v
+-v $(USER_PROJECT_VERILOG)/rtl/VGATest/wrapped_vgatest.v

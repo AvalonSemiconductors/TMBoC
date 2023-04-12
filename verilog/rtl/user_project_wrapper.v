@@ -124,6 +124,9 @@ wire [27:0] dso_as512512512;
 wire oeb_as512512512;
 wire rst_as512512512;
 
+wire [9:0] dso_vgatest;
+wire rst_vgatest;
+
 wire design_clk;
 
 multiplexer proj_multiplexer(
@@ -189,6 +192,9 @@ multiplexer proj_multiplexer(
 	.dso_as512512512(dso_as512512512),
 	.oeb_as512512512(oeb_as512512512),
 	.rst_as512512512(rst_as512512512),
+	
+	.dso_vgatest(dso_vgatest),
+	.rst_vgatest(rst_vgatest),
 	
 	.design_clk_o(design_clk)
 );
@@ -336,6 +342,17 @@ wrapped_as512512512 wrapped_as512512512(
 	.io_in(dsi_all[26:0]),
 	.io_out(dso_as512512512),
 	.io_oeb(oeb_as512512512)
+);
+
+wrapped_vgatest wrapped_vgatest(
+`ifdef USE_POWER_PINS
+	.vccd1(vccd1),	// User area 1 1.8V power
+	.vssd1(vssd1),	// User area 1 digital ground
+`endif
+	.clk(design_clk),
+	.rst(rst_vgatest),
+	.io_in(dsi_all[0]),
+	.io_out(dso_vgatest)
 );
 
 endmodule	// user_project_wrapper
