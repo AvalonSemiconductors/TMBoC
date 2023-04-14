@@ -1,6 +1,6 @@
 ###############################################################################
 # Created by write_sdc
-# Fri Mar 31 12:48:05 2023
+# Fri Apr 14 09:05:49 2023
 ###############################################################################
 current_design multiplexer
 ###############################################################################
@@ -204,6 +204,16 @@ set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_tbb1143[6]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_tbb1143[7]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_tune}]
+set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_vgatest[0]}]
+set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_vgatest[1]}]
+set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_vgatest[2]}]
+set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_vgatest[3]}]
+set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_vgatest[4]}]
+set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_vgatest[5]}]
+set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_vgatest[6]}]
+set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_vgatest[7]}]
+set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_vgatest[8]}]
+set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_vgatest[9]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_in[0]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_in[10]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_in[11]}]
@@ -433,6 +443,7 @@ set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {rs
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {rst_posit}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {rst_tbb1143}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {rst_tune}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {rst_vgatest}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {wbs_ack_o}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {wbs_dat_o[0]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {wbs_dat_o[10]}]
@@ -482,6 +493,7 @@ set_load -pin_load 0.0334 [get_ports {rst_mc14500}]
 set_load -pin_load 0.0334 [get_ports {rst_posit}]
 set_load -pin_load 0.0334 [get_ports {rst_tbb1143}]
 set_load -pin_load 0.0334 [get_ports {rst_tune}]
+set_load -pin_load 0.0334 [get_ports {rst_vgatest}]
 set_load -pin_load 0.0334 [get_ports {wbs_ack_o}]
 set_load -pin_load 0.0334 [get_ports {dsi_all[27]}]
 set_load -pin_load 0.0334 [get_ports {dsi_all[26]}]
@@ -824,6 +836,16 @@ set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_ris
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_tbb1143[2]}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_tbb1143[1]}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_tbb1143[0]}]
+set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_vgatest[9]}]
+set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_vgatest[8]}]
+set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_vgatest[7]}]
+set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_vgatest[6]}]
+set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_vgatest[5]}]
+set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_vgatest[4]}]
+set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_vgatest[3]}]
+set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_vgatest[2]}]
+set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_vgatest[1]}]
+set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_vgatest[0]}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {io_in[37]}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {io_in[36]}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {io_in[35]}]
