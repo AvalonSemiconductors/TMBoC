@@ -99,14 +99,16 @@ module wrapped_MC14500 (clk,
  sky130_fd_sc_hd__fill_2 FILLER_10_26 ();
  sky130_fd_sc_hd__fill_2 FILLER_10_29 ();
  sky130_ef_sc_hd__decap_12 FILLER_10_3 ();
- sky130_fd_sc_hd__decap_6 FILLER_10_51 ();
- sky130_ef_sc_hd__decap_12 FILLER_10_66 ();
- sky130_fd_sc_hd__decap_6 FILLER_10_78 ();
+ sky130_fd_sc_hd__decap_4 FILLER_10_51 ();
+ sky130_fd_sc_hd__fill_1 FILLER_10_55 ();
+ sky130_ef_sc_hd__decap_12 FILLER_10_65 ();
+ sky130_fd_sc_hd__decap_6 FILLER_10_77 ();
+ sky130_fd_sc_hd__fill_1 FILLER_10_83 ();
  sky130_ef_sc_hd__decap_12 FILLER_10_85 ();
  sky130_fd_sc_hd__decap_6 FILLER_10_97 ();
  sky130_fd_sc_hd__decap_6 FILLER_11_15 ();
  sky130_ef_sc_hd__decap_12 FILLER_11_3 ();
- sky130_fd_sc_hd__decap_8 FILLER_11_38 ();
+ sky130_fd_sc_hd__decap_6 FILLER_11_40 ();
  sky130_fd_sc_hd__fill_2 FILLER_11_54 ();
  sky130_fd_sc_hd__fill_2 FILLER_11_57 ();
  sky130_ef_sc_hd__decap_12 FILLER_11_67 ();
@@ -207,8 +209,7 @@ module wrapped_MC14500 (clk,
  sky130_fd_sc_hd__decap_4 FILLER_1_12 ();
  sky130_fd_sc_hd__decap_4 FILLER_1_3 ();
  sky130_ef_sc_hd__decap_12 FILLER_1_36 ();
- sky130_fd_sc_hd__decap_3 FILLER_1_48 ();
- sky130_fd_sc_hd__fill_2 FILLER_1_54 ();
+ sky130_fd_sc_hd__decap_8 FILLER_1_48 ();
  sky130_fd_sc_hd__fill_2 FILLER_1_57 ();
  sky130_ef_sc_hd__decap_12 FILLER_1_66 ();
  sky130_fd_sc_hd__fill_1 FILLER_1_7 ();
@@ -301,8 +302,8 @@ module wrapped_MC14500 (clk,
  sky130_fd_sc_hd__fill_1 FILLER_4_27 ();
  sky130_fd_sc_hd__fill_2 FILLER_4_29 ();
  sky130_ef_sc_hd__decap_12 FILLER_4_3 ();
- sky130_ef_sc_hd__decap_12 FILLER_4_35 ();
- sky130_fd_sc_hd__fill_1 FILLER_4_47 ();
+ sky130_fd_sc_hd__decap_6 FILLER_4_35 ();
+ sky130_fd_sc_hd__decap_4 FILLER_4_44 ();
  sky130_fd_sc_hd__decap_4 FILLER_4_51 ();
  sky130_ef_sc_hd__decap_12 FILLER_4_60 ();
  sky130_ef_sc_hd__decap_12 FILLER_4_72 ();
@@ -606,7 +607,7 @@ module wrapped_MC14500 (clk,
  sky130_fd_sc_hd__dfxtp_2 _75_ (.CLK(clknet_1_1__leaf_clk),
     .D(_04_),
     .Q(\mc14500.instr[3] ));
- sky130_fd_sc_hd__dfxtp_2 _76_ (.CLK(net19),
+ sky130_fd_sc_hd__dfxtp_4 _76_ (.CLK(net19),
     .D(_00_),
     .Q(net11));
  sky130_fd_sc_hd__dfxtp_1 _77_ (.CLK(net20),

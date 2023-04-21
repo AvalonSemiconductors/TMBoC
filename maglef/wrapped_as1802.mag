@@ -1,7 +1,7 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1680173551
+timestamp 1682094287
 << nwell >>
 rect 1066 56837 58918 57403
 rect 1066 55749 58918 56315
@@ -289,7 +289,7 @@ string FIXED_BBOX 0 0 60000 60000
 string LEFclass BLOCK
 string LEFview TRUE
 string GDS_END 10009644
-string GDS_FILE /run/media/tholin/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/AS1802/runs/23_03_30_12_39/results/signoff/wrapped_as1802.magic.gds
+string GDS_FILE /run/media/tholin/Data/Projects/MPW/TMBoC/openlane/AS1802/runs/23_04_21_18_19/results/signoff/wrapped_as1802.magic.gds
 string GDS_START 1237642
 << end >>
 
