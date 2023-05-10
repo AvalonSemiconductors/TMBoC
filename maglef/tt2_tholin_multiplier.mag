@@ -1,11 +1,11 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1682093612
+timestamp 1683538729
 << obsli1 >>
 rect 1104 2159 10856 15793
 << obsm1 >>
-rect 750 2128 11118 15824
+rect 750 892 11118 15824
 << metal2 >>
 rect 754 0 810 800
 rect 2226 0 2282 800
@@ -111,8 +111,8 @@ port 18 nsew ground bidirectional
 string FIXED_BBOX 0 0 12000 18000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 533758
-string GDS_FILE /run/media/tholin/Data/Projects/MPW/TMBoC/openlane/4x4-multiply/runs/23_04_21_18_13/results/signoff/tt2_tholin_multiplier.magic.gds
+string GDS_END 522062
+string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/4x4-multiply/runs/23_05_08_11_38/results/signoff/tt2_tholin_multiplier.magic.gds
 string GDS_START 232398
 << end >>
 

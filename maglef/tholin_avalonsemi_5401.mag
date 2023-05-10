@@ -1,7 +1,7 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1682095155
+timestamp 1683540522
 << nwell >>
 rect 1066 32901 34906 33467
 rect 1066 31813 34906 32379
@@ -35,7 +35,7 @@ rect 1066 2437 34906 3003
 << obsli1 >>
 rect 1104 2159 34868 33745
 << obsm1 >>
-rect 1104 2128 35027 33776
+rect 1104 2128 35130 33776
 << metal2 >>
 rect 1766 35200 1822 36000
 rect 4710 35200 4766 36000
@@ -89,8 +89,8 @@ rect 22486 35144 25262 35306
 rect 25430 35144 28206 35306
 rect 28374 35144 31150 35306
 rect 31318 35144 34094 35306
-rect 34262 35144 35021 35306
-rect 1216 856 35021 35144
+rect 34262 35144 35126 35306
+rect 1216 856 35126 35144
 rect 1326 734 2446 856
 rect 2614 734 3734 856
 rect 3902 734 5022 856
@@ -117,13 +117,13 @@ rect 29662 734 30782 856
 rect 30950 734 32070 856
 rect 32238 734 33358 856
 rect 33526 734 34646 856
-rect 34814 734 35021 856
+rect 34814 734 35126 856
 << metal3 >>
 rect 35200 17824 36000 17944
 << obsm3 >>
-rect 3693 18024 35200 33761
-rect 3693 17744 35120 18024
-rect 3693 2143 35200 17744
+rect 5166 18024 35200 33761
+rect 5166 17744 35120 18024
+rect 5166 2143 35200 17744
 << metal4 >>
 rect 5164 2128 5484 33776
 rect 9384 2128 9704 33776
@@ -234,8 +234,8 @@ port 42 nsew ground bidirectional
 string FIXED_BBOX 0 0 36000 36000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 2908958
-string GDS_FILE /run/media/tholin/Data/Projects/MPW/TMBoC/openlane/AS5401/runs/23_04_21_18_37/results/signoff/tholin_avalonsemi_5401.magic.gds
+string GDS_END 2811250
+string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/AS5401/runs/23_05_08_12_06/results/signoff/tholin_avalonsemi_5401.magic.gds
 string GDS_START 884056
 << end >>
 

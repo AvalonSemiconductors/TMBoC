@@ -179,7 +179,7 @@ MACRO tt2_tholin_multiplier
       LAYER li1 ;
         RECT 5.520 10.795 54.280 78.965 ;
       LAYER met1 ;
-        RECT 3.750 10.640 55.590 79.120 ;
+        RECT 3.750 4.460 55.590 79.120 ;
       LAYER met2 ;
         RECT 3.780 4.280 55.560 82.805 ;
         RECT 4.330 4.000 10.850 4.280 ;

@@ -120,25 +120,25 @@ library (wrapped_vgatest) {
     }
     pin("io_in") {
       direction : input;
-      capacitance : 0.0057;
+      capacitance : 0.0058;
       timing() {
         related_pin : "clk";
         timing_type : hold_rising;
 	rise_constraint(scalar) {
-          values("0.06798");
+          values("0.03152");
 	}
 	fall_constraint(scalar) {
-          values("0.13358");
+          values("0.10120");
 	}
       }
       timing() {
         related_pin : "clk";
         timing_type : setup_rising;
 	rise_constraint(scalar) {
-          values("0.53378");
+          values("0.47230");
 	}
 	fall_constraint(scalar) {
-          values("0.21431");
+          values("0.17568");
 	}
       }
     }
@@ -149,20 +149,20 @@ library (wrapped_vgatest) {
         related_pin : "clk";
         timing_type : hold_rising;
 	rise_constraint(scalar) {
-          values("0.05929");
+          values("0.02267");
 	}
 	fall_constraint(scalar) {
-          values("0.03862");
+          values("0.00277");
 	}
       }
       timing() {
         related_pin : "clk";
         timing_type : setup_rising;
 	rise_constraint(scalar) {
-          values("0.86734");
+          values("0.78313");
 	}
 	fall_constraint(scalar) {
-          values("0.95198");
+          values("0.86830");
 	}
       }
     }
@@ -180,18 +180,18 @@ library (wrapped_vgatest) {
       capacitance : 0.0000;
     pin("io_out[9]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0009;
       timing() {
         related_pin : "clk";
         timing_type : rising_edge;
 	cell_rise(template_19) {
-          values("1.38402,1.38759,1.39727,1.42232,1.49333,1.71620,2.43614");
+          values("1.32216,1.32573,1.33540,1.36046,1.43147,1.65434,2.37428");
 	}
 	rise_transition(template_19) {
           values("0.01814,0.02112,0.03035,0.05922,0.15622,0.47627,1.50580");
 	}
 	cell_fall(template_20) {
-          values("1.80103,1.80438,1.81314,1.83223,1.87337,1.97779,2.29874");
+          values("1.71423,1.71758,1.72633,1.74543,1.78657,1.89099,2.21194");
 	}
 	fall_transition(template_20) {
           values("0.02007,0.02204,0.02760,0.04181,0.08061,0.20704,0.63473");
@@ -200,18 +200,18 @@ library (wrapped_vgatest) {
     }
     pin("io_out[8]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0011;
       timing() {
         related_pin : "clk";
         timing_type : rising_edge;
 	cell_rise(template_17) {
-          values("1.58684,1.59036,1.60005,1.62511,1.69609,1.91893,2.63933");
+          values("1.49695,1.50047,1.51016,1.53522,1.60620,1.82904,2.54944");
 	}
 	rise_transition(template_17) {
           values("0.01830,0.02133,0.03049,0.05928,0.15617,0.47625,1.50760");
 	}
 	cell_fall(template_18) {
-          values("1.65414,1.65745,1.66642,1.68561,1.72664,1.83114,2.15163");
+          values("1.56643,1.56973,1.57870,1.59790,1.63893,1.74342,2.06392");
 	}
 	fall_transition(template_18) {
           values("0.02011,0.02209,0.02758,0.04187,0.08050,0.20688,0.63728");
@@ -220,38 +220,38 @@ library (wrapped_vgatest) {
     }
     pin("io_out[7]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0009;
       timing() {
         related_pin : "clk";
         timing_type : rising_edge;
 	cell_rise(template_15) {
-          values("0.83885,0.84243,0.85210,0.87714,0.94807,1.17106,1.89081");
+          values("0.80461,0.80818,0.81785,0.84290,0.91383,1.13681,1.85657");
 	}
 	rise_transition(template_15) {
-          values("0.01813,0.02113,0.03035,0.05922,0.15620,0.47626,1.50721");
+          values("0.01813,0.02113,0.03035,0.05922,0.15620,0.47626,1.50715");
 	}
 	cell_fall(template_16) {
-          values("0.85286,0.85619,0.86481,0.88404,0.92499,1.02951,1.34999");
+          values("0.81953,0.82286,0.83149,0.85072,0.89166,0.99618,1.31666");
 	}
 	fall_transition(template_16) {
-          values("0.02000,0.02212,0.02747,0.04144,0.08073,0.20662,0.63661");
+          values("0.02000,0.02212,0.02747,0.04144,0.08073,0.20662,0.63662");
 	}
       }
     }
     pin("io_out[6]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0009;
       timing() {
         related_pin : "clk";
         timing_type : rising_edge;
 	cell_rise(template_13) {
-          values("0.83425,0.83783,0.84750,0.87254,0.94345,1.16646,1.88617");
+          values("0.79930,0.80288,0.81255,0.83759,0.90850,1.13151,1.85122");
 	}
 	rise_transition(template_13) {
           values("0.01813,0.02113,0.03035,0.05922,0.15619,0.47625,1.50760");
 	}
 	cell_fall(template_14) {
-          values("0.84924,0.85257,0.86117,0.88041,0.92135,1.02587,1.34635");
+          values("0.81522,0.81855,0.82716,0.84639,0.88733,0.99185,1.31233");
 	}
 	fall_transition(template_14) {
           values("0.01999,0.02212,0.02747,0.04142,0.08074,0.20661,0.63656");
@@ -260,18 +260,18 @@ library (wrapped_vgatest) {
     }
     pin("io_out[5]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0009;
       timing() {
         related_pin : "clk";
         timing_type : rising_edge;
 	cell_rise(template_11) {
-          values("0.83335,0.83693,0.84660,0.87164,0.94254,1.16556,1.88527");
+          values("0.79819,0.80176,0.81143,0.83647,0.90738,1.13040,1.85010");
 	}
 	rise_transition(template_11) {
           values("0.01812,0.02114,0.03035,0.05922,0.15619,0.47625,1.50770");
 	}
 	cell_fall(template_12) {
-          values("0.84851,0.85184,0.86044,0.87967,0.92062,1.02514,1.34562");
+          values("0.81431,0.81765,0.82625,0.84548,0.88642,0.99095,1.31143");
 	}
 	fall_transition(template_12) {
           values("0.01999,0.02212,0.02747,0.04141,0.08074,0.20660,0.63655");
@@ -280,18 +280,18 @@ library (wrapped_vgatest) {
     }
     pin("io_out[4]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0009;
       timing() {
         related_pin : "clk";
         timing_type : rising_edge;
 	cell_rise(template_9) {
-          values("0.85014,0.85371,0.86338,0.88842,0.95935,1.18234,1.90209");
+          values("0.80520,0.80877,0.81844,0.84349,0.91442,1.13740,1.85716");
 	}
 	rise_transition(template_9) {
           values("0.01813,0.02113,0.03035,0.05922,0.15620,0.47626,1.50721");
 	}
 	cell_fall(template_10) {
-          values("0.86419,0.86752,0.87615,0.89538,0.93632,1.04085,1.36133");
+          values("0.82023,0.82356,0.83219,0.85142,0.89237,0.99689,1.31737");
 	}
 	fall_transition(template_10) {
           values("0.02000,0.02212,0.02747,0.04144,0.08073,0.20662,0.63661");
@@ -300,38 +300,38 @@ library (wrapped_vgatest) {
     }
     pin("io_out[3]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0011;
       timing() {
         related_pin : "clk";
         timing_type : rising_edge;
 	cell_rise(template_7) {
-          values("0.85278,0.85636,0.86603,0.89107,0.96200,1.18499,1.90474");
+          values("0.80656,0.81013,0.81980,0.84485,0.91577,1.13876,1.85851");
 	}
 	rise_transition(template_7) {
-          values("0.01813,0.02113,0.03035,0.05922,0.15620,0.47626,1.50719");
+          values("0.01813,0.02113,0.03035,0.05922,0.15620,0.47626,1.50725");
 	}
 	cell_fall(template_8) {
-          values("0.86661,0.86994,0.87856,0.89779,0.93874,1.04326,1.36374");
+          values("0.82168,0.82501,0.83363,0.85286,0.89381,0.99833,1.31881");
 	}
 	fall_transition(template_8) {
-          values("0.02000,0.02212,0.02747,0.04144,0.08073,0.20662,0.63661");
+          values("0.02000,0.02212,0.02747,0.04144,0.08073,0.20662,0.63660");
 	}
       }
     }
     pin("io_out[2]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0009;
       timing() {
         related_pin : "clk";
         timing_type : rising_edge;
 	cell_rise(template_5) {
-          values("0.84894,0.85251,0.86218,0.88722,0.95812,1.18115,1.90085");
+          values("0.80369,0.80726,0.81693,0.84197,0.91287,1.13590,1.85560");
 	}
 	rise_transition(template_5) {
           values("0.01812,0.02114,0.03035,0.05922,0.15619,0.47625,1.50772");
 	}
 	cell_fall(template_6) {
-          values("0.86414,0.86747,0.87608,0.89531,0.93625,1.04077,1.36125");
+          values("0.81984,0.82317,0.83177,0.85100,0.89194,0.99647,1.31695");
 	}
 	fall_transition(template_6) {
           values("0.01999,0.02212,0.02747,0.04141,0.08075,0.20660,0.63655");
@@ -340,18 +340,18 @@ library (wrapped_vgatest) {
     }
     pin("io_out[1]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0009;
       timing() {
         related_pin : "clk";
         timing_type : rising_edge;
 	cell_rise(template_3) {
-          values("0.85016,0.85374,0.86341,0.88845,0.95936,1.18237,1.90208");
+          values("0.80478,0.80835,0.81802,0.84306,0.91397,1.13699,1.85670");
 	}
 	rise_transition(template_3) {
           values("0.01813,0.02113,0.03035,0.05922,0.15619,0.47625,1.50760");
 	}
 	cell_fall(template_4) {
-          values("0.86509,0.86842,0.87703,0.89626,0.93720,1.04172,1.36220");
+          values("0.82068,0.82401,0.83262,0.85185,0.89279,0.99732,1.31780");
 	}
 	fall_transition(template_4) {
           values("0.01999,0.02212,0.02747,0.04142,0.08074,0.20661,0.63656");
@@ -360,21 +360,21 @@ library (wrapped_vgatest) {
     }
     pin("io_out[0]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0009;
       timing() {
         related_pin : "clk";
         timing_type : rising_edge;
 	cell_rise(template_1) {
-          values("0.85311,0.85668,0.86635,0.89140,0.96232,1.18531,1.90507");
+          values("0.80728,0.81085,0.82052,0.84557,0.91649,1.13948,1.85923");
 	}
 	rise_transition(template_1) {
-          values("0.01813,0.02113,0.03035,0.05922,0.15620,0.47626,1.50721");
+          values("0.01813,0.02113,0.03035,0.05922,0.15620,0.47626,1.50726");
 	}
 	cell_fall(template_2) {
-          values("0.86716,0.87049,0.87911,0.89834,0.93929,1.04381,1.36429");
+          values("0.82244,0.82576,0.83439,0.85362,0.89456,0.99909,1.31956");
 	}
 	fall_transition(template_2) {
-          values("0.02000,0.02212,0.02747,0.04144,0.08073,0.20662,0.63661");
+          values("0.02000,0.02212,0.02747,0.04144,0.08073,0.20662,0.63660");
 	}
       }
     }

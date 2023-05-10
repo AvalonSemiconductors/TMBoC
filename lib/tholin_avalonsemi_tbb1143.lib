@@ -52,20 +52,20 @@ library (tholin_avalonsemi_tbb1143) {
         related_pin : "clk";
         timing_type : hold_rising;
 	rise_constraint(scalar) {
-          values("-0.09585");
+          values("-0.12684");
 	}
 	fall_constraint(scalar) {
-          values("-0.09821");
+          values("-0.13021");
 	}
       }
       timing() {
         related_pin : "clk";
         timing_type : setup_rising;
 	rise_constraint(scalar) {
-          values("0.33501");
+          values("0.29700");
 	}
 	fall_constraint(scalar) {
-          values("0.37014");
+          values("0.32819");
 	}
       }
     }
@@ -87,11 +87,11 @@ library (tholin_avalonsemi_tbb1143) {
     }
     pin("io_in[4]") {
       direction : input;
-      capacitance : 0.0031;
+      capacitance : 0.0027;
     }
     pin("io_in[3]") {
       direction : input;
-      capacitance : 0.0029;
+      capacitance : 0.0025;
     }
     pin("io_in[2]") {
       direction : input;
@@ -112,35 +112,35 @@ library (tholin_avalonsemi_tbb1143) {
       capacitance : 0.0000;
     pin("io_out[7]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0008;
     }
     pin("io_out[6]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0005;
     }
     pin("io_out[5]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0006;
     }
     pin("io_out[4]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0007;
     }
     pin("io_out[3]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0007;
     }
     pin("io_out[2]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0009;
     }
     pin("io_out[1]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0006;
     }
     pin("io_out[0]") {
       direction : output;
-      capacitance : 0.0334;
+      capacitance : 0.0006;
     }
     }
   }

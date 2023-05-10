@@ -196,23 +196,15 @@ module wrapped_MC14500 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_10_51 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_6 FILLER_10_51 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__fill_1 FILLER_10_55 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_10_66 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_10_65 (.VGND(vssd1),
-    .VNB(vssd1),
-    .VPB(vccd1),
-    .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_10_77 (.VGND(vssd1),
-    .VNB(vssd1),
-    .VPB(vccd1),
-    .VPWR(vccd1));
- sky130_fd_sc_hd__fill_1 FILLER_10_83 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_6 FILLER_10_78 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -232,7 +224,7 @@ module wrapped_MC14500 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_11_40 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_8 FILLER_11_38 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -636,7 +628,11 @@ module wrapped_MC14500 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_8 FILLER_1_48 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_3 FILLER_1_48 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__fill_2 FILLER_1_54 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -1008,11 +1004,11 @@ module wrapped_MC14500 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_4_35 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_4_35 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_4_44 (.VGND(vssd1),
+ sky130_fd_sc_hd__fill_1 FILLER_4_47 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -1866,7 +1862,7 @@ module wrapped_MC14500 (clk,
     .VPB(vccd1),
     .VPWR(vccd1),
     .Q(\mc14500.instr[3] ));
- sky130_fd_sc_hd__dfxtp_4 _76_ (.CLK(net19),
+ sky130_fd_sc_hd__dfxtp_2 _76_ (.CLK(net19),
     .D(_00_),
     .VGND(vssd1),
     .VNB(vssd1),

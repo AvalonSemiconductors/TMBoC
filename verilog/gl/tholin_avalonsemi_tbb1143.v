@@ -574,6 +574,9 @@ module tholin_avalonsemi_tbb1143 (clk,
  wire net40;
  wire net41;
  wire net42;
+ wire net43;
+ wire net44;
+ wire net45;
  wire net5;
  wire net6;
  wire net7;
@@ -1679,15 +1682,19 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__fill_1 FILLER_18_117 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_18_120 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_18_121 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_18_128 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_18_128 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_18_135 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__fill_1 FILLER_18_139 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -2015,11 +2022,11 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_20_108 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_20_103 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__fill_1 FILLER_20_114 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_20_111 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -2139,11 +2146,7 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__fill_1 FILLER_20_93 (.VGND(vssd1),
-    .VNB(vssd1),
-    .VPB(vccd1),
-    .VPWR(vccd1));
- sky130_fd_sc_hd__decap_8 FILLER_20_97 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_20_96 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -2615,19 +2618,23 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_24_41 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_24_41 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__fill_1 FILLER_24_47 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_24_53 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_24_69 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_24_65 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_3 FILLER_24_81 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_6 FILLER_24_77 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__fill_1 FILLER_24_83 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -2743,7 +2750,7 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_3 FILLER_25_84 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_25_84 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -2755,15 +2762,11 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_8 FILLER_26_103 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_6 FILLER_26_108 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
  sky130_fd_sc_hd__fill_2 FILLER_26_11 (.VGND(vssd1),
-    .VNB(vssd1),
-    .VPB(vccd1),
-    .VPWR(vccd1));
- sky130_fd_sc_hd__decap_3 FILLER_26_111 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -2859,15 +2862,19 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_26_41 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_6 FILLER_26_41 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_26_53 (.VGND(vssd1),
+ sky130_fd_sc_hd__fill_1 FILLER_26_47 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_26_80 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_26_69 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__decap_3 FILLER_26_81 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -2875,11 +2882,11 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_27_105 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_26_96 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__fill_1 FILLER_27_111 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_27_100 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -2979,15 +2986,11 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_8 FILLER_27_57 (.VGND(vssd1),
+ sky130_fd_sc_hd__fill_2 FILLER_27_57 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__fill_2 FILLER_27_65 (.VGND(vssd1),
-    .VNB(vssd1),
-    .VPB(vccd1),
-    .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_27_93 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_27_80 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3099,11 +3102,15 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_28_69 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_28_69 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_3 FILLER_28_81 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_6 FILLER_28_77 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__fill_1 FILLER_28_83 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3479,11 +3486,7 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_31_156 (.VGND(vssd1),
-    .VNB(vssd1),
-    .VPB(vccd1),
-    .VPWR(vccd1));
- sky130_fd_sc_hd__decap_3 FILLER_31_165 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_31_156 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3515,7 +3518,7 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_31_24 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_31_24 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3551,15 +3554,15 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__fill_1 FILLER_31_30 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_31_32 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_31_37 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_8 FILLER_31_40 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_31_45 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_3 FILLER_31_48 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3599,15 +3602,19 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_32_141 (.VGND(vssd1),
+ sky130_fd_sc_hd__fill_2 FILLER_32_141 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_8 FILLER_32_156 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_32_152 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__fill_2 FILLER_32_164 (.VGND(vssd1),
+ sky130_fd_sc_hd__fill_1 FILLER_32_156 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__decap_4 FILLER_32_162 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3679,7 +3686,19 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_32_57 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_8 FILLER_32_37 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__fill_2 FILLER_32_45 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__decap_4 FILLER_32_68 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__fill_1 FILLER_32_72 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3715,11 +3734,15 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_33_153 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_33_153 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_3 FILLER_33_165 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_33_163 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__fill_1 FILLER_33_167 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3811,15 +3834,11 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_8 FILLER_33_82 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_33_80 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
  sky130_fd_sc_hd__fill_1 FILLER_33_9 (.VGND(vssd1),
-    .VNB(vssd1),
-    .VPB(vccd1),
-    .VPWR(vccd1));
- sky130_fd_sc_hd__fill_2 FILLER_33_90 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3839,11 +3858,15 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_34_152 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_34_150 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_34_164 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_34_162 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__fill_2 FILLER_34_174 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3895,7 +3918,7 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_34_29 (.VGND(vssd1),
+ sky130_fd_sc_hd__fill_2 FILLER_34_29 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3907,19 +3930,23 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_34_41 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_8 FILLER_34_35 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__fill_1 FILLER_34_45 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_3 FILLER_34_43 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_34_67 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_34_67 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_34_80 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_34_79 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__fill_1 FILLER_34_83 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3947,7 +3974,7 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_35_138 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_8 FILLER_35_138 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -3955,19 +3982,19 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__fill_1 FILLER_35_142 (.VGND(vssd1),
+ sky130_fd_sc_hd__fill_2 FILLER_35_146 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_35_150 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_35_151 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_8 FILLER_35_157 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_35_163 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_3 FILLER_35_165 (.VGND(vssd1),
+ sky130_fd_sc_hd__fill_1 FILLER_35_167 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -4191,7 +4218,7 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_37_123 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_37_123 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -4291,15 +4318,19 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_3 FILLER_38_118 (.VGND(vssd1),
+ sky130_fd_sc_hd__fill_2 FILLER_38_118 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_38_124 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_38_123 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_4 FILLER_38_136 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_4 FILLER_38_135 (.VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1));
+ sky130_fd_sc_hd__fill_1 FILLER_38_139 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -4427,11 +4458,7 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_39_154 (.VGND(vssd1),
-    .VNB(vssd1),
-    .VPB(vccd1),
-    .VPWR(vccd1));
- sky130_fd_sc_hd__fill_2 FILLER_39_166 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_39_156 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -5243,15 +5270,15 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_45_177 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_45_175 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_8 FILLER_45_189 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_8 FILLER_45_187 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__fill_1 FILLER_45_197 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_3 FILLER_45_195 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -5395,7 +5422,7 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_46_217 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_8 FILLER_46_215 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -5427,11 +5454,11 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_ef_sc_hd__decap_12 FILLER_46_261 (.VGND(vssd1),
+ sky130_ef_sc_hd__decap_12 FILLER_46_259 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
- sky130_fd_sc_hd__decap_6 FILLER_46_273 (.VGND(vssd1),
+ sky130_fd_sc_hd__decap_8 FILLER_46_271 (.VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1));
@@ -9704,7 +9731,7 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VPB(vccd1),
     .VPWR(vccd1),
     .Y(_105_));
- sky130_fd_sc_hd__inv_2 _683_ (.A(net24),
+ sky130_fd_sc_hd__inv_2 _683_ (.A(net43),
     .VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
@@ -10752,7 +10779,7 @@ module tholin_avalonsemi_tbb1143 (clk,
     .Q(\CIRCUIT_2223.MEMORY_25.s_currentState ));
  sky130_fd_sc_hd__dfrtp_4 _825_ (.CLK(net39),
     .D(\CIRCUIT_2223.MEMORY_24.d ),
-    .RESET_B(_106_),
+    .RESET_B(net44),
     .VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
@@ -10974,7 +11001,7 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VPB(vccd1),
     .VPWR(vccd1),
     .X(net25));
- sky130_fd_sc_hd__buf_2 fanout26 (.A(net32),
+ sky130_fd_sc_hd__clkbuf_2 fanout26 (.A(net32),
     .VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
@@ -11028,42 +11055,60 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VPB(vccd1),
     .VPWR(vccd1),
     .X(net34));
- sky130_fd_sc_hd__clkbuf_8 fanout35 (.A(net5),
+ sky130_fd_sc_hd__buf_4 fanout35 (.A(net5),
     .VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1),
     .X(net35));
- sky130_fd_sc_hd__buf_6 fanout36 (.A(net4),
+ sky130_fd_sc_hd__clkbuf_8 fanout36 (.A(net4),
     .VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1),
     .X(net36));
- sky130_fd_sc_hd__buf_6 fanout37 (.A(net3),
+ sky130_fd_sc_hd__clkbuf_8 fanout37 (.A(net3),
     .VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1),
     .X(net37));
- sky130_fd_sc_hd__clkbuf_4 fanout38 (.A(net3),
+ sky130_fd_sc_hd__buf_2 fanout38 (.A(net3),
     .VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1),
     .X(net38));
- sky130_fd_sc_hd__bufbuf_16 hold1 (.A(\CIRCUIT_2223.CLK ),
+ sky130_fd_sc_hd__buf_2 hold1 (.A(net45),
     .VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1),
     .X(net41));
- sky130_fd_sc_hd__bufbuf_16 hold2 (.A(net32),
+ sky130_fd_sc_hd__buf_2 hold2 (.A(net32),
     .VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1),
     .X(net42));
+ sky130_fd_sc_hd__buf_2 hold3 (.A(net24),
+    .VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1),
+    .X(net43));
+ sky130_fd_sc_hd__buf_2 hold4 (.A(_106_),
+    .VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1),
+    .X(net44));
+ sky130_fd_sc_hd__buf_2 hold5 (.A(\CIRCUIT_2223.CLK ),
+    .VGND(vssd1),
+    .VNB(vssd1),
+    .VPB(vccd1),
+    .VPWR(vccd1),
+    .X(net45));
  sky130_fd_sc_hd__buf_6 input1 (.A(io_in[0]),
     .VGND(vssd1),
     .VNB(vssd1),
@@ -11082,13 +11127,13 @@ module tholin_avalonsemi_tbb1143 (clk,
     .VPB(vccd1),
     .VPWR(vccd1),
     .X(net3));
- sky130_fd_sc_hd__clkbuf_4 input4 (.A(io_in[3]),
+ sky130_fd_sc_hd__buf_2 input4 (.A(io_in[3]),
     .VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),
     .VPWR(vccd1),
     .X(net4));
- sky130_fd_sc_hd__clkbuf_4 input5 (.A(io_in[4]),
+ sky130_fd_sc_hd__buf_2 input5 (.A(io_in[4]),
     .VGND(vssd1),
     .VNB(vssd1),
     .VPB(vccd1),

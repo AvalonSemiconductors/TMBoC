@@ -1,7 +1,7 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1682098651
+timestamp 1683542663
 << nwell >>
 rect 1066 27461 28926 27782
 rect 1066 26373 28926 26939
@@ -138,8 +138,8 @@ port 18 nsew ground bidirectional
 string FIXED_BBOX 0 0 30000 30000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 1880304
-string GDS_FILE /run/media/tholin/Data/Projects/MPW/TMBoC/openlane/TBB1143/runs/23_04_21_19_36/results/signoff/tholin_avalonsemi_tbb1143.magic.gds
-string GDS_START 469992
+string GDS_END 1790278
+string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/TBB1143/runs/23_05_08_12_41/results/signoff/tholin_avalonsemi_tbb1143.magic.gds
+string GDS_START 451732
 << end >>
 

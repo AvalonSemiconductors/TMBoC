@@ -1,11 +1,11 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1682097881
+timestamp 1683541606
 << obsli1 >>
 rect 1104 2159 16836 15793
 << obsm1 >>
-rect 842 2128 17098 15824
+rect 842 892 17098 17332
 << metal2 >>
 rect 4434 17200 4490 18000
 rect 13450 17200 13506 18000
@@ -22,21 +22,21 @@ rect 14094 0 14150 800
 rect 15566 0 15622 800
 rect 17038 0 17094 800
 << obsm2 >>
-rect 848 17144 4378 17200
-rect 4546 17144 13394 17200
-rect 13562 17144 17092 17200
+rect 848 17144 4378 17354
+rect 4546 17144 13394 17354
+rect 13562 17144 17092 17354
 rect 848 856 17092 17144
-rect 958 800 2262 856
-rect 2430 800 3734 856
-rect 3902 800 5206 856
-rect 5374 800 6678 856
-rect 6846 800 8150 856
-rect 8318 800 9622 856
-rect 9790 800 11094 856
-rect 11262 800 12566 856
-rect 12734 800 14038 856
-rect 14206 800 15510 856
-rect 15678 800 16982 856
+rect 958 734 2262 856
+rect 2430 734 3734 856
+rect 3902 734 5206 856
+rect 5374 734 6678 856
+rect 6846 734 8150 856
+rect 8318 734 9622 856
+rect 9790 734 11094 856
+rect 11262 734 12566 856
+rect 12734 734 14038 856
+rect 14206 734 15510 856
+rect 15678 734 16982 856
 << obsm3 >>
 rect 2912 2143 16993 15809
 << metal4 >>
@@ -97,8 +97,8 @@ port 16 nsew ground bidirectional
 string FIXED_BBOX 0 0 18000 18000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 749108
-string GDS_FILE /run/media/tholin/Data/Projects/MPW/TMBoC/openlane/MultiplexedCounter/runs/23_04_21_19_23/results/signoff/tt2_tholin_multiplexed_counter.magic.gds
+string GDS_END 726936
+string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/MultiplexedCounter/runs/23_05_08_12_25/results/signoff/tt2_tholin_multiplexed_counter.magic.gds
 string GDS_START 270124
 << end >>
 

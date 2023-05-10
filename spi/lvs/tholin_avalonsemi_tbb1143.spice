@@ -24,6 +24,10 @@
 .subckt sky130_fd_sc_hd__fill_1 VGND VNB VPB VPWR
 .ends
 
+* Black-box entry subcircuit for sky130_fd_sc_hd__decap_6 abstract view
+.subckt sky130_fd_sc_hd__decap_6 VGND VNB VPB VPWR
+.ends
+
 * Black-box entry subcircuit for sky130_fd_sc_hd__inv_2 abstract view
 .subckt sky130_fd_sc_hd__inv_2 A VGND VNB VPB VPWR Y
 .ends
@@ -70,10 +74,6 @@
 
 * Black-box entry subcircuit for sky130_fd_sc_hd__mux2_1 abstract view
 .subckt sky130_fd_sc_hd__mux2_1 A0 A1 S VGND VNB VPB VPWR X
-.ends
-
-* Black-box entry subcircuit for sky130_fd_sc_hd__decap_6 abstract view
-.subckt sky130_fd_sc_hd__decap_6 VGND VNB VPB VPWR
 .ends
 
 * Black-box entry subcircuit for sky130_fd_sc_hd__buf_4 abstract view
@@ -196,10 +196,6 @@
 .subckt sky130_fd_sc_hd__a21boi_1 A1 A2 B1_N VGND VNB VPB VPWR Y
 .ends
 
-* Black-box entry subcircuit for sky130_fd_sc_hd__clkbuf_8 abstract view
-.subckt sky130_fd_sc_hd__clkbuf_8 A VGND VNB VPB VPWR X
-.ends
-
 * Black-box entry subcircuit for sky130_fd_sc_hd__and3_1 abstract view
 .subckt sky130_fd_sc_hd__and3_1 A B C VGND VNB VPB VPWR X
 .ends
@@ -210,6 +206,10 @@
 
 * Black-box entry subcircuit for sky130_fd_sc_hd__clkbuf_2 abstract view
 .subckt sky130_fd_sc_hd__clkbuf_2 A VGND VNB VPB VPWR X
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__clkbuf_8 abstract view
+.subckt sky130_fd_sc_hd__clkbuf_8 A VGND VNB VPB VPWR X
 .ends
 
 * Black-box entry subcircuit for sky130_fd_sc_hd__buf_2 abstract view
@@ -226,10 +226,6 @@
 
 * Black-box entry subcircuit for sky130_fd_sc_hd__a21oi_2 abstract view
 .subckt sky130_fd_sc_hd__a21oi_2 A1 A2 B1 VGND VNB VPB VPWR Y
-.ends
-
-* Black-box entry subcircuit for sky130_fd_sc_hd__bufbuf_16 abstract view
-.subckt sky130_fd_sc_hd__bufbuf_16 A VGND VNB VPB VPWR X
 .ends
 
 * Black-box entry subcircuit for sky130_fd_sc_hd__and3b_1 abstract view
@@ -271,8 +267,9 @@ X_501_ _693_/Q _680_/B vssd1 vssd1 vccd1 vccd1 _693_/D sky130_fd_sc_hd__nor2_1
 XFILLER_45_225 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 X_432_ _752_/Q _766_/Q vssd1 vssd1 vccd1 vccd1 _432_/X sky130_fd_sc_hd__or2_1
 XFILLER_13_111 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
-XFILLER_26_41 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_26_41 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_26_85 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
+XFILLER_26_96 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_9_137 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 X_363_ _824_/Q vssd1 vssd1 vccd1 vccd1 _824_/D sky130_fd_sc_hd__inv_2
 XFILLER_44_291 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
@@ -291,8 +288,8 @@ XFILLER_14_250 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_20_253 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 X_680_ _680_/A _680_/B vssd1 vssd1 vccd1 vccd1 _680_/Y sky130_fd_sc_hd__nand2_1
 XFILLER_34_85 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_34_41 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_7_213 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
+XFILLER_38_139 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_801_ _673_/Y _801_/D _588_/X vssd1 vssd1 vccd1 vccd1 _801_/Q sky130_fd_sc_hd__dfrtp_2
 X_732_ _812_/CLK _732_/D vssd1 vssd1 vccd1 vccd1 _732_/Q sky130_fd_sc_hd__dfxtp_2
 XFILLER_43_131 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
@@ -306,11 +303,10 @@ XTAP_315 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_304 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XFILLER_13_3 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_34_197 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
-XFILLER_34_164 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_31_86 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_715_ _364_/A _715_/D _624_/Y vssd1 vssd1 vccd1 vccd1 _716_/D sky130_fd_sc_hd__dfrtp_1
 X_577_ _578_/A _577_/B vssd1 vssd1 vccd1 vccd1 _577_/X sky130_fd_sc_hd__and2_1
-XFILLER_31_156 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
+XFILLER_31_156 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_646_ _749_/Q vssd1 vssd1 vccd1 vccd1 _646_/Y sky130_fd_sc_hd__inv_2
 XFILLER_16_164 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_16_175 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -332,7 +328,6 @@ X_431_ _752_/Q _766_/Q vssd1 vssd1 vccd1 vccd1 _431_/Y sky130_fd_sc_hd__nand2_1
 XFILLER_13_145 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_13_167 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_362_ _823_/Q vssd1 vssd1 vccd1 vccd1 _823_/D sky130_fd_sc_hd__inv_2
-XFILLER_26_53 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_42_85 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_3_57 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 X_629_ _680_/A _679_/B vssd1 vssd1 vccd1 vccd1 _629_/Y sky130_fd_sc_hd__nand2_1
@@ -356,7 +351,7 @@ XFILLER_20_298 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_34_97 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_7_225 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_11_298 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
-XFILLER_38_118 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
+XFILLER_38_118 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_46_195 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_6_291 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_20_22 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
@@ -374,6 +369,7 @@ XFILLER_34_121 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_15_11 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_25_110 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_15_88 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_31_32 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_31_54 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_0_253 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 Xoutput8 _492_/Y vssd1 vssd1 vccd1 vccd1 io_out[0] sky130_fd_sc_hd__buf_4
@@ -382,10 +378,10 @@ X_714_ _682_/A _714_/D _623_/Y vssd1 vssd1 vccd1 vccd1 _715_/D sky130_fd_sc_hd__
 X_645_ _645_/A _645_/B vssd1 vssd1 vccd1 vccd1 _645_/Y sky130_fd_sc_hd__xnor2_2
 XFILLER_0_297 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 X_576_ input6/X _816_/Q _576_/S vssd1 vssd1 vccd1 vccd1 _816_/D sky130_fd_sc_hd__mux2_1
+XFILLER_31_124 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_16_187 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 Xclkbuf_1_0__f__183_ clkbuf_0__183_/X vssd1 vssd1 vccd1 vccd1 _467_/A1 sky130_fd_sc_hd__clkbuf_16
 XFILLER_31_113 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
-XFILLER_31_124 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_39_213 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XTAP_135 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_124 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
@@ -414,6 +410,7 @@ XFILLER_0_15 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_9_57 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_327_ _745_/Q vssd1 vssd1 vccd1 vccd1 _745_/D sky130_fd_sc_hd__inv_2
 XFILLER_36_3 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
+XFILLER_34_43 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_18_66 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_11_233 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_11_277 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
@@ -422,7 +419,7 @@ XFILLER_1_80 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_43_100 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_592_ _670_/A _594_/B vssd1 vssd1 vccd1 vccd1 _592_/X sky130_fd_sc_hd__xor2_2
 X_661_ _776_/Q vssd1 vssd1 vccd1 vccd1 _661_/Y sky130_fd_sc_hd__inv_2
-X_730_ _683_/A _730_/D vssd1 vssd1 vccd1 vccd1 _730_/Q sky130_fd_sc_hd__dfxtp_4
+X_730_ hold3/A _730_/D vssd1 vssd1 vccd1 vccd1 _730_/Q sky130_fd_sc_hd__dfxtp_4
 XFILLER_28_141 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_28_152 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_28_174 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -504,7 +501,6 @@ X_789_ _793_/CLK _789_/D vssd1 vssd1 vccd1 vccd1 _789_/Q sky130_fd_sc_hd__dfxtp_
 XFILLER_40_159 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_15_57 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 Xoutput12 _489_/X vssd1 vssd1 vccd1 vccd1 io_out[4] sky130_fd_sc_hd__buf_4
-XFILLER_31_45 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 X_712_ _682_/A _712_/D _612_/A vssd1 vssd1 vccd1 vccd1 _713_/D sky130_fd_sc_hd__dfstp_1
 XFILLER_0_277 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 X_574_ input4/X _814_/Q _576_/S vssd1 vssd1 vccd1 vccd1 _814_/D sky130_fd_sc_hd__mux2_1
@@ -545,13 +541,12 @@ XFILLER_2_125 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_325_ _758_/Q vssd1 vssd1 vccd1 vccd1 _758_/D sky130_fd_sc_hd__inv_2
 XFILLER_14_265 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_20_235 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
-XFILLER_34_67 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
-XFILLER_34_45 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
+XFILLER_34_67 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_11_257 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_7_206 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_46_187 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_46_165 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
-X_308_ _683_/A vssd1 vssd1 vccd1 vccd1 _308_/Y sky130_fd_sc_hd__inv_2
+X_308_ hold3/A vssd1 vssd1 vccd1 vccd1 _308_/Y sky130_fd_sc_hd__inv_2
 XFILLER_41_3 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_37_165 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_37_187 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -566,7 +561,7 @@ XFILLER_25_102 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_25_113 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_25_124 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_40_127 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_31_24 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
+XFILLER_31_24 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 Xoutput13 _490_/X vssd1 vssd1 vccd1 vccd1 io_out[5] sky130_fd_sc_hd__buf_4
 XFILLER_31_57 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 X_711_ _682_/A _711_/D vssd1 vssd1 vccd1 vccd1 _712_/D sky130_fd_sc_hd__dfxtp_1
@@ -608,6 +603,8 @@ XFILLER_0_29 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_324_ _757_/Q vssd1 vssd1 vccd1 vccd1 _757_/D sky130_fd_sc_hd__inv_2
 XFILLER_14_277 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_9_281 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
+XFILLER_34_79 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
+XFILLER_34_35 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_11_225 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_11_269 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_1_3 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -645,6 +642,8 @@ XFILLER_15_180 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_30_194 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_38_250 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_26_25 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
+XFILLER_26_47 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
+XFILLER_26_69 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_42_57 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_42_46 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_44_253 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
@@ -675,7 +674,7 @@ XFILLER_18_48 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_11_204 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_10_270 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_27_3 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_37_123 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
+XFILLER_37_123 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_28_156 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_29_36 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_45_68 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
@@ -686,7 +685,7 @@ XFILLER_10_93 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_786_ _678_/A _786_/D vssd1 vssd1 vccd1 vccd1 _786_/Q sky130_fd_sc_hd__dfxtp_1
 XFILLER_15_16 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_31_15 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
-XFILLER_31_37 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
+XFILLER_31_48 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 Xoutput15 _817_/Q vssd1 vssd1 vccd1 vccd1 io_out[7] sky130_fd_sc_hd__buf_4
 XFILLER_0_225 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_571_ input6/X _812_/Q _571_/S vssd1 vssd1 vccd1 vccd1 _812_/D sky130_fd_sc_hd__mux2_1
@@ -714,6 +713,7 @@ X_537_ _537_/A _572_/A vssd1 vssd1 vccd1 vccd1 _540_/S sky130_fd_sc_hd__nand2_2
 X_606_ _612_/A _645_/B vssd1 vssd1 vccd1 vccd1 _606_/Y sky130_fd_sc_hd__xnor2_2
 XFILLER_17_243 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_468_ _621_/A _621_/B vssd1 vssd1 vccd1 vccd1 _468_/X sky130_fd_sc_hd__xor2_2
+XFILLER_27_80 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_399_ _553_/A vssd1 vssd1 vccd1 vccd1 _399_/Y sky130_fd_sc_hd__inv_2
 XFILLER_4_40 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_23_202 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
@@ -724,7 +724,6 @@ XFILLER_20_227 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_18_27 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_11_216 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_46_113 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_24_81 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_6_253 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_6_220 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_37_113 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
@@ -828,7 +827,6 @@ X_604_ _612_/A _645_/B vssd1 vssd1 vccd1 vccd1 _604_/Y sky130_fd_sc_hd__xnor2_2
 XFILLER_17_256 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_17_278 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 X_535_ _575_/A0 _731_/Q _536_/S vssd1 vssd1 vccd1 vccd1 _731_/D sky130_fd_sc_hd__mux2_1
-XFILLER_27_93 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_466_ _578_/A _553_/A _545_/B _730_/Q vssd1 vssd1 vccd1 vccd1 _466_/X sky130_fd_sc_hd__a22o_1
 X_397_ _731_/Q _732_/Q _532_/B _526_/D vssd1 vssd1 vccd1 vccd1 _572_/A sky130_fd_sc_hd__o211ai_4
 XFILLER_4_97 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
@@ -848,6 +846,7 @@ XFILLER_13_281 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_20_207 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_449_ _743_/Q _783_/Q vssd1 vssd1 vccd1 vccd1 _449_/Y sky130_fd_sc_hd__nand2_1
 XFILLER_18_29 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
+XFILLER_24_83 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_40_60 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_1_54 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_3_225 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -861,7 +860,7 @@ XFILLER_24_195 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_21_62 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_21_95 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 X_697_ _378_/A _697_/D vssd1 vssd1 vccd1 vccd1 _697_/Q sky130_fd_sc_hd__dfxtp_1
-X_766_ _683_/A _766_/D vssd1 vssd1 vccd1 vccd1 _766_/Q sky130_fd_sc_hd__dfxtp_1
+X_766_ hold3/A _766_/D vssd1 vssd1 vccd1 vccd1 _766_/Q sky130_fd_sc_hd__dfxtp_1
 XPHY_4 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_21_110 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_26_29 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -870,6 +869,7 @@ X_551_ _555_/A0 _784_/Q _552_/S vssd1 vssd1 vccd1 vccd1 _784_/D sky130_fd_sc_hd_
 XFILLER_12_187 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_482_ _480_/X _482_/B vssd1 vssd1 vccd1 vccd1 _484_/A sky130_fd_sc_hd__and2b_1
 XFILLER_32_94 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
+XFILLER_32_72 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_818_ _578_/X _818_/D vssd1 vssd1 vccd1 vccd1 _818_/Q sky130_fd_sc_hd__dfxtp_1
 XFILLER_35_202 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_749_ _682_/A _749_/D _645_/Y vssd1 vssd1 vccd1 vccd1 _749_/Q sky130_fd_sc_hd__dfrtp_2
@@ -891,7 +891,7 @@ X_517_ _680_/B _517_/B vssd1 vssd1 vccd1 vccd1 _517_/Y sky130_fd_sc_hd__nor2_1
 XFILLER_20_219 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_448_ _743_/Q _783_/Q vssd1 vssd1 vccd1 vccd1 _448_/X sky130_fd_sc_hd__or2_1
 XFILLER_9_220 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
-XFILLER_34_29 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_34_29 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_46_138 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_40_72 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_37_138 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
@@ -904,11 +904,12 @@ XFILLER_42_141 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_42_130 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_2_292 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_18_3 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_33_163 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_24_141 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_24_163 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_696_ _696_/CLK _696_/D vssd1 vssd1 vccd1 vccd1 _696_/Q sky130_fd_sc_hd__dfxtp_1
 XPHY_5 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
-X_765_ _683_/A _765_/D vssd1 vssd1 vccd1 vccd1 _765_/Q sky130_fd_sc_hd__dfxtp_1
+X_765_ hold3/A _765_/D vssd1 vssd1 vccd1 vccd1 _765_/Q sky130_fd_sc_hd__dfxtp_1
 XFILLER_30_166 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_30_177 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_7_76 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -940,14 +941,14 @@ XTAP_272 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_261 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_250 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 Xfanout21 _621_/A vssd1 vssd1 vccd1 vccd1 _659_/A sky130_fd_sc_hd__buf_12
-XFILLER_13_31 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 Xfanout32 hold1/X vssd1 vssd1 vccd1 vccd1 hold2/A sky130_fd_sc_hd__clkbuf_4
+XFILLER_13_31 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_38_72 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_516_ _699_/Q _516_/B vssd1 vssd1 vccd1 vccd1 _517_/B sky130_fd_sc_hd__and2_1
 X_447_ _612_/A _612_/B vssd1 vssd1 vccd1 vccd1 _447_/Y sky130_fd_sc_hd__xnor2_2
 XFILLER_13_261 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_378_ _378_/A _826_/D vssd1 vssd1 vccd1 vccd1 _378_/Y sky130_fd_sc_hd__nand2_2
-XFILLER_24_41 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
+XFILLER_24_41 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_24_85 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_10_253 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_37_106 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
@@ -957,9 +958,9 @@ X_781_ _665_/Y _781_/D _422_/Y vssd1 vssd1 vccd1 vccd1 _781_/Q sky130_fd_sc_hd__
 XFILLER_19_96 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_42_197 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_35_62 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_33_153 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_33_153 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_24_197 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
-X_764_ _683_/A _764_/D vssd1 vssd1 vccd1 vccd1 _764_/Q sky130_fd_sc_hd__dfxtp_1
+X_764_ hold3/A _764_/D vssd1 vssd1 vccd1 vccd1 _764_/Q sky130_fd_sc_hd__dfxtp_1
 XFILLER_46_83 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_695_ _696_/CLK _695_/D vssd1 vssd1 vccd1 vccd1 _695_/Q sky130_fd_sc_hd__dfxtp_1
 XPHY_6 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
@@ -1008,7 +1009,9 @@ X_446_ _446_/A1 _442_/A _442_/B _445_/Y _308_/Y vssd1 vssd1 vccd1 vccd1 _446_/X 
 X_377_ _585_/A _679_/B vssd1 vssd1 vccd1 vccd1 _599_/A sky130_fd_sc_hd__nand2_8
 XFILLER_9_288 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_39_181 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
+XFILLER_24_53 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_40_85 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_45_195 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_1_57 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 X_429_ _755_/Q _769_/Q vssd1 vssd1 vccd1 vccd1 _441_/B sky130_fd_sc_hd__xor2_1
 Xinput1 io_in[0] vssd1 vssd1 vccd1 vccd1 _526_/D sky130_fd_sc_hd__buf_6
@@ -1017,12 +1020,11 @@ X_780_ _664_/Y _780_/D _595_/Y vssd1 vssd1 vccd1 vccd1 _780_/Q sky130_fd_sc_hd__
 XFILLER_19_107 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_35_74 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_33_187 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_33_165 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_0_209 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_24_132 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_21_43 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_694_ _696_/CLK _694_/D vssd1 vssd1 vccd1 vccd1 _694_/Q sky130_fd_sc_hd__dfxtp_1
-X_763_ _683_/A _763_/D vssd1 vssd1 vccd1 vccd1 _763_/Q sky130_fd_sc_hd__dfxtp_1
+X_763_ hold3/A _763_/D vssd1 vssd1 vccd1 vccd1 _763_/Q sky130_fd_sc_hd__dfxtp_1
 XPHY_7 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_15_198 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_23_3 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
@@ -1046,7 +1048,7 @@ XFILLER_25_271 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_25_293 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_4_153 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_4_197 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-X_729_ _683_/A _729_/D vssd1 vssd1 vccd1 vccd1 _729_/Q sky130_fd_sc_hd__dfxtp_2
+X_729_ hold3/A _729_/D vssd1 vssd1 vccd1 vccd1 _729_/Q sky130_fd_sc_hd__dfxtp_2
 XFILLER_31_296 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_31_230 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XTAP_230 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
@@ -1067,6 +1069,7 @@ X_445_ _496_/D _545_/B _544_/S vssd1 vssd1 vccd1 vccd1 _445_/Y sky130_fd_sc_hd__
 X_376_ _554_/A0 _819_/Q _376_/S vssd1 vssd1 vccd1 vccd1 _819_/D sky130_fd_sc_hd__mux2_1
 XFILLER_24_10 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_24_21 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
+XFILLER_24_65 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_40_97 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_428_ _747_/Q _691_/Q vssd1 vssd1 vccd1 vccd1 _440_/A sky130_fd_sc_hd__xor2_1
 X_359_ _802_/Q vssd1 vssd1 vccd1 vccd1 _802_/D sky130_fd_sc_hd__inv_2
@@ -1106,7 +1109,6 @@ XFILLER_34_250 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 X_530_ _575_/A0 _727_/Q _531_/S vssd1 vssd1 vccd1 vccd1 _727_/D sky130_fd_sc_hd__mux2_1
 X_461_ _448_/X _449_/Y _459_/Y _460_/X _453_/X vssd1 vssd1 vccd1 vccd1 _464_/B sky130_fd_sc_hd__a221o_1
 XFILLER_27_54 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
-XFILLER_27_65 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_43_53 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_40_297 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_40_253 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -1123,9 +1125,9 @@ XTAP_242 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_253 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_297 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_286 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
-Xfanout35 input5/X vssd1 vssd1 vccd1 vccd1 _575_/A0 sky130_fd_sc_hd__clkbuf_8
+Xfanout35 input5/X vssd1 vssd1 vccd1 vccd1 _575_/A0 sky130_fd_sc_hd__buf_4
 XFILLER_22_253 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-Xfanout24 hold2/X vssd1 vssd1 vccd1 vccd1 _683_/A sky130_fd_sc_hd__buf_4
+Xfanout24 hold2/X vssd1 vssd1 vccd1 vccd1 hold3/A sky130_fd_sc_hd__buf_4
 XFILLER_1_113 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_13_89 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_38_97 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
@@ -1136,9 +1138,10 @@ X_375_ _555_/A0 _820_/Q _376_/S vssd1 vssd1 vccd1 vccd1 _820_/D sky130_fd_sc_hd_
 XFILLER_8_290 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_40_54 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_6_227 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_24_77 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_24_99 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_1_15 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_45_197 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
+XFILLER_45_175 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_358_ _801_/Q vssd1 vssd1 vccd1 vccd1 _801_/D sky130_fd_sc_hd__inv_2
 X_427_ _423_/Y _424_/X _425_/Y _426_/X vssd1 vssd1 vccd1 vccd1 _441_/A sky130_fd_sc_hd__a22o_1
 XFILLER_46_3 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -1155,12 +1158,14 @@ XFILLER_27_186 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_32_9 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_2_285 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_33_123 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
+XFILLER_18_120 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_18_197 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
+XFILLER_33_167 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_761_ _420_/C _761_/D vssd1 vssd1 vccd1 vccd1 _761_/Q sky130_fd_sc_hd__dfxtp_1
 X_830_ _688_/Y _830_/D _579_/Y vssd1 vssd1 vccd1 vccd1 _830_/Q sky130_fd_sc_hd__dfrtp_4
 XFILLER_46_53 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_9 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
-X_692_ _683_/A _692_/D vssd1 vssd1 vccd1 vccd1 _692_/Q sky130_fd_sc_hd__dfxtp_1
+X_692_ hold3/A _692_/D vssd1 vssd1 vccd1 vccd1 _692_/Q sky130_fd_sc_hd__dfxtp_1
 XFILLER_7_25 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_30_115 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_379__2 _467_/A1 vssd1 vssd1 vccd1 vccd1 _446_/A1 sky130_fd_sc_hd__inv_2
@@ -1174,8 +1179,8 @@ X_744_ _640_/Y _744_/D _468_/X vssd1 vssd1 vccd1 vccd1 _744_/Q sky130_fd_sc_hd__
 XFILLER_43_240 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_675_ _802_/Q vssd1 vssd1 vccd1 vccd1 _675_/Y sky130_fd_sc_hd__inv_2
 XFILLER_11_192 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_19_281 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_19_270 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
+XFILLER_19_281 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_26_229 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_391_ _391_/A _391_/B _391_/C _391_/D vssd1 vssd1 vccd1 vccd1 _396_/A sky130_fd_sc_hd__or4_1
 X_460_ _740_/Q _725_/Q vssd1 vssd1 vccd1 vccd1 _460_/X sky130_fd_sc_hd__or2_1
@@ -1195,7 +1200,7 @@ XTAP_221 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_232 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_243 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_254 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
-Xfanout36 input4/X vssd1 vssd1 vccd1 vccd1 _555_/A0 sky130_fd_sc_hd__buf_6
+Xfanout36 input4/X vssd1 vssd1 vccd1 vccd1 _555_/A0 sky130_fd_sc_hd__clkbuf_8
 Xfanout25 hold2/A vssd1 vssd1 vccd1 vccd1 _583_/A sky130_fd_sc_hd__buf_4
 XFILLER_13_57 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_22_232 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -1209,12 +1214,13 @@ X_443_ _537_/A _563_/A vssd1 vssd1 vccd1 vccd1 _544_/S sky130_fd_sc_hd__nand2_4
 XFILLER_40_22 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_6_239 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_6_3 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
+XFILLER_45_187 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_45_165 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_1_27 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 X_426_ _750_/Q _764_/Q vssd1 vssd1 vccd1 vccd1 _426_/X sky130_fd_sc_hd__or2_1
 X_357_ _800_/Q vssd1 vssd1 vccd1 vccd1 _800_/D sky130_fd_sc_hd__inv_2
 XFILLER_5_261 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
-Xinput4 io_in[3] vssd1 vssd1 vccd1 vccd1 input4/X sky130_fd_sc_hd__clkbuf_4
+Xinput4 io_in[3] vssd1 vssd1 vccd1 vccd1 input4/X sky130_fd_sc_hd__buf_2
 XFILLER_39_3 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_10_25 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_42_102 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
@@ -1224,7 +1230,6 @@ XFILLER_27_198 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_2_253 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_25_9 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_33_113 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
-XFILLER_18_121 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_18_176 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_409_ _774_/Q _808_/Q vssd1 vssd1 vccd1 vccd1 _412_/B sky130_fd_sc_hd__xor2_1
 XFILLER_21_57 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
@@ -1236,8 +1241,10 @@ XFILLER_7_48 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_7_37 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_30_127 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_30_138 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
+XFILLER_46_271 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_21_149 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_29_249 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
+XFILLER_32_45 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_16_79 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 Xclkbuf_1_1__f__203_ clkbuf_0__203_/X vssd1 vssd1 vccd1 vccd1 _594_/B sky130_fd_sc_hd__clkbuf_16
 X_674_ _801_/Q vssd1 vssd1 vccd1 vccd1 _674_/Y sky130_fd_sc_hd__inv_2
@@ -1266,8 +1273,8 @@ XTAP_211 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_222 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_233 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_244 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
-Xfanout37 input3/X vssd1 vssd1 vccd1 vccd1 _554_/A0 sky130_fd_sc_hd__buf_6
-Xfanout26 hold2/A vssd1 vssd1 vccd1 vccd1 _812_/CLK sky130_fd_sc_hd__buf_2
+Xfanout37 input3/X vssd1 vssd1 vccd1 vccd1 _554_/A0 sky130_fd_sc_hd__clkbuf_8
+Xfanout26 hold2/A vssd1 vssd1 vccd1 vccd1 _812_/CLK sky130_fd_sc_hd__clkbuf_2
 XFILLER_13_69 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_22_244 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_22_288 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
@@ -1282,15 +1289,14 @@ XFILLER_8_270 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_10_225 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_40_34 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_10_258 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_45_177 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_425_ _750_/Q _764_/Q vssd1 vssd1 vccd1 vccd1 _425_/Y sky130_fd_sc_hd__nand2_1
 X_356_ _799_/Q vssd1 vssd1 vccd1 vccd1 _799_/D sky130_fd_sc_hd__inv_2
-Xinput5 io_in[4] vssd1 vssd1 vccd1 vccd1 input5/X sky130_fd_sc_hd__clkbuf_4
+Xinput5 io_in[4] vssd1 vssd1 vccd1 vccd1 input5/X sky130_fd_sc_hd__buf_2
 XTAP_94 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XFILLER_35_34 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_19_57 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_19_68 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_27_111 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
+XFILLER_27_100 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_2_298 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_18_111 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 X_408_ _771_/Q _793_/Q vssd1 vssd1 vccd1 vccd1 _417_/C sky130_fd_sc_hd__xor2_1
@@ -1304,10 +1310,9 @@ XFILLER_46_77 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_15_125 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_15_169 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_23_191 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
-XFILLER_46_261 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_46_250 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_12_117 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_32_57 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
+XFILLER_32_68 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_811_ _583_/A _811_/D vssd1 vssd1 vccd1 vccd1 _811_/Q sky130_fd_sc_hd__dfxtp_1
 X_673_ _800_/Q vssd1 vssd1 vccd1 vccd1 _673_/Y sky130_fd_sc_hd__inv_2
 X_742_ _638_/Y _742_/D _614_/X vssd1 vssd1 vccd1 vccd1 _742_/Q sky130_fd_sc_hd__dfrtp_2
@@ -1320,7 +1325,7 @@ XFILLER_34_275 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_34_253 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_26_209 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_34_297 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
-XFILLER_27_57 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
+XFILLER_27_57 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_43_78 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_43_45 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_40_289 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
@@ -1338,7 +1343,7 @@ XTAP_267 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_256 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_234 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_245 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
-Xfanout38 input3/X vssd1 vssd1 vccd1 vccd1 _818_/D sky130_fd_sc_hd__clkbuf_4
+Xfanout38 input3/X vssd1 vssd1 vccd1 vccd1 _818_/D sky130_fd_sc_hd__buf_2
 XFILLER_13_15 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 Xfanout16 _364_/A vssd1 vssd1 vccd1 vccd1 _682_/A sky130_fd_sc_hd__buf_4
 Xfanout27 _624_/A vssd1 vssd1 vccd1 vccd1 _680_/A sky130_fd_sc_hd__clkbuf_4
@@ -1354,10 +1359,7 @@ XFILLER_0_193 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 X_708_ _682_/A _708_/D vssd1 vssd1 vccd1 vccd1 _709_/D sky130_fd_sc_hd__dfxtp_1
 X_639_ _744_/Q vssd1 vssd1 vccd1 vccd1 _639_/Y sky130_fd_sc_hd__inv_2
 XFILLER_24_25 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
-XFILLER_24_47 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
-XFILLER_24_69 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_40_46 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
-XFILLER_45_189 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_45_145 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_424_ _753_/Q _767_/Q vssd1 vssd1 vccd1 vccd1 _424_/X sky130_fd_sc_hd__or2_1
 XFILLER_5_230 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
@@ -1377,7 +1379,6 @@ X_338_ _782_/Q vssd1 vssd1 vccd1 vccd1 _782_/D sky130_fd_sc_hd__inv_2
 XFILLER_44_3 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_15_148 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_23_181 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
-XFILLER_46_273 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_21_129 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_12_107 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_12_129 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
@@ -1403,7 +1404,6 @@ X_655_ _781_/Q vssd1 vssd1 vccd1 vccd1 _655_/Y sky130_fd_sc_hd__inv_2
 X_586_ _670_/A _594_/B vssd1 vssd1 vccd1 vccd1 _586_/X sky130_fd_sc_hd__xor2_2
 XFILLER_16_265 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_17_80 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_33_90 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_31_279 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XTAP_257 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_202 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
@@ -1424,7 +1424,6 @@ Xclkbuf_1_0__f__245_ clkbuf_0__245_/X vssd1 vssd1 vccd1 vccd1 _645_/B sky130_fd_
 X_638_ _743_/Q vssd1 vssd1 vccd1 vccd1 _638_/Y sky130_fd_sc_hd__inv_2
 X_569_ input4/X _810_/Q _571_/S vssd1 vssd1 vccd1 vccd1 _810_/D sky130_fd_sc_hd__mux2_1
 XFILLER_8_250 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
-XFILLER_39_154 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_10_205 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_45_113 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_45_157 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
@@ -1440,6 +1439,7 @@ XFILLER_27_113 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_42_138 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_35_14 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_4_3 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_18_135 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XPHY_91 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_80 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 X_406_ _781_/Q _792_/Q vssd1 vssd1 vccd1 vccd1 _406_/Y sky130_fd_sc_hd__nand2_1
@@ -1452,6 +1452,7 @@ XFILLER_7_18 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_46_230 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_21_119 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_37_274 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
+XFILLER_32_37 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_32_26 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_16_49 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_20_130 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
@@ -1474,6 +1475,7 @@ XFILLER_31_225 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_16_244 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_17_92 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_585_ _585_/A vssd1 vssd1 vccd1 vccd1 _585_/Y sky130_fd_sc_hd__inv_2
+XFILLER_33_80 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XTAP_269 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_258 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_203 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
@@ -1491,7 +1493,6 @@ X_637_ _742_/Q vssd1 vssd1 vccd1 vccd1 _637_/Y sky130_fd_sc_hd__inv_2
 X_499_ _555_/A0 _691_/Q _500_/S vssd1 vssd1 vccd1 vccd1 _691_/D sky130_fd_sc_hd__mux2_1
 X_568_ _818_/D _809_/Q _571_/S vssd1 vssd1 vccd1 vccd1 _809_/D sky130_fd_sc_hd__mux2_1
 XFILLER_5_73 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_39_166 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_40_15 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_45_169 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 X_422_ _659_/A _599_/B vssd1 vssd1 vccd1 vccd1 _422_/Y sky130_fd_sc_hd__xnor2_2
@@ -1558,10 +1559,10 @@ XFILLER_0_141 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_567_ _572_/A _578_/B vssd1 vssd1 vccd1 vccd1 _571_/S sky130_fd_sc_hd__nand2_2
 X_705_ _733_/Q _715_/D vssd1 vssd1 vccd1 vccd1 _705_/Q sky130_fd_sc_hd__dfxtp_1
 X_636_ _645_/A _636_/B vssd1 vssd1 vccd1 vccd1 _636_/X sky130_fd_sc_hd__xor2_2
-XFILLER_28_81 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 X_498_ _554_/A0 _690_/Q _500_/S vssd1 vssd1 vccd1 vccd1 _690_/D sky130_fd_sc_hd__mux2_1
 XFILLER_5_85 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_39_189 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
+XFILLER_39_156 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_24_17 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_45_104 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_421_ _421_/A1 _418_/Y _420_/X vssd1 vssd1 vccd1 vccd1 _421_/Y sky130_fd_sc_hd__a21oi_2
@@ -1588,6 +1589,7 @@ XPHY_93 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_41_162 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 X_335_ _753_/Q vssd1 vssd1 vccd1 vccd1 _753_/D sky130_fd_sc_hd__inv_2
 XFILLER_32_184 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_32_162 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_46_15 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_46_287 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_318_ _741_/Q vssd1 vssd1 vccd1 vccd1 _741_/D sky130_fd_sc_hd__inv_2
@@ -1608,15 +1610,14 @@ X_652_ _758_/Q vssd1 vssd1 vccd1 vccd1 _652_/Y sky130_fd_sc_hd__inv_2
 XFILLER_16_213 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_721_ _793_/CLK _721_/D vssd1 vssd1 vccd1 vccd1 _721_/Q sky130_fd_sc_hd__dfxtp_1
 X_583_ _583_/A vssd1 vssd1 vccd1 vccd1 _583_/Y sky130_fd_sc_hd__inv_2
-XFILLER_33_82 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_16_279 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_3_161 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XTAP_205 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
-Xhold1 hold1/A vssd1 vssd1 vccd1 vccd1 hold1/X sky130_fd_sc_hd__bufbuf_16
 XTAP_216 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_227 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_238 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_249 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
+Xhold1 hold5/X vssd1 vssd1 vccd1 vccd1 hold1/X sky130_fd_sc_hd__buf_2
 XFILLER_13_19 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_38_16 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_13_249 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -1639,7 +1640,6 @@ XFILLER_29_190 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XTAP_99 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 X_618_ _621_/A _636_/B vssd1 vssd1 vccd1 vccd1 _618_/X sky130_fd_sc_hd__xor2_2
 X_549_ input6/X _770_/Q _549_/S vssd1 vssd1 vccd1 vccd1 _770_/D sky130_fd_sc_hd__mux2_1
-XFILLER_27_105 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_2_237 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XPHY_83 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_72 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
@@ -1650,7 +1650,8 @@ XFILLER_25_72 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_26_160 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_61 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_1_281 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
-XFILLER_32_141 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
+XFILLER_32_152 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
+XFILLER_32_141 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_2_3 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_317_ _740_/Q vssd1 vssd1 vccd1 vccd1 _740_/D sky130_fd_sc_hd__inv_2
 XFILLER_14_141 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -1658,6 +1659,7 @@ XFILLER_37_233 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_35_3 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_37_266 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_32_29 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
+XFILLER_20_111 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_43_225 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_43_203 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_11_111 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
@@ -1677,12 +1679,13 @@ XTAP_206 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_217 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_228 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_239 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
-Xhold2 hold2/A vssd1 vssd1 vccd1 vccd1 hold2/X sky130_fd_sc_hd__bufbuf_16
+Xhold2 hold2/A vssd1 vssd1 vccd1 vccd1 hold2/X sky130_fd_sc_hd__buf_2
 XFILLER_21_272 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_0_121 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_703_ _733_/Q _720_/D vssd1 vssd1 vccd1 vccd1 _703_/Q sky130_fd_sc_hd__dfxtp_1
 XFILLER_0_165 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 X_634_ _739_/Q vssd1 vssd1 vccd1 vccd1 _634_/Y sky130_fd_sc_hd__inv_2
+XFILLER_28_83 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_44_93 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_565_ input4/X _807_/Q _566_/S vssd1 vssd1 vccd1 vccd1 _807_/D sky130_fd_sc_hd__mux2_1
 X_496_ _532_/B _526_/D _729_/Q _496_/D vssd1 vssd1 vccd1 vccd1 _578_/B sky130_fd_sc_hd__and4_4
@@ -1702,18 +1705,17 @@ X_617_ _621_/A _636_/B vssd1 vssd1 vccd1 vccd1 _617_/X sky130_fd_sc_hd__xor2_2
 X_548_ _575_/A0 _769_/Q _549_/S vssd1 vssd1 vccd1 vccd1 _769_/D sky130_fd_sc_hd__mux2_1
 X_479_ _479_/A _479_/B vssd1 vssd1 vccd1 vccd1 _479_/Y sky130_fd_sc_hd__xnor2_1
 XFILLER_35_194 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
-XFILLER_35_150 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_2_249 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_33_109 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
-XFILLER_18_117 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
-XFILLER_18_128 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_18_128 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
+XFILLER_18_139 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XPHY_84 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_41_142 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XPHY_73 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 X_402_ _772_/Q _806_/Q vssd1 vssd1 vccd1 vccd1 _402_/X sky130_fd_sc_hd__xor2_1
 X_333_ _751_/Q vssd1 vssd1 vccd1 vccd1 _751_/D sky130_fd_sc_hd__inv_2
 XPHY_40 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
-XFILLER_25_84 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
+XFILLER_25_84 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XPHY_51 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_26_172 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_26_194 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
@@ -1721,7 +1723,6 @@ XPHY_62 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_2_44 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_32_197 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_32_175 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
-XFILLER_32_164 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 Xclkbuf_0__264_ _467_/X vssd1 vssd1 vccd1 vccd1 clkbuf_0__264_/X sky130_fd_sc_hd__clkbuf_16
 XFILLER_46_223 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_36_61 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
@@ -1748,6 +1749,7 @@ XTAP_207 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_218 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_229 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 X_779_ _663_/Y _779_/D _596_/Y vssd1 vssd1 vccd1 vccd1 _779_/Q sky130_fd_sc_hd__dfrtp_2
+Xhold3 hold3/A vssd1 vssd1 vccd1 vccd1 hold3/X sky130_fd_sc_hd__buf_2
 XFILLER_15_281 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_30_262 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_38_29 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
@@ -1767,6 +1769,7 @@ XFILLER_30_85 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 X_547_ _555_/A0 _768_/Q _549_/S vssd1 vssd1 vccd1 vccd1 _768_/D sky130_fd_sc_hd__mux2_1
 X_616_ _645_/A _636_/B vssd1 vssd1 vccd1 vccd1 _616_/X sky130_fd_sc_hd__xor2_2
 X_478_ _479_/A _479_/B vssd1 vssd1 vccd1 vccd1 _483_/B sky130_fd_sc_hd__and2b_1
+XFILLER_35_151 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_2_206 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_401_ _670_/A _594_/B vssd1 vssd1 vccd1 vccd1 _401_/X sky130_fd_sc_hd__xor2_2
 XPHY_30 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
@@ -1799,6 +1802,7 @@ XFILLER_8_11 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_40_3 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_16_205 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_580_ _585_/A vssd1 vssd1 vccd1 vccd1 _580_/Y sky130_fd_sc_hd__inv_2
+Xhold4 hold4/A vssd1 vssd1 vccd1 vccd1 hold4/X sky130_fd_sc_hd__buf_2
 XTAP_208 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_219 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 X_778_ _662_/Y _778_/D _597_/Y vssd1 vssd1 vccd1 vccd1 _778_/Q sky130_fd_sc_hd__dfrtp_2
@@ -1818,6 +1822,7 @@ X_546_ _554_/A0 _767_/Q _549_/S vssd1 vssd1 vccd1 vccd1 _767_/D sky130_fd_sc_hd_
 X_615_ _621_/A _621_/B vssd1 vssd1 vccd1 vccd1 _615_/X sky130_fd_sc_hd__xor2_2
 Xclkbuf_1_0__f__222_ clkbuf_0__222_/X vssd1 vssd1 vccd1 vccd1 _659_/B sky130_fd_sc_hd__clkbuf_16
 X_477_ _492_/A _472_/A _472_/B vssd1 vssd1 vccd1 vccd1 _479_/B sky130_fd_sc_hd__a21bo_1
+XFILLER_35_163 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XPHY_64 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 X_331_ _749_/Q vssd1 vssd1 vccd1 vccd1 _749_/D sky130_fd_sc_hd__inv_2
 XPHY_20 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
@@ -1839,7 +1844,7 @@ XFILLER_46_225 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_36_85 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_314_ _737_/Q vssd1 vssd1 vccd1 vccd1 _737_/D sky130_fd_sc_hd__inv_2
 XFILLER_37_225 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
-XFILLER_20_114 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
+XFILLER_20_103 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_9_181 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 Xclkbuf_0__245_ _446_/X vssd1 vssd1 vccd1 vccd1 clkbuf_0__245_/X sky130_fd_sc_hd__clkbuf_16
 XFILLER_43_217 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
@@ -1854,11 +1859,12 @@ XFILLER_33_3 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_33_53 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_24_250 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_3_110 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
+Xhold5 hold5/A vssd1 vssd1 vccd1 vccd1 hold5/X sky130_fd_sc_hd__buf_2
 XTAP_209 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 X_777_ _661_/Y _777_/D _598_/Y vssd1 vssd1 vccd1 vccd1 _777_/Q sky130_fd_sc_hd__dfrtp_2
 XFILLER_30_253 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_21_264 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
-X_700_ _378_/A _700_/D vssd1 vssd1 vccd1 vccd1 hold1/A sky130_fd_sc_hd__dfxtp_1
+X_700_ _378_/A _700_/D vssd1 vssd1 vccd1 vccd1 hold5/A sky130_fd_sc_hd__dfxtp_1
 XFILLER_0_113 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_562_ input6/X _793_/Q _562_/S vssd1 vssd1 vccd1 vccd1 _793_/D sky130_fd_sc_hd__mux2_1
 X_493_ _720_/Q _706_/Q vssd1 vssd1 vccd1 vccd1 _707_/D sky130_fd_sc_hd__xor2_1
@@ -1879,7 +1885,6 @@ XFILLER_44_131 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_476_ _483_/A _476_/B vssd1 vssd1 vccd1 vccd1 _479_/A sky130_fd_sc_hd__or2_1
 X_545_ _553_/A _545_/B vssd1 vssd1 vccd1 vccd1 _549_/S sky130_fd_sc_hd__nand2_4
 X_614_ _621_/A _621_/B vssd1 vssd1 vccd1 vccd1 _614_/X sky130_fd_sc_hd__xor2_2
-XFILLER_35_142 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XPHY_87 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_76 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_65 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
@@ -1890,12 +1895,14 @@ X_330_ _748_/Q vssd1 vssd1 vccd1 vccd1 _748_/D sky130_fd_sc_hd__inv_2
 XPHY_43 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_54 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_26_197 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_32_156 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
-X_459_ _740_/Q _725_/Q vssd1 vssd1 vccd1 vccd1 _459_/Y sky130_fd_sc_hd__nand2_1
+XFILLER_32_156 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_528_ _554_/A0 _725_/Q _531_/S vssd1 vssd1 vccd1 vccd1 _725_/D sky130_fd_sc_hd__mux2_1
+X_459_ _740_/Q _725_/Q vssd1 vssd1 vccd1 vccd1 _459_/Y sky130_fd_sc_hd__nand2_1
 XFILLER_23_167 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_11_34 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_11_89 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_46_259 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_46_215 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_36_97 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_14_112 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_313_ _736_/Q vssd1 vssd1 vccd1 vccd1 _736_/D sky130_fd_sc_hd__inv_2
@@ -1937,7 +1944,6 @@ XFILLER_29_151 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_475_ _821_/Q _758_/Q _704_/Q _822_/Q vssd1 vssd1 vccd1 vccd1 _476_/B sky130_fd_sc_hd__a22oi_1
 X_544_ input6/X _766_/Q _544_/S vssd1 vssd1 vccd1 vccd1 _766_/D sky130_fd_sc_hd__mux2_1
 XFILLER_4_250 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
-XFILLER_35_165 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_35_121 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_35_110 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XPHY_88 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
@@ -1988,6 +1994,7 @@ XFILLER_21_200 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_21_222 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_21_233 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 X_560_ input4/X _791_/Q _562_/S vssd1 vssd1 vccd1 vccd1 _791_/D sky130_fd_sc_hd__mux2_1
+XFILLER_28_77 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 X_491_ _821_/Q _756_/Q _702_/Q _822_/Q vssd1 vssd1 vccd1 vccd1 _492_/B sky130_fd_sc_hd__a22oi_2
 XFILLER_8_226 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_12_277 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
@@ -2007,7 +2014,6 @@ X_474_ _822_/Q _821_/Q _758_/Q _704_/Q vssd1 vssd1 vccd1 vccd1 _483_/A sky130_fd
 XFILLER_4_273 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_35_188 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XPHY_12 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
-XFILLER_26_111 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_89 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_41_169 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_41_136 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
@@ -2030,7 +2036,6 @@ XFILLER_23_125 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_23_169 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XTAP_180 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_191 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
-XFILLER_46_217 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_14_125 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_311_ _734_/Q vssd1 vssd1 vccd1 vccd1 _734_/D sky130_fd_sc_hd__inv_2
 X_509_ _696_/Q _506_/C _508_/Y vssd1 vssd1 vccd1 vccd1 _696_/D sky130_fd_sc_hd__o21a_1
@@ -2074,6 +2079,7 @@ X_473_ _492_/A _473_/B vssd1 vssd1 vccd1 vccd1 _473_/Y sky130_fd_sc_hd__xnor2_1
 X_611_ _612_/A _612_/B vssd1 vssd1 vccd1 vccd1 _611_/Y sky130_fd_sc_hd__xnor2_2
 XFILLER_4_230 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_809_ _812_/CLK _809_/D vssd1 vssd1 vccd1 vccd1 _809_/Q sky130_fd_sc_hd__dfxtp_1
+XFILLER_35_167 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_6_81 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_13 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_24 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
@@ -2124,7 +2130,7 @@ XFILLER_24_3 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_44_89 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_12_224 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_756_ _442_/Y _756_/D vssd1 vssd1 vccd1 vccd1 _756_/Q sky130_fd_sc_hd__dfxtp_2
-X_825_ _825_/CLK _825_/D _683_/Y vssd1 vssd1 vccd1 vccd1 _825_/Q sky130_fd_sc_hd__dfrtp_4
+X_825_ _825_/CLK _825_/D hold4/X vssd1 vssd1 vccd1 vccd1 _825_/Q sky130_fd_sc_hd__dfrtp_4
 X_687_ _830_/Q vssd1 vssd1 vccd1 vccd1 _687_/Y sky130_fd_sc_hd__inv_2
 XFILLER_11_290 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_38_110 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
@@ -2137,9 +2143,9 @@ XFILLER_4_297 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_4_286 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_4_253 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_808_ _420_/C _808_/D vssd1 vssd1 vccd1 vccd1 _808_/Q sky130_fd_sc_hd__dfxtp_1
+XFILLER_35_146 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_35_113 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_739_ _635_/Y _739_/D _616_/X vssd1 vssd1 vccd1 vccd1 _739_/Q sky130_fd_sc_hd__dfrtp_2
-XFILLER_35_157 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_6_93 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XTAP_330 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XPHY_69 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
@@ -2168,7 +2174,6 @@ XFILLER_45_230 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 X_507_ _693_/Q _694_/Q _695_/Q _696_/Q vssd1 vssd1 vccd1 vccd1 _513_/C sky130_fd_sc_hd__and4_1
 X_438_ _751_/Q _765_/Q vssd1 vssd1 vccd1 vccd1 _440_/D sky130_fd_sc_hd__xor2_1
 XFILLER_9_164 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
-XFILLER_20_108 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 X_369_ _831_/Q vssd1 vssd1 vccd1 vccd1 _831_/D sky130_fd_sc_hd__inv_2
 XFILLER_3_50 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_36_230 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
@@ -2188,7 +2193,7 @@ XFILLER_15_277 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_30_236 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_17_3 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_21_225 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
-XFILLER_28_69 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_28_69 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_755_ _651_/Y _755_/D _447_/Y vssd1 vssd1 vccd1 vccd1 _755_/Q sky130_fd_sc_hd__dfrtp_2
 X_824_ _682_/Y _824_/D _584_/Y vssd1 vssd1 vccd1 vccd1 _824_/Q sky130_fd_sc_hd__dfrtp_4
 X_686_ _829_/Q vssd1 vssd1 vccd1 vccd1 _686_/Y sky130_fd_sc_hd__inv_2
@@ -2207,7 +2212,6 @@ XFILLER_35_103 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_738_ _634_/Y _738_/D _617_/X vssd1 vssd1 vccd1 vccd1 _738_/Q sky130_fd_sc_hd__dfrtp_2
 XTAP_331 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_320 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
-XFILLER_26_103 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XPHY_15 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_26 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_37 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
@@ -2232,7 +2236,6 @@ XFILLER_22_161 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_45_297 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_45_286 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_506_ _680_/B _506_/B _506_/C vssd1 vssd1 vccd1 vccd1 _695_/D sky130_fd_sc_hd__nor3_1
-XFILLER_26_80 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_437_ _748_/Q _692_/Q vssd1 vssd1 vccd1 vccd1 _437_/X sky130_fd_sc_hd__xor2_1
 X_368_ _830_/Q vssd1 vssd1 vccd1 vccd1 _830_/D sky130_fd_sc_hd__inv_2
 XFILLER_36_253 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -2264,8 +2267,8 @@ XFILLER_20_270 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 X_823_ _681_/Y _823_/D _585_/Y vssd1 vssd1 vccd1 vccd1 _823_/Q sky130_fd_sc_hd__dfrtp_4
 X_754_ _650_/Y _754_/D _604_/Y vssd1 vssd1 vccd1 vccd1 _754_/Q sky130_fd_sc_hd__dfrtp_2
 X_685_ _828_/Q vssd1 vssd1 vccd1 vccd1 _685_/Y sky130_fd_sc_hd__inv_2
-XFILLER_34_80 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_11_281 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
+XFILLER_38_123 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_30_27 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_39_36 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_29_167 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
@@ -2273,7 +2276,6 @@ XFILLER_29_178 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_470_ _821_/Q _759_/Q _703_/Q _822_/Q vssd1 vssd1 vccd1 vccd1 _472_/A sky130_fd_sc_hd__a22o_1
 X_806_ _420_/C _806_/D vssd1 vssd1 vccd1 vccd1 _806_/Q sky130_fd_sc_hd__dfxtp_1
 XFILLER_4_277 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
-XFILLER_20_93 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_668_ _795_/Q vssd1 vssd1 vccd1 vccd1 _668_/Y sky130_fd_sc_hd__inv_2
 X_737_ _633_/Y _737_/D _618_/X vssd1 vssd1 vccd1 vccd1 _737_/Q sky130_fd_sc_hd__dfrtp_2
 X_599_ _599_/A _599_/B vssd1 vssd1 vccd1 vccd1 _599_/Y sky130_fd_sc_hd__xnor2_2
@@ -2303,6 +2305,7 @@ XFILLER_45_243 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_505_ _693_/Q _694_/Q _695_/Q vssd1 vssd1 vccd1 vccd1 _506_/C sky130_fd_sc_hd__and3_1
 X_436_ _745_/Q _770_/Q vssd1 vssd1 vccd1 vccd1 _436_/Y sky130_fd_sc_hd__nand2_1
 XFILLER_13_151 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_26_81 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_9_111 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_367_ _829_/Q vssd1 vssd1 vccd1 vccd1 _829_/D sky130_fd_sc_hd__inv_2
 XFILLER_3_63 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
@@ -2317,7 +2320,7 @@ XFILLER_18_243 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_419_ _732_/Q _731_/Q _526_/D _532_/B vssd1 vssd1 vccd1 vccd1 _563_/A sky130_fd_sc_hd__and4b_4
 XFILLER_24_213 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_33_49 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
-X_770_ _683_/A _770_/D vssd1 vssd1 vccd1 vccd1 _770_/Q sky130_fd_sc_hd__dfxtp_1
+X_770_ hold3/A _770_/D vssd1 vssd1 vccd1 vccd1 _770_/Q sky130_fd_sc_hd__dfxtp_1
 XFILLER_15_257 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_0_53 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_0_97 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -2331,7 +2334,7 @@ X_753_ _649_/Y _753_/D _605_/Y vssd1 vssd1 vccd1 vccd1 _753_/Q sky130_fd_sc_hd__
 X_684_ _827_/Q vssd1 vssd1 vccd1 vccd1 _684_/Y sky130_fd_sc_hd__inv_2
 XFILLER_7_297 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_7_253 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_38_124 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_38_135 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_22_3 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_14_29 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_39_48 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
@@ -2343,7 +2346,7 @@ X_736_ _632_/Y _736_/D _619_/X vssd1 vssd1 vccd1 vccd1 _736_/Q sky130_fd_sc_hd__
 X_805_ _396_/Y _805_/D vssd1 vssd1 vccd1 vccd1 _805_/Q sky130_fd_sc_hd__dfxtp_2
 XFILLER_29_70 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 X_667_ _794_/Q vssd1 vssd1 vccd1 vccd1 _667_/Y sky130_fd_sc_hd__inv_2
-XFILLER_35_138 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
+XFILLER_35_138 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_598_ _659_/A _599_/B vssd1 vssd1 vccd1 vccd1 _598_/Y sky130_fd_sc_hd__xnor2_2
 XTAP_333 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_322 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
@@ -2405,10 +2408,9 @@ Xclkbuf_0__203_ _400_/X vssd1 vssd1 vccd1 vccd1 clkbuf_0__203_/X sky130_fd_sc_hd
 XFILLER_20_294 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_752_ _648_/Y _752_/D _606_/Y vssd1 vssd1 vccd1 vccd1 _752_/Q sky130_fd_sc_hd__dfrtp_2
 X_821_ _680_/A _821_/D _679_/Y vssd1 vssd1 vccd1 vccd1 _821_/Q sky130_fd_sc_hd__dfrtp_2
-X_683_ _683_/A vssd1 vssd1 vccd1 vccd1 _683_/Y sky130_fd_sc_hd__inv_2
+X_683_ hold3/X vssd1 vssd1 vccd1 vccd1 hold4/A sky130_fd_sc_hd__inv_2
 XFILLER_7_265 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_7_221 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
-XFILLER_38_136 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 XFILLER_15_3 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_30_29 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_29_125 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
@@ -2424,6 +2426,7 @@ XTAP_323 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_312 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_301 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XFILLER_3_290 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
+XFILLER_34_150 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XPHY_18 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XPHY_29 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_19_180 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
@@ -2472,9 +2475,11 @@ X_751_ _647_/Y _751_/D _607_/Y vssd1 vssd1 vccd1 vccd1 _751_/Q sky130_fd_sc_hd__
 XFILLER_18_40 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 X_682_ _682_/A vssd1 vssd1 vccd1 vccd1 _682_/Y sky130_fd_sc_hd__inv_2
 X_820_ _678_/A _820_/D _678_/Y vssd1 vssd1 vccd1 vccd1 _820_/Q sky130_fd_sc_hd__dfrtp_1
+XFILLER_34_83 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_7_277 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_38_159 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XFILLER_20_85 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
+XFILLER_20_96 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_665_ _780_/Q vssd1 vssd1 vccd1 vccd1 _665_/Y sky130_fd_sc_hd__inv_2
 X_803_ _675_/Y _803_/D _586_/X vssd1 vssd1 vccd1 vccd1 _803_/Q sky130_fd_sc_hd__dfrtp_2
 X_734_ _630_/Y _734_/D _621_/X vssd1 vssd1 vccd1 vccd1 _734_/Q sky130_fd_sc_hd__dfrtp_2
@@ -2485,16 +2490,17 @@ XTAP_335 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_324 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_313 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_302 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_34_162 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 XPHY_19 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_19_192 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_1_206 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
 X_381_ _796_/Q _761_/Q vssd1 vssd1 vccd1 vccd1 _395_/B sky130_fd_sc_hd__xor2_1
 X_450_ _744_/Q _724_/Q vssd1 vssd1 vccd1 vccd1 _463_/A sky130_fd_sc_hd__xor2_1
+XFILLER_31_40 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_31_62 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_717_ _364_/A _717_/D _626_/Y vssd1 vssd1 vccd1 vccd1 _718_/D sky130_fd_sc_hd__dfrtp_1
 X_648_ _751_/Q vssd1 vssd1 vccd1 vccd1 _648_/Y sky130_fd_sc_hd__inv_2
 XFILLER_31_176 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
-XFILLER_31_165 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_3
 XFILLER_16_195 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_579_ _585_/A vssd1 vssd1 vccd1 vccd1 _579_/Y sky130_fd_sc_hd__inv_2
 XTAP_132 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
@@ -2543,7 +2549,6 @@ XFILLER_7_289 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_29_105 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 X_802_ _674_/Y _802_/D _587_/X vssd1 vssd1 vccd1 vccd1 _802_/Q sky130_fd_sc_hd__dfrtp_2
 XFILLER_20_75 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
-XFILLER_20_97 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_29_62 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_45_72 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 X_595_ _659_/A _599_/B vssd1 vssd1 vccd1 vccd1 _595_/Y sky130_fd_sc_hd__xnor2_2
@@ -2557,14 +2562,14 @@ XFILLER_3_281 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XTAP_336 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XTAP_325 vssd1 vccd1 sky130_fd_sc_hd__tapvpwrvgnd_1
 XFILLER_20_3 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
+XFILLER_26_108 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 XFILLER_34_185 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
-XFILLER_34_152 vssd1 vssd1 vccd1 vccd1 sky130_ef_sc_hd__decap_12
+XFILLER_34_174 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_34_141 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_2
 XFILLER_19_160 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_8
 XFILLER_1_218 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_6
 X_380_ _794_/Q _816_/Q vssd1 vssd1 vccd1 vccd1 _395_/A sky130_fd_sc_hd__xor2_1
 XFILLER_40_188 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
-XFILLER_31_30 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__fill_1
 XFILLER_31_96 vssd1 vssd1 vccd1 vccd1 sky130_fd_sc_hd__decap_4
 X_716_ _364_/A _716_/D _625_/Y vssd1 vssd1 vccd1 vccd1 _717_/D sky130_fd_sc_hd__dfstp_1
 X_578_ _578_/A _578_/B vssd1 vssd1 vccd1 vccd1 _578_/X sky130_fd_sc_hd__and2_1

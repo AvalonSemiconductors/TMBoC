@@ -1,11 +1,11 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1682099093
+timestamp 1683543228
 << obsli1 >>
 rect 1104 2159 73876 72369
 << obsm1 >>
-rect 658 2128 73876 72400
+rect 842 2128 74138 74112
 << metal2 >>
 rect 3514 74200 3570 75000
 rect 9678 74200 9734 75000
@@ -20,7 +20,7 @@ rect 58990 74200 59046 75000
 rect 65154 74200 65210 75000
 rect 71318 74200 71374 75000
 << obsm2 >>
-rect 664 74144 3458 74338
+rect 754 74144 3458 74338
 rect 3626 74144 9622 74338
 rect 9790 74144 15786 74338
 rect 15954 74144 21950 74338
@@ -32,8 +32,8 @@ rect 46774 74144 52770 74338
 rect 52938 74144 58934 74338
 rect 59102 74144 65098 74338
 rect 65266 74144 71262 74338
-rect 71430 74144 72936 74338
-rect 664 2139 72936 74144
+rect 71430 74144 74134 74338
+rect 754 2139 74134 74144
 << metal3 >>
 rect 74200 37408 75000 37528
 << obsm3 >>
@@ -47,12 +47,12 @@ rect 34928 2128 35248 72400
 rect 50288 2128 50608 72400
 rect 65648 2128 65968 72400
 << obsm4 >>
-rect 979 4659 4128 60077
-rect 4608 4659 19488 60077
-rect 19968 4659 34848 60077
-rect 35328 4659 50208 60077
-rect 50688 4659 65568 60077
-rect 66048 4659 70597 60077
+rect 979 3979 4128 60077
+rect 4608 3979 19488 60077
+rect 19968 3979 34848 60077
+rect 35328 3979 50208 60077
+rect 50688 3979 65568 60077
+rect 66048 3979 70229 60077
 << labels >>
 rlabel metal2 s 3514 74200 3570 75000 6 clk
 port 1 nsew signal input
@@ -94,8 +94,8 @@ port 15 nsew ground bidirectional
 string FIXED_BBOX 0 0 75000 75000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 11657502
-string GDS_FILE /run/media/tholin/Data/Projects/MPW/TMBoC/openlane/VGATest/runs/23_04_21_19_39/results/signoff/wrapped_vgatest.magic.gds
-string GDS_START 1084822
+string GDS_END 10906666
+string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/VGATest/runs/23_05_08_12_46/results/signoff/wrapped_vgatest.magic.gds
+string GDS_START 1081210
 << end >>
 

@@ -1,13 +1,13 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1682098507
+timestamp 1683542391
 << obsli1 >>
 rect 1104 2159 68816 67473
 << obsm1 >>
-rect 1104 2128 68816 67504
+rect 934 2128 69078 67504
 << obsm2 >>
-rect 1582 2139 68338 67493
+rect 938 2139 69074 67493
 << metal3 >>
 rect 0 62568 800 62688
 rect 69200 60936 70000 61056
@@ -45,11 +45,11 @@ rect 34928 2128 35248 67504
 rect 50288 2128 50608 67504
 rect 65648 2128 65968 67504
 << obsm4 >>
-rect 7051 9555 19488 46341
-rect 19968 9555 34848 46341
-rect 35328 9555 50208 46341
-rect 50688 9555 65568 46341
-rect 66048 9555 67285 46341
+rect 7235 3979 19488 57357
+rect 19968 3979 34848 57357
+rect 35328 3979 50208 57357
+rect 50688 3979 65568 57357
+rect 66048 3979 67101 57357
 << labels >>
 rlabel metal3 s 0 48696 800 48816 6 clk
 port 1 nsew signal input
@@ -83,8 +83,8 @@ port 11 nsew ground bidirectional
 string FIXED_BBOX 0 0 70000 70000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 12569308
-string GDS_FILE /run/media/tholin/Data/Projects/MPW/TMBoC/openlane/PositUnit/runs/23_04_21_19_28/results/signoff/posit_unit.magic.gds
-string GDS_START 1533176
+string GDS_END 11873386
+string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/PositUnit/runs/23_05_08_12_32/results/signoff/posit_unit.magic.gds
+string GDS_START 1534712
 << end >>
 

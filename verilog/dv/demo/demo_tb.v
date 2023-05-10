@@ -59,7 +59,7 @@ module demo_tb;
 	initial begin
 		$dumpfile("demo.vcd");
 		$dumpvars(0, demo_tb);
-		test = 1200;
+		test = 2048;
 
 		while(test > 2)  begin
 			repeat (50) @(posedge clock);
