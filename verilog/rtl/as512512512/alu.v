@@ -147,7 +147,7 @@ always @(posedge clk) begin
 					mul_res = mul_res + muli_2;
 				end
 				muli_2 <= {muli_2[`WORD_SIZE-2:0], 1'b0};
-				ready = muli_1 == 0;
+				ready = muli_1 == 0 || muli_2 == 0;
 			end
 		end
 	end

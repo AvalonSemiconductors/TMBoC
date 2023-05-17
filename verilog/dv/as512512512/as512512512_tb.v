@@ -29,21 +29,15 @@ module as512512512_tb;
 	wire checkbit;
 
 	assign checkbit = mprj_io[37];
-
-	// External clock is used by default.  Make this artificially fast for the
-	// simulation.  Normally this would be a slow clock and the digital PLL
-	// would be the fast clock.
-
+	
 	always #12.5 clock <= (clock === 1'b0);
-	always #45 design_clk <= (design_clk === 1'b0);
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
 
 	assign mprj_io[8:5] = 4'b1100;
 	
 	reg design_rst;
-	reg design_clk;
 	assign mprj_io[9] = design_rst;
-	assign mprj_io[10] = design_clk;
+	assign mprj_io[10] = clock;
 	
 	wire IO0 = mprj_io[0];
 	wire IO1 = mprj_io[1];
@@ -78,7 +72,6 @@ module as512512512_tb;
 	initial begin
 		clock = 0;
 		design_rst = 1;
-		design_clk = 0;
 		data_in = 0;
 		RX = 1;
 		SDI = 0;
@@ -87,7 +80,7 @@ module as512512512_tb;
 		memory_enabled = 0;
 	end
 	
-	always @(negedge design_clk) begin
+	always @(negedge clock) begin
 		if(!design_rst && (LEN1 || LEN2)) begin
 			if(LEN1) full_addr[15:0] <= data_out;
 			if(LEN2) full_addr[31:16] <= data_out;
@@ -516,100 +509,100 @@ module as512512512_tb;
 		$fflush();
 		$dumpfile("as512512512.vcd");
 		$dumpvars(1, as512512512_tb);
-		$dumpvars(0, as512512512_tb.uut.mprj.wrapped_as512512512);
+		$dumpvars(0, as512512512_tb.uut.chip_core.mprj.wrapped_as512512512);
 		failures = 0;
 		//Tests here
 		data_in <= 0;
 		design_rst <= 0;
 		
 		//First instr fetch (NOP)
-		@(posedge design_clk);
-		@(posedge design_clk);
-		@(posedge design_clk);
+		@(posedge clock);
+		@(posedge clock);
+		@(posedge clock);
 		failures += data_out != 0;
 		failures += LEN2 != 1;
 		failures += LEN1 != 0;
 		failures += OPREQ != 0;
 		failures += RW != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		failures += data_out != 0;
 		failures += LEN2 != 0;
 		failures += LEN1 != 1;
 		failures += OPREQ != 0;
 		failures += RW != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		failures += LEN2 != 0;
 		failures += LEN1 != 0;
 		failures += OPREQ != 1;
 		failures += RW != 0;
 		failures += full_addr != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		failures += LEN2 != 0;
 		failures += LEN1 != 0;
 		failures += OPREQ != 0;
 		failures += RW != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		failures += data_out != 1;
 		failures += LEN2 != 0;
 		failures += LEN1 != 1;
 		failures += OPREQ != 0;
 		failures += RW != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		failures += LEN2 != 0;
 		failures += LEN1 != 0;
 		failures += OPREQ != 1;
 		failures += RW != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		failures += LEN2 != 0;
 		failures += LEN1 != 0;
 		failures += OPREQ != 0;
 		failures += RW != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		failures += full_addr != 1;
 		
 		test_step = 1;
-		@(posedge design_clk);
-		@(posedge design_clk);
+		@(posedge clock);
+		@(posedge clock);
 		failures += data_out != 2;
 		failures += LEN2 != 0;
 		failures += LEN1 != 1;
 		failures += OPREQ != 0;
 		failures += RW != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		failures += LEN2 != 0;
 		failures += LEN1 != 0;
 		failures += OPREQ != 1;
 		failures += RW != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		failures += LEN2 != 0;
 		failures += LEN1 != 0;
 		failures += OPREQ != 0;
 		failures += RW != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		failures += data_out != 3;
 		failures += LEN2 != 0;
 		failures += LEN1 != 1;
 		failures += OPREQ != 0;
 		failures += RW != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		failures += LEN2 != 0;
 		failures += LEN1 != 0;
 		failures += OPREQ != 1;
 		failures += RW != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		failures += LEN2 != 0;
 		failures += LEN1 != 0;
 		failures += OPREQ != 0;
 		failures += RW != 0;
-		@(posedge design_clk);
+		@(posedge clock);
 		if(failures == 0) $display("PASSED: Instruction fetches");
 		test_step = 2;
 		
 		memory_enabled = 1;
-		@(posedge design_clk);
+		@(posedge clock);
 		repeat(6) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += RAM[8] != 16'h2798;
@@ -620,8 +613,8 @@ module as512512512_tb;
 		test_step = 3;
 		
 		repeat(7) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += RAM[ 0] != 16'h0028;
@@ -640,8 +633,8 @@ module as512512512_tb;
 		failures += RAM[31] != 16'h07CD;
 		
 		repeat(9) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += RAM[0] != 16'h2BCD;
@@ -654,8 +647,8 @@ module as512512512_tb;
 		test_step = 4;
 
 		repeat(10) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += RAM[0] != 16'h0101;
@@ -669,13 +662,13 @@ module as512512512_tb;
 
 		EF = 0;
 		repeat(9) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		EF = 1;
 		repeat(7) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		EF = 0;
 
@@ -687,24 +680,24 @@ module as512512512_tb;
 		test_step = 6;
 		
 		repeat(3) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += RAM[0] != 16'h0000;
 		failures += RAM[1] != 16'h0401;
 		
 		repeat(3) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += RAM[2] != 16'h0000;
 		failures += RAM[3] != 16'h0007;
 		
 		repeat(5) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += RAM[4] != 16'b0000;
@@ -712,8 +705,8 @@ module as512512512_tb;
 		
 		EF = 1;
 		repeat(3) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		EF = 0;
 		
@@ -721,74 +714,74 @@ module as512512512_tb;
 		failures += RAM[5] != 16'b1101;
 		
 		failures += CE != 1;
-		@(posedge design_clk);
-		while(M0 != 1) @(posedge design_clk);
+		@(posedge clock);
+		while(M0 != 1) @(posedge clock);
 		failures += CE != 0;
-		@(posedge design_clk);
-		while(M0 != 1) @(posedge design_clk);
+		@(posedge clock);
+		while(M0 != 1) @(posedge clock);
 		failures += CE != 1;
 		
-		@(posedge design_clk);
-		while(M0 != 1) @(posedge design_clk);
+		@(posedge clock);
+		while(M0 != 1) @(posedge clock);
 		if(failures == 0) $display("PASSED: Misc. instructions");
 		test_step = 7;
 
 		repeat(4) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += TX != 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += TX != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += TX != 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += TX != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += TX != 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += TX != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += TX != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += TX != 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += TX != 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += TX != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += TX != 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += TX != 1;
-		while(CE == 1) @(posedge design_clk);
-		while(M0 != 1) @(posedge design_clk);
-		@(posedge design_clk);
-		while(M0 != 1) @(posedge design_clk);
+		while(CE == 1) @(posedge clock);
+		while(M0 != 1) @(posedge clock);
+		@(posedge clock);
+		while(M0 != 1) @(posedge clock);
 		failures += CE != 1;
 		
 		RX = 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		RX = 1;
-		repeat(16) @(posedge design_clk);
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
+		repeat(16) @(posedge clock);
 		RX = 0;
-		repeat(16) @(posedge design_clk);
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
+		repeat(16) @(posedge clock);
 		RX = 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		RX = 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		RX = 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		RX = 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		RX = 1;
-		while(CE == 1) @(posedge design_clk);
-		while(M0 != 1) @(posedge design_clk);
+		while(CE == 1) @(posedge clock);
+		while(M0 != 1) @(posedge clock);
 		repeat(3) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += CE != 1;
@@ -797,64 +790,64 @@ module as512512512_tb;
 		test_step = 8;
 		
 		repeat(4) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 0;
 		SDI = 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 0;
 		SDI = 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 1;
 		SDI = 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 0;
 		SDI = 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 0;
 		SDI = 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 1;
 		SDI = 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 1;
-		repeat(16) @(posedge design_clk);
+		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
-		while(CE == 1) @(posedge design_clk);
-		while(M0 != 1) @(posedge design_clk);
+		while(CE == 1) @(posedge clock);
+		while(M0 != 1) @(posedge clock);
 
 		repeat(3) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += RAM[7] != 16'h00D4;
@@ -862,8 +855,8 @@ module as512512512_tb;
 		test_step = 9;
 		
 		repeat(3) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += RAM[8] != 16'h01F4;
@@ -871,8 +864,8 @@ module as512512512_tb;
 		test_step = 10;
 		
 		repeat(6) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += RAM[ 9] != 16'h1D85;
@@ -880,16 +873,16 @@ module as512512512_tb;
 		failures += RAM[11] != 16'h9333;
 		
 		repeat(6) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += RAM[12] != 16'h0000;
 		failures += RAM[13] != 16'h0003;
 		
 		repeat(6) begin
-			@(posedge design_clk);
-			while(M0 != 1) @(posedge design_clk);
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
 		end
 		
 		failures += RAM[14] != 16'hA000;

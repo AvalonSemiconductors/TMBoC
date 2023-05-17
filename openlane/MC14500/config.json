@@ -2,7 +2,7 @@
     "DESIGN_NAME": "wrapped_MC14500",
     "DESIGN_IS_CORE": 0,
     "VERILOG_FILES": ["dir::../../verilog/rtl/defines.v", "dir::../../verilog/rtl/MC14500/MC14500.v", "dir::../../verilog/rtl/MC14500/wrapped_MC14500.v"],
-    "CLOCK_PERIOD": 10,
+    "CLOCK_PERIOD": 8,
     "CLOCK_PORT": "clk",
     "CLOCK_NET": "clk",
     "FP_SIZING": "absolute",
@@ -28,20 +28,20 @@
         "FP_CORE_UTIL": 45,
         "RT_MAX_LAYER": "met4",
         "scl::sky130_fd_sc_hd": {
-            "CLOCK_PERIOD": 10
-        },
-        "scl::sky130_fd_sc_hdll": {
-            "CLOCK_PERIOD": 10
-        },
-        "scl::sky130_fd_sc_hs": {
             "CLOCK_PERIOD": 8
         },
+        "scl::sky130_fd_sc_hdll": {
+            "CLOCK_PERIOD": 8
+        },
+        "scl::sky130_fd_sc_hs": {
+            "CLOCK_PERIOD": 6
+        },
         "scl::sky130_fd_sc_ls": {
-            "CLOCK_PERIOD": 10,
+            "CLOCK_PERIOD": 8,
             "SYNTH_MAX_FANOUT": 5
         },
         "scl::sky130_fd_sc_ms": {
-            "CLOCK_PERIOD": 10
+            "CLOCK_PERIOD": 8
         }
     },
     "pdk::gf180mcuC": {

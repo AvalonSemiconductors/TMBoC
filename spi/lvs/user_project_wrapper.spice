@@ -382,10 +382,10 @@ Xtholin_avalonsemi_5401 design_clk dsi_all\[0\] dsi_all\[1\] dsi_all\[2\] dsi_al
 + dso_as5401\[23\] dso_as5401\[24\] dso_as5401\[25\] dso_as5401\[26\] dso_as5401\[2\]
 + dso_as5401\[3\] dso_as5401\[4\] dso_as5401\[5\] dso_as5401\[6\] dso_as5401\[7\]
 + dso_as5401\[8\] dso_as5401\[9\] rst_as5401 vccd1 vssd1 tholin_avalonsemi_5401
-Xwrapped_vgatest design_clk dsi_all\[0\] dso_vgatest\[0\] dso_vgatest\[1\] dso_vgatest\[2\]
+Xwrapped_vgatest wb_clk_i dsi_all\[0\] dso_vgatest\[0\] dso_vgatest\[1\] dso_vgatest\[2\]
 + dso_vgatest\[3\] dso_vgatest\[4\] dso_vgatest\[5\] dso_vgatest\[6\] dso_vgatest\[7\]
 + dso_vgatest\[8\] dso_vgatest\[9\] rst_vgatest vccd1 vssd1 wrapped_vgatest
-Xwrapped_as512512512 design_clk dsi_all\[0\] dsi_all\[10\] dsi_all\[11\] dsi_all\[12\]
+Xwrapped_as512512512 wb_clk_i dsi_all\[0\] dsi_all\[10\] dsi_all\[11\] dsi_all\[12\]
 + dsi_all\[13\] dsi_all\[14\] dsi_all\[15\] dsi_all\[16\] dsi_all\[17\] dsi_all\[18\]
 + dsi_all\[19\] dsi_all\[1\] dsi_all\[20\] dsi_all\[21\] dsi_all\[22\] dsi_all\[23\]
 + dsi_all\[24\] dsi_all\[25\] dsi_all\[26\] dsi_all\[2\] dsi_all\[3\] dsi_all\[4\]
@@ -398,16 +398,15 @@ Xwrapped_as512512512 design_clk dsi_all\[0\] dsi_all\[10\] dsi_all\[11\] dsi_all
 + dso_as512512512\[2\] dso_as512512512\[3\] dso_as512512512\[4\] dso_as512512512\[5\]
 + dso_as512512512\[6\] dso_as512512512\[7\] dso_as512512512\[8\] dso_as512512512\[9\]
 + rst_as512512512 vccd1 vssd1 wrapped_as512512512
-Xwrapped_as1802 design_clk dsi_all\[0\] dsi_all\[10\] dsi_all\[11\] dsi_all\[12\]
-+ dsi_all\[1\] dsi_all\[2\] dsi_all\[3\] dsi_all\[4\] dsi_all\[5\] dsi_all\[6\] dsi_all\[7\]
-+ dsi_all\[8\] dsi_all\[9\] oeb_as1802 dso_as1802\[0\] dso_as1802\[10\] dso_as1802\[11\]
-+ dso_as1802\[12\] dso_as1802\[13\] dso_as1802\[14\] dso_as1802\[15\] dso_as1802\[16\]
-+ dso_as1802\[17\] dso_as1802\[18\] dso_as1802\[19\] dso_as1802\[1\] dso_as1802\[20\]
-+ dso_as1802\[21\] dso_as1802\[22\] dso_as1802\[23\] dso_as1802\[24\] dso_as1802\[25\]
-+ dso_as1802\[26\] dso_as1802\[2\] dso_as1802\[3\] dso_as1802\[4\] dso_as1802\[5\]
-+ dso_as1802\[6\] dso_as1802\[7\] dso_as1802\[8\] dso_as1802\[9\] rst_as1802 vccd1
-+ vssd1 wrapped_as1802
-Xwrapped_6502 design_clk dsi_all\[0\] dsi_all\[1\] dsi_all\[2\] dsi_all\[3\] dsi_all\[4\]
+Xwrapped_as1802 wb_clk_i dsi_all\[0\] dsi_all\[10\] dsi_all\[11\] dsi_all\[12\] dsi_all\[1\]
++ dsi_all\[2\] dsi_all\[3\] dsi_all\[4\] dsi_all\[5\] dsi_all\[6\] dsi_all\[7\] dsi_all\[8\]
++ dsi_all\[9\] oeb_as1802 dso_as1802\[0\] dso_as1802\[10\] dso_as1802\[11\] dso_as1802\[12\]
++ dso_as1802\[13\] dso_as1802\[14\] dso_as1802\[15\] dso_as1802\[16\] dso_as1802\[17\]
++ dso_as1802\[18\] dso_as1802\[19\] dso_as1802\[1\] dso_as1802\[20\] dso_as1802\[21\]
++ dso_as1802\[22\] dso_as1802\[23\] dso_as1802\[24\] dso_as1802\[25\] dso_as1802\[26\]
++ dso_as1802\[2\] dso_as1802\[3\] dso_as1802\[4\] dso_as1802\[5\] dso_as1802\[6\]
++ dso_as1802\[7\] dso_as1802\[8\] dso_as1802\[9\] rst_as1802 vccd1 vssd1 wrapped_as1802
+Xwrapped_6502 wb_clk_i dsi_all\[0\] dsi_all\[1\] dsi_all\[2\] dsi_all\[3\] dsi_all\[4\]
 + dsi_all\[5\] dsi_all\[6\] dsi_all\[7\] dsi_all\[8\] dsi_all\[9\] oeb_6502 dso_6502\[0\]
 + dso_6502\[10\] dso_6502\[11\] dso_6502\[12\] dso_6502\[13\] dso_6502\[14\] dso_6502\[15\]
 + dso_6502\[16\] dso_6502\[17\] dso_6502\[18\] dso_6502\[19\] dso_6502\[1\] dso_6502\[20\]
@@ -426,7 +425,7 @@ Xtt2_tholin_namebadge design_clk dsi_all\[8\] dsi_all\[9\] dsi_all\[10\] tt2_tho
 + tt2_tholin_namebadge/io_oeb[8] tt2_tholin_namebadge/io_oeb[9] dso_LCD\[0\] dso_LCD\[1\]
 + dso_LCD\[2\] dso_LCD\[3\] dso_LCD\[4\] dso_LCD\[5\] dso_LCD\[6\] dso_LCD\[7\] rst_LCD
 + vccd1 vssd1 tt2_tholin_namebadge
-Xwrapped_as2650 design_clk dsi_all\[0\] dsi_all\[1\] dsi_all\[2\] dsi_all\[3\] dsi_all\[4\]
+Xwrapped_as2650 wb_clk_i dsi_all\[0\] dsi_all\[1\] dsi_all\[2\] dsi_all\[3\] dsi_all\[4\]
 + dsi_all\[5\] dsi_all\[6\] dsi_all\[7\] dsi_all\[27\] oeb_as2650 dso_as2650\[0\]
 + dso_as2650\[10\] dso_as2650\[11\] dso_as2650\[12\] dso_as2650\[13\] dso_as2650\[14\]
 + dso_as2650\[15\] dso_as2650\[16\] dso_as2650\[17\] dso_as2650\[18\] dso_as2650\[19\]

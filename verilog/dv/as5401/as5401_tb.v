@@ -18,7 +18,7 @@
 `timescale 1 ns / 1 ps
 
 module as5401_tb;
-	reg clock;
+	reg s_clock;
 	reg RSTB;
 	reg CSB;
 	reg power1, power2;
@@ -26,165 +26,201 @@ module as5401_tb;
 
 	wire gpio;
 	wire [37:0] mprj_io;
-	wire [15:0] checkbits;
+	wire checkbit;
+	
+	always #12.5 s_clock <= (s_clock === 1'b0);
+	
+	wire s0,s1;
+	wire ca,cb;
+	reg clk_rst;
+	assign #1 s0 = ~clk_rst & ((~s1 & s_clock) | (s0 & ~s_clock) | (s0 & ~s1));
+	assign #1 s1 = ~clk_rst & ((s1 & s_clock) | (s0 & ~s_clock) | (s0 & s1));
+	assign #1 ca = ~s1 & s0;
+	assign #1 cb = s1 & ~s0;
+	wire clock = ca;
+	
+	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
 
-	assign checkbits = mprj_io[37:32];
-	wire error_flag = mprj_io[37];
-	wire [4:0] test_stage = mprj_io[36:32];
-
-	// External clock is used by default.  Make this artificially fast for the
-	// simulation.  Normally this would be a slow clock and the digital PLL
-	// would be the fast clock.
-
-	always #12.5 clock <= (clock === 1'b0);
-
+	assign mprj_io[8:5] = 4'b0001;
+	
+	reg design_rst;
+	assign mprj_io[9] = design_rst;
+	assign mprj_io[10] = clock;
+	
+	//Design I/Os
+	wire [3:0] data_out = mprj_io[14:11];
+	reg [3:0] data_in;
+	reg [3:0] instr;
+	assign mprj_io[18:15] = instr;
+	reg EF0;
+	reg EF1;
+	assign mprj_io[19] = EF0;
+	assign mprj_io[20] = EF1;
+	wire [7:0] DB0 = mprj_io[28:21];
+	wire [3:0] clock_state = mprj_io[32:29];
+	wire WRITE = mprj_io[33];
+	wire I_F = mprj_io[34];
+	wire MAR = mprj_io[35];
+	wire JMP = mprj_io[36];
+	assign mprj_io[14:11] = WRITE || JMP ? 4'bzzzz : data_in;
+	
 	initial begin
-		clock = 0;
+		s_clock = 0;
+		design_rst = 1;
+		clk_rst = 1;
+		data_in = 0;
+		EF0 = 0;
+		EF1 = 0;
+		#100;
+		clk_rst = 0;
 	end
-
-	`ifdef ENABLE_SDF
-		initial begin
-			$sdf_annotate("../../../sdf/multiplexer.sdf", uut.mprj.proj_multiplexer) ;
-			$sdf_annotate("../../../sdf/user_project_wrapper.sdf", uut.mprj.mprj) ;
-			$sdf_annotate("../../../mgmt_core_wrapper/sdf/DFFRAM.sdf", uut.soc.DFFRAM_0) ;
-			$sdf_annotate("../../../mgmt_core_wrapper/sdf/mgmt_core.sdf", uut.soc.core) ;
-			$sdf_annotate("../../../caravel/sdf/housekeeping.sdf", uut.housekeeping) ;
-			$sdf_annotate("../../../caravel/sdf/chip_io.sdf", uut.padframe) ;
-			$sdf_annotate("../../../caravel/sdf/mprj_logic_high.sdf", uut.mgmt_buffers.mprj_logic_high_inst) ;
-			$sdf_annotate("../../../caravel/sdf/mprj2_logic_high.sdf", uut.mgmt_buffers.mprj2_logic_high_inst) ;
-			$sdf_annotate("../../../caravel/sdf/mgmt_protect_hv.sdf", uut.mgmt_buffers.powergood_check) ;
-			$sdf_annotate("../../../caravel/sdf/mgmt_protect.sdf", uut.mgmt_buffers) ;
-			$sdf_annotate("../../../caravel/sdf/caravel_clocking.sdf", uut.clocking) ;
-			$sdf_annotate("../../../caravel/sdf/digital_pll.sdf", uut.pll) ;
-			$sdf_annotate("../../../caravel/sdf/xres_buf.sdf", uut.rstb_level) ;
-			$sdf_annotate("../../../caravel/sdf/user_id_programming.sdf", uut.user_id_value) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_bidir_1[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_bidir_1[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_bidir_2[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_bidir_2[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_bidir_2[2] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[2] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[3] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[4] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[5] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[6] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[7] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[8] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[9] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[10] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1a[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1a[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1a[2] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1a[3] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1a[4] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1a[5] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[2] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[3] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[4] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[5] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[6] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[7] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[8] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[9] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[10] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[11] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[12] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[13] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[14] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[15] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.\gpio_defaults_block_0[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.\gpio_defaults_block_0[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.\gpio_defaults_block_2[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.\gpio_defaults_block_2[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.\gpio_defaults_block_2[2] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_5) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_6) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_7) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_8) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_9) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_10) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_11) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_12) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_13) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_14) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_15) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_16) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_17) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_18) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_19) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_20) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_21) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_22) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_23) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_24) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_25) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_26) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_27) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_28) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_29) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_30) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_31) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_32) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_33) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_34) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_35) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_36) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_37) ;
-		end
-	`endif
-
-	reg [7:0] last_stage;
+	
+	integer timeout;
 	initial begin
-		$dumpfile("as5401.vcd");
-		$dumpvars(0, as5401_tb.uut.mprj.tholin_avalonsemi_5401);
+		timeout = 1200;
 
-		last_stage <= 0;
-		repeat (10000) begin
-			repeat (100) @(posedge clock);
+		while(timeout > 2)  begin
+			repeat (50) @(posedge clock);
 			$fflush();
-			if(error_flag) begin
-				$display("%c[1;31m", 27);
-				$display("Monitor: Test failure was signaled");
-				$display("%c[0m", 27);
-				$finish;
-			end
-			if(test_stage != last_stage) begin
-				last_stage <= test_stage;
-				case(test_stage)
-					31: $display("Monitor: Test begin");
-					0: $display("SEI");
-					1: $display("LD 5");
-					2: $display("LML");
-					3: $display("LMH");
-					4: $display("ADD 3");
-					5: $display("STR");
-					6: $display("Clock out");
-					7: $display("LDR & JMP");
-					
-					30: begin
-						$display("%c[1;32m", 27);
-						`ifdef GL
-						$display("Monitor: Test (GL) Passed");
-						`else
-						$display("Monitor: Test (RTL) Passed");
-						`endif
-						$display("%c[0m", 27);
-						$finish;
-					end
-				endcase
-			end
+			timeout -= 1;
 		end
-		$display("%c[1;31m",27);
-		`ifdef GL
-			$display ("Monitor: Timeout, Test Mega-Project WB Port (GL) Failed");
-		`else
-			$display ("Monitor: Timeout, Test Mega-Project WB Port (RTL) Failed");
-		`endif
-		$display("%c[0m",27);
+		if(timeout == 2) begin
+			$display("%c[1;31m",27);
+			`ifdef GL
+				$display ("Monitor: Timeout, Test (GL) Failed");
+			`else
+				$display ("Monitor: Timeout, Test (RTL) Failed");
+			`endif
+			$display("%c[0m",27);
+			$finish;
+		end
+		timeout = 2048;
+	end
+	
+	integer failures;
+	initial begin
+		wait(gpio == 0);
+		wait(gpio == 1);
+		wait(gpio == 0);
+		wait(gpio == 1);
+		$display("Initialized, testing AS5401");
+		$fflush();
+		$dumpfile("as5401.vcd");
+		$dumpvars(1, as5401_tb);
+		$dumpvars(0, as5401_tb.uut.chip_core.mprj.tholin_avalonsemi_5401);
+		failures = 0;
+		@(posedge cb);
+		design_rst = 0;
+		
+		instr = 4'b0010; //SEI
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		failures += I_F != 1;
+		
+		instr = 4'b0000; //LD
+		@(posedge cb);
+		instr = 5;
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		failures += I_F != 0;
+		
+		instr = 4'b0011; //LML
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		failures += MAR != 1;
+		failures += DB0[3:0] != 5;
+		
+		instr = 4'b1111; //LMH
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		failures += MAR != 1;
+		failures += DB0 != 8'h55;
+		
+		instr = 4'b1000; //ADD
+		data_in = 3;
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		
+		instr = 4'b0001; //STR
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		failures += data_out != 8;
+		failures += WRITE != 1;
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		failures += clock_state != 1;
+		@(posedge cb);
+		failures += clock_state != 2;
+		@(posedge cb);
+		failures += clock_state != 4;
+		@(posedge cb);
+		failures += clock_state != 8;
+		@(posedge cb);
+		failures += clock_state != 1;
+		
+		failures += JMP != 0;
+		instr = 4'b0111; //LDR
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		instr = 4'b0100; //JMP
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		failures += data_out != 4'b1000;
+		failures += DB0 != 8'b10001000;
+		failures += JMP != 1;
+		
+		design_rst = 1;
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		
+		if(failures == 0) begin
+			$display("%c[1;32m",27);
+			`ifdef GL
+				$display ("Monitor: Test (GL) Passed");
+			`else
+				$display ("Monitor: Test (RTL) Passed");
+			`endif
+			$display("%c[0m",27);
+		end else begin
+			$display("%c[1;31m",27);
+			`ifdef GL
+				$display ("Monitor: Test (GL) Failed");
+			`else
+				$display ("Monitor: Test (RTL) Failed");
+			`endif
+			$display("%c[0m",27);
+		end
 		$finish;
 	end
 
@@ -193,17 +229,23 @@ module as5401_tb;
 		CSB  <= 1'b1;		// Force CSB high
 		#2000;
 		RSTB <= 1'b1;	    	// Release reset
-		#100000;
+		#3_000_000;
 		CSB = 1'b0;		// CSB can be released
 	end
 
 	initial begin		// Power-up sequence
 		power1 <= 1'b0;
 		power2 <= 1'b0;
-		#200;
+		power3 <= 1'b0;
+		power4 <= 1'b0;
+		#100;
 		power1 <= 1'b1;
-		#200;
+		#100;
 		power2 <= 1'b1;
+		#100;
+		power3 <= 1'b1;
+		#100;
+		power4 <= 1'b1;
 	end
 
 	wire flash_csb;

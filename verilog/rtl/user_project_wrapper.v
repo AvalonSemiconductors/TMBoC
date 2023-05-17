@@ -280,7 +280,7 @@ wrapped_as2650 wrapped_as2650(
 	.vccd1(vccd1),	// User area 1 1.8V power
 	.vssd1(vssd1),	// User area 1 digital ground
 `endif
-	.clk(design_clk),
+	.clk(wb_clk_i),
 	.rst(rst_as2650),
 	.io_in({dsi_all[27], dsi_all[7:0]}),
 	.io_out(dso_as2650),
@@ -292,7 +292,7 @@ wrapped_6502 wrapped_6502(
 	.vccd1(vccd1),	// User area 1 1.8V power
 	.vssd1(vssd1),	// User area 1 digital ground
 `endif
-	.clk(design_clk),
+	.clk(wb_clk_i),
 	.rst(rst_6502),
 	.io_in(dsi_all[9:0]),
 	.io_out(dso_6502),
@@ -304,7 +304,7 @@ wrapped_as1802 wrapped_as1802(
 	.vccd1(vccd1),	// User area 1 1.8V power
 	.vssd1(vssd1),	// User area 1 digital ground
 `endif
-	.clk(design_clk),
+	.clk(wb_clk_i),
 	.rst(rst_as1802),
 	.io_in(dsi_all[12:0]),
 	.io_out(dso_as1802),
@@ -337,7 +337,7 @@ wrapped_as512512512 wrapped_as512512512(
 	.vccd1(vccd1),	// User area 1 1.8V power
 	.vssd1(vssd1),	// User area 1 digital ground
 `endif
-	.clk(design_clk),
+	.clk(wb_clk_i),
 	.rst(rst_as512512512),
 	.io_in(dsi_all[26:0]),
 	.io_out(dso_as512512512),
@@ -349,7 +349,7 @@ wrapped_vgatest wrapped_vgatest(
 	.vccd1(vccd1),	// User area 1 1.8V power
 	.vssd1(vssd1),	// User area 1 digital ground
 `endif
-	.clk(design_clk),
+	.clk(wb_clk_i),
 	.rst(rst_vgatest),
 	.io_in(dsi_all[0]),
 	.io_out(dso_vgatest)

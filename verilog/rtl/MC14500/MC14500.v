@@ -60,7 +60,7 @@ wire data = DATA_in & IEN_l;
 wire LU_out = ((((~ANDC_i & RR_l) | (~XNOR_i & ~RR_l) | LDC_ORC) & ~data) |
 				(OR_ORC & RR_l) |
 				((LD_OR ^ (AND_XNOR & RR_l)) & data)
-				);
+);
 				
 //Output signals
 wire wri = ~(~g_2_3 | ~(g_1_1 | g_1_2));

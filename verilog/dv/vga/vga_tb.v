@@ -29,11 +29,7 @@ module vga_tb;
 	wire checkbit;
 
 	assign checkbit = mprj_io[37];
-
-	// External clock is used by default.  Make this artificially fast for the
-	// simulation.  Normally this would be a slow clock and the digital PLL
-	// would be the fast clock.
-
+	
 	always #45 design_clk <= (design_clk === 1'b0);
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
 
@@ -60,8 +56,6 @@ module vga_tb;
 	
 	integer test;
 	initial begin
-		//$dumpfile("vga.vcd");
-		//$dumpvars(0, vga_tb);
 		test = 16000;
 
 		while(test > 2)  begin
@@ -94,7 +88,7 @@ module vga_tb;
 		$fflush();
 		$dumpfile("vga.vcd");
 		$dumpvars(1, vga_tb);
-		$dumpvars(0, vga_tb.uut.mprj.wrapped_vgatest);
+		$dumpvars(0, vga_tb.uut.chip_core.mprj.wrapped_vgatest);
 		failures = 0;
 		//Tests here
 		

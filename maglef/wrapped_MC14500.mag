@@ -1,7 +1,7 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1683541209
+timestamp 1684334855
 << obsli1 >>
 rect 1104 2159 10856 15793
 << obsm1 >>
@@ -20,9 +20,9 @@ rect 8942 0 8998 800
 rect 10138 0 10194 800
 rect 11334 0 11390 800
 << obsm2 >>
-rect 572 17144 2906 17354
-rect 3074 17144 8886 17354
-rect 9054 17144 11388 17354
+rect 572 17144 2906 17200
+rect 3074 17144 8886 17200
+rect 9054 17144 11388 17200
 rect 572 856 11388 17144
 rect 682 800 1710 856
 rect 1878 800 2906 856
@@ -113,8 +113,8 @@ port 19 nsew ground bidirectional
 string FIXED_BBOX 0 0 12000 18000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 447888
-string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/MC14500/runs/23_05_08_12_16/results/signoff/wrapped_MC14500.magic.gds
-string GDS_START 191624
+string GDS_END 466022
+string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/MC14500/runs/23_05_17_16_45/results/signoff/wrapped_MC14500.magic.gds
+string GDS_START 205780
 << end >>
 

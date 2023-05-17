@@ -18,7 +18,7 @@
 `timescale 1 ns / 1 ps
 
 module as1802_tb;
-	reg clock;
+	reg s_clock;
 	reg RSTB;
 	reg CSB;
 	reg power1, power2;
@@ -26,165 +26,819 @@ module as1802_tb;
 
 	wire gpio;
 	wire [37:0] mprj_io;
-	wire [15:0] checkbits;
+	wire checkbit;
+	
+	always #12.5 s_clock <= (s_clock === 1'b0);
+	
+	wire s0,s1;
+	wire ca,cb;
+	reg clk_rst;
+	assign #1 s0 = ~clk_rst & ((~s1 & s_clock) | (s0 & ~s_clock) | (s0 & ~s1));
+	assign #1 s1 = ~clk_rst & ((s1 & s_clock) | (s0 & ~s_clock) | (s0 & s1));
+	assign #1 ca = ~s1 & s0;
+	assign #1 cb = s1 & ~s0;
+	wire clock = ca;
+	
+	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
 
-	assign checkbits = mprj_io[37:32];
-	wire error_flag = mprj_io[37];
-	wire [4:0] test_stage = mprj_io[36:32];
-
-	// External clock is used by default.  Make this artificially fast for the
-	// simulation.  Normally this would be a slow clock and the digital PLL
-	// would be the fast clock.
-
-	always #12.5 clock <= (clock === 1'b0);
-
+	assign mprj_io[8:5] = 4'b1001;
+	
+	reg design_rst;
+	assign mprj_io[9] = design_rst;
+	assign mprj_io[10] = clock;
+	
+	//Design I/Os
+	wire [7:0] data_out = mprj_io[18:11];
+	reg [7:0] data_in;
+	reg intr;
+	assign mprj_io[19] = intr;
+	reg [3:0] EF;
+	assign mprj_io[23:20] = EF;
+	wire [7:0] addr = mprj_io[31:24];
+	wire Q = mprj_io[32];
+	wire MRD = mprj_io[33];
+	wire MWR = mprj_io[34];
+	wire TPA = mprj_io[35];
+	wire SC0 = mprj_io[36];
+	wire SC1 = mprj_io[37];
+	assign mprj_io[18:11] = MWR ? data_in : 8'hzz;
+	
 	initial begin
-		clock = 0;
+		s_clock = 0;
+		design_rst = 1;
+		clk_rst = 1;
+		data_in = 0;
+		intr = 0;
+		EF = 7;
+		#100;
+		clk_rst = 0;
 	end
-
-	`ifdef ENABLE_SDF
-		initial begin
-			$sdf_annotate("../../../sdf/multiplexer.sdf", uut.mprj.proj_multiplexer) ;
-			$sdf_annotate("../../../sdf/user_project_wrapper.sdf", uut.mprj.mprj) ;
-			$sdf_annotate("../../../mgmt_core_wrapper/sdf/DFFRAM.sdf", uut.soc.DFFRAM_0) ;
-			$sdf_annotate("../../../mgmt_core_wrapper/sdf/mgmt_core.sdf", uut.soc.core) ;
-			$sdf_annotate("../../../caravel/sdf/housekeeping.sdf", uut.housekeeping) ;
-			$sdf_annotate("../../../caravel/sdf/chip_io.sdf", uut.padframe) ;
-			$sdf_annotate("../../../caravel/sdf/mprj_logic_high.sdf", uut.mgmt_buffers.mprj_logic_high_inst) ;
-			$sdf_annotate("../../../caravel/sdf/mprj2_logic_high.sdf", uut.mgmt_buffers.mprj2_logic_high_inst) ;
-			$sdf_annotate("../../../caravel/sdf/mgmt_protect_hv.sdf", uut.mgmt_buffers.powergood_check) ;
-			$sdf_annotate("../../../caravel/sdf/mgmt_protect.sdf", uut.mgmt_buffers) ;
-			$sdf_annotate("../../../caravel/sdf/caravel_clocking.sdf", uut.clocking) ;
-			$sdf_annotate("../../../caravel/sdf/digital_pll.sdf", uut.pll) ;
-			$sdf_annotate("../../../caravel/sdf/xres_buf.sdf", uut.rstb_level) ;
-			$sdf_annotate("../../../caravel/sdf/user_id_programming.sdf", uut.user_id_value) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_bidir_1[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_bidir_1[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_bidir_2[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_bidir_2[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_bidir_2[2] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[2] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[3] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[4] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[5] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[6] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[7] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[8] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[9] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1[10] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1a[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1a[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1a[2] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1a[3] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1a[4] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_1a[5] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[2] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[3] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[4] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[5] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[6] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[7] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[8] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[9] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[10] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[11] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[12] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[13] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[14] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_control_block.sdf", uut.\gpio_control_in_2[15] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.\gpio_defaults_block_0[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.\gpio_defaults_block_0[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.\gpio_defaults_block_2[0] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.\gpio_defaults_block_2[1] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.\gpio_defaults_block_2[2] ) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_5) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_6) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_7) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_8) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_9) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_10) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_11) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_12) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_13) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_14) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_15) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_16) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_17) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_18) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_19) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_20) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_21) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_22) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_23) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_24) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_25) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_26) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_27) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_28) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_29) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_30) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_31) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_32) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_33) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_34) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_35) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_36) ;
-			$sdf_annotate("../../../caravel/sdf/gpio_defaults_block.sdf", uut.gpio_defaults_block_37) ;
-		end
-	`endif 
-
-	reg [7:0] last_stage;
+	
+	integer timeout;
 	initial begin
-		$dumpfile("as1802.vcd");
-		$dumpvars(0, as1802_tb.uut.mprj.wrapped_as1802);
+		timeout = 1200;
 
-		last_stage <= 0;
-		repeat (196000) begin
-			repeat (24) @(posedge clock);
+		while(timeout > 2)  begin
+			repeat (50) @(posedge clock);
 			$fflush();
-			if(error_flag) begin
-				$display("%c[1;31m", 27);
-				$display("Monitor: Test failure was signaled");
-				$display("%c[0m", 27);
-				$finish;
-			end
-			if(test_stage != last_stage) begin
-				last_stage <= test_stage;
-				case(test_stage)
-					31: $display("Monitor: Test begin");
-					0: $display("Basic instruction fetches");
-					1: $display("Register transfers, load/store");
-					2: $display("Stack operations");
-					3: $display("Arithmatic");
-					4: $display("Branches"); //Including SEP
-					5: $display("Skips");
-					6: $display("Misc.");
-					7: $display("Interrupts");
-					
-					30: begin
-						$display("%c[1;32m", 27);
-						`ifdef GL
-						$display("Monitor: Test (GL) Passed");
-						`else
-						$display("Monitor: Test (RTL) Passed");
-						`endif
-						$display("%c[0m", 27);
-						$finish;
-					end
-				endcase
-			end
+			timeout -= 1;
 		end
-		$display("%c[1;31m",27);
-		`ifdef GL
-			$display ("Monitor: Timeout, Test Mega-Project WB Port (GL) Failed");
-		`else
-			$display ("Monitor: Timeout, Test Mega-Project WB Port (RTL) Failed");
-		`endif
-		$display("%c[0m",27);
+		if(timeout == 2) begin
+			$display("%c[1;31m",27);
+			`ifdef GL
+				$display ("Monitor: Timeout, Test (GL) Failed");
+			`else
+				$display ("Monitor: Timeout, Test (RTL) Failed");
+			`endif
+			$display("%c[0m",27);
+			$finish;
+		end
+		timeout = 2048;
+	end
+	
+	integer failures;
+	task check_cpu_outs(input integer dout, input integer address, input integer Q_t, input integer TPA_t, input integer MRD_t, input integer MWR_t, input integer SC0_t, input integer SC1_t);
+		begin
+			failures += dout != 255 && data_out != dout;
+			failures += addr != address;
+			failures += Q != Q_t;
+			failures += TPA != TPA_t;
+			failures += MRD != MRD_t;
+			failures += MWR != MWR_t;
+			failures += SC0 != SC0_t;
+			failures += SC1 != SC1_t;
+		end
+	endtask
+	
+	task test_long_fetch(input integer prev_lo_addr, input integer addr);
+		begin
+			@(posedge cb);
+			check_cpu_outs(255, prev_lo_addr, 0, 0, 1, 1, 0, 0);
+			@(posedge cb);
+			check_cpu_outs(255, addr[15:8], 0, 1, 0, 1, 0, 0);
+			@(posedge cb);
+			check_cpu_outs(255, addr[15:8], 0, 0, 0, 1, 0, 0);
+			@(posedge cb);
+			check_cpu_outs(255, addr[7:0], 0, 0, 0, 1, 0, 0);
+			@(posedge cb);
+			check_cpu_outs(255, addr[7:0], 0, 0, 1, 1, 1, 0);
+		end
+	endtask
+	
+	task test_read_cycle(input integer prev_lo_addr, input integer addr, input integer data);
+		begin
+			check_cpu_outs(255, prev_lo_addr, 0, 0, 1, 1, 1, 0);
+			@(posedge cb)
+			check_cpu_outs(255, addr[15:8], 0, 1, 0, 1, 1, 0);
+			@(posedge cb)
+			check_cpu_outs(255, addr[15:8], 0, 0, 0, 1, 1, 0);
+			@(posedge cb)
+			check_cpu_outs(255, addr[7:0], 0, 0, 0, 1, 1, 0);
+			data_in = data;
+			@(posedge cb)
+			check_cpu_outs(255, addr[7:0], 0, 0, 1, 1, 1, 0);
+		end
+	endtask
+	
+	initial begin
+		wait(gpio == 0);
+		wait(gpio == 1);
+		wait(gpio == 0);
+		wait(gpio == 1);
+		$display("Initialized, testing AS1802");
+		$fflush();
+		$dumpfile("as1802.vcd");
+		$dumpvars(1, as1802_tb);
+		$dumpvars(0, as1802_tb.uut.chip_core.mprj.wrapped_as1802);
+		failures = 0;
+		@(posedge cb);
+		design_rst = 0;
+		
+		//Initial instruction fetch timing
+		data_in = 8'hC4;
+		test_long_fetch(0, 0);
+		@(posedge cb);
+		
+		//Subsequent instruction fetch timing
+		@(posedge cb);
+		check_cpu_outs(255, 0, 0, 0, 1, 1, 0, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 1, 0, 0, 0, 1, 0, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 1, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//LDI
+		data_in = 8'hF8;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 2, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 3, 0, 0, 0, 1, 1, 0);
+		data_in = 8'h10;
+		@(posedge cb);
+		check_cpu_outs(255, 3, 0, 0, 1, 1, 1, 0);
+		
+		//PLO R3
+		data_in = 8'hA3;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 4, 0, 0, 1, 1, 1, 0);
+		
+		//ADI 5
+		data_in = 8'hFC;
+		repeat(4) @(posedge cb);
+		@(posedge cb);
+		data_in = 8'h05;
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 6, 0, 0, 1, 1, 1, 0);
+		
+		//PHI R3
+		data_in = 8'hB3;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 7, 0, 0, 1, 1, 1, 0);
+		
+		//PLO R5
+		data_in = 8'hA5;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 8, 0, 0, 1, 1, 1, 0);
+		
+		//PHI R5
+		data_in = 8'hB5;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 9, 0, 0, 1, 1, 1, 0);
+		
+		//INC R5
+		data_in = 8'h15;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 10, 0, 0, 1, 1, 1, 0);
+		
+		//LDN R3
+		data_in = 8'h03;
+		repeat(4) @(posedge cb);
+		test_read_cycle(11, 16'h1510, 69);
+		
+		//STR R5
+		data_in = 8'h55;
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 0, 1, 1, 0, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 0, 0, 1, 0, 1, 0, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 0, 0, 0, 0, 1, 0, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 12, 0, 0, 0, 1, 0, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 12, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//Write cycle timing
+		@(posedge cb);
+		check_cpu_outs(255, 8'h15, 0, 1, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h15, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h16, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(69, 8'h16, 0, 0, 0, 0, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h16, 0, 0, 1, 1, 1, 0);
+		
+		//GHI R3
+		data_in = 8'h93;
+		@(posedge cb);
+		check_cpu_outs(255, 8'h16, 0, 0, 1, 1, 0, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 0, 0, 1, 0, 1, 0, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 0, 0, 0, 0, 1, 0, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 13, 0, 0, 0, 1, 0, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 13, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//PLO R10
+		data_in = 8'hAA;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 14, 0, 0, 1, 1, 1, 0);
+		
+		//GLO R3
+		data_in = 8'h83;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 15, 0, 0, 1, 1, 1, 0);
+		
+		//PHI R10
+		data_in = 8'hBA;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 16, 0, 0, 1, 1, 1, 0);
+		
+		//STR R10
+		data_in = 8'h5A;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 17, 0, 0, 1, 1, 1, 0);
+		
+		//Write cycle timing
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 1, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h15, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(8'h10, 8'h15, 0, 0, 0, 0, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h15, 0, 0, 1, 1, 1, 0);
+		
+		//SEX R10
+		data_in = 8'hEA;
+		test_long_fetch(8'h15, 18);
+		@(posedge cb);
+		
+		//IRX
+		data_in = 8'h60;
+		repeat(4) @(posedge cb);
+		
+		//LDXA
+		data_in = 8'h72;
+		repeat(4) @(posedge cb);
+		test_read_cycle(20, 16'h1016, 8'h22);
+		
+		//STXD
+		data_in = 8'h73;
+		test_long_fetch(8'h16, 21);
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 1, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h17, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(8'h22, 8'h17, 0, 0, 0, 0, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h17, 0, 0, 1, 1, 1, 0);
+		
+		//LDX
+		data_in = 8'hF0;
+		test_long_fetch(8'h17, 22);
+		@(posedge cb);
+		test_read_cycle(22, 16'h1016, 8'h24);
+		
+		//STR R10
+		data_in = 8'h5A;
+		test_long_fetch(8'h16, 23);
+		
+		//Write cycle timing
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 1, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h16, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(8'h24, 8'h16, 0, 0, 0, 0, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h16, 0, 0, 1, 1, 1, 0);
+		
+		//OR
+		data_in = 8'hF1;
+		test_long_fetch(8'h16, 24);
+		@(posedge cb);
+		test_read_cycle(24, 16'h1016, 1);
+		@(posedge cb);
+		//8'h24 -> 8'h25
+		
+		//SMI
+		data_in = 8'hFF;
+		test_long_fetch(8'h16, 25);
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 26, 0, 0, 0, 1, 1, 0);
+		data_in = 8'h10;
+		@(posedge cb);
+		check_cpu_outs(255, 26, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		//8'h25 -> 8'h15
+		
+		//SHL
+		data_in = 8'hFE;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 27, 0, 0, 1, 1, 1, 0);
+		//8'h15 -> 8'h2A
+		
+		//SD
+		data_in = 8'hF5;
+		repeat(4) @(posedge cb);
+		test_read_cycle(28, 16'h1016, 255);
+		@(posedge cb);
+		//8'h2A -> 8'hD5
+		
+		//STXD
+		data_in = 8'h73;
+		test_long_fetch(8'h16, 29);
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 1, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h16, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(8'hD5, 8'h16, 0, 0, 0, 0, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h16, 0, 0, 1, 1, 1, 0);
+		
+		//ADI 255
+		data_in = 8'hFC;
+		test_long_fetch(8'h16, 30);
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 31, 0, 0, 0, 1, 1, 0);
+		data_in = 8'hFF;
+		@(posedge cb);
+		check_cpu_outs(255, 31, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		//8'hD5 -> 8'hD4 and DF becomes 1
+		
+		//ADCI 5
+		data_in = 8'h7C;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 32, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 33, 0, 0, 0, 1, 1, 0);
+		data_in = 8'h05;
+		@(posedge cb);
+		check_cpu_outs(255, 33, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		//8'hD4 -> 8'hDA and DF becomes 0
+		
+		//STXD
+		data_in = 8'h73;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 34, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 1, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h15, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(8'hDA, 8'h15, 0, 0, 0, 0, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h15, 0, 0, 1, 1, 1, 0);
+		
+		//SHR
+		data_in = 8'hF6;
+		test_long_fetch(8'h15, 35);
+		@(posedge cb);
+		//8'hDA -> 8'h6D
+		
+		//SHR
+		data_in = 8'hF6;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 36, 0, 0, 1, 1, 1, 0);
+		//8'h6D -> 8'h36 and DF becomes 1
+
+		//RSHR
+		data_in = 8'h76;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 37, 0, 0, 1, 1, 1, 0);
+		//8'h36 -> 8'h9B and DF becomes 0
+		
+		//STR R10
+		data_in = 8'h5A;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 38, 0, 0, 1, 1, 1, 0);
+		
+		//Write cycle timing
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 1, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h14, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(8'h9B, 8'h14, 0, 0, 0, 0, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h14, 0, 0, 1, 1, 1, 0);
+		
+		//SEP R5
+		data_in = 8'hD5;
+		test_long_fetch(8'h14, 39);
+		@(posedge cb);
+		
+		//NOP
+		data_in = 8'hC4;
+		test_long_fetch(39, 16'h1516);
+		@(posedge cb);
+		
+		//BR
+		data_in = 8'h30;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 23, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 24, 0, 0, 0, 1, 1, 0);
+		data_in = 66;
+		@(posedge cb);
+		check_cpu_outs(255, 24, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//NOP
+		data_in = 8'hC4;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 66, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//LBR
+		data_in = 8'hC0;
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 67, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 68, 0, 0, 0, 1, 1, 0);
+		data_in = 8;
+		@(posedge cb);
+		check_cpu_outs(255, 68, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		@(posedge cb);
+		check_cpu_outs(255, 69, 0, 0, 0, 1, 1, 0);
+		data_in = 9;
+		@(posedge cb);
+		check_cpu_outs(255, 69, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//NOP
+		data_in = 8'hC4;
+		test_long_fetch(69, 16'h0809);
+		@(posedge cb);
+		
+		//BZ
+		data_in = 8'h32;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 10, 0, 0, 1, 1, 1, 0);
+		
+		//LDI 0
+		data_in = 8'hF8;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 12, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 13, 0, 0, 0, 1, 1, 0);
+		data_in = 0;
+		@(posedge cb);
+		check_cpu_outs(255, 13, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//LBZ
+		data_in = 8'hC2;
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 14, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 15, 0, 0, 0, 1, 1, 0);
+		data_in = 8'h22;
+		@(posedge cb);
+		check_cpu_outs(255, 15, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		@(posedge cb);
+		check_cpu_outs(255, 16, 0, 0, 0, 1, 1, 0);
+		data_in = 0;
+		@(posedge cb);
+		check_cpu_outs(255, 16, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//SMI 5
+		data_in = 8'hFF;
+		test_long_fetch(16, 16'h2200);
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 1, 0, 0, 0, 1, 1, 0);
+		data_in = 8'h05;
+		@(posedge cb);
+		check_cpu_outs(255, 1, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//BDF
+		data_in = 8'h33;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 2, 0, 0, 1, 1, 1, 0);
+		
+		//SMI 5
+		data_in = 8'hFF;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 4, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 5, 0, 0, 0, 1, 1, 0);
+		data_in = 8'h05;
+		@(posedge cb);
+		check_cpu_outs(255, 5, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//BDF
+		data_in = 8'h33;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 6, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 7, 0, 0, 0, 1, 1, 0);
+		data_in = 15;
+		@(posedge cb);
+		check_cpu_outs(255, 7, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//B1
+		EF[0] = 1;
+		data_in = 8'h34;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 15, 0, 0, 1, 1, 1, 0);
+		
+		//BN3
+		EF[2] = 1;
+		data_in = 8'h3E;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 17, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 18, 0, 0, 0, 1, 1, 0);
+		data_in = 100;
+		@(posedge cb);
+		check_cpu_outs(255, 18, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//B2
+		EF[1] = 0;
+		data_in = 8'h35;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 100, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 101, 0, 0, 0, 1, 1, 0);
+		data_in = 200;
+		@(posedge cb);
+		check_cpu_outs(255, 101, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//BN3
+		data_in = 8'h3F;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 200, 0, 0, 1, 1, 1, 0);
+		
+		//NOP
+		data_in = 8'hC4;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 202, 0, 0, 1, 1, 1, 0);
+		
+		//SKP
+		data_in = 8'h38;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 203, 0, 0, 1, 1, 1, 0);
+		
+		//ADI 1
+		data_in = 8'hFC;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 205, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 206, 0, 0, 0, 1, 1, 0);
+		data_in = 1;
+		@(posedge cb);
+		check_cpu_outs(255, 206, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//LSDF
+		data_in = 8'hCF;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 207, 0, 0, 1, 1, 1, 0);
+		data_in = 8'hC4;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 208, 0, 0, 1, 1, 1, 0);
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 209, 0, 0, 1, 1, 1, 0);
+		
+		//LDI 0
+		data_in = 8'hF8;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 210, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 211, 0, 0, 0, 1, 1, 0);
+		data_in = 0;
+		@(posedge cb);
+		check_cpu_outs(255, 211, 0, 0, 1, 1, 1, 0);
+		
+		//LSZ
+		data_in = 8'hCE;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 212, 0, 0, 1, 1, 1, 0);
+		data_in = 8'hC4;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 215, 0, 0, 1, 1, 1, 0);
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 216, 0, 0, 1, 1, 1, 0);
+		
+		//SEQ
+		data_in = 8'h7B;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 217, 1, 0, 1, 1, 1, 0);
+		
+		//REQ
+		data_in = 8'h7A;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 218, 0, 0, 1, 1, 1, 0);
+		
+		//LDI 8'h55
+		data_in = 8'hF8;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 219, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 220, 0, 0, 0, 1, 1, 0);
+		data_in = 8'h55;
+		@(posedge cb);
+		check_cpu_outs(255, 220, 0, 0, 1, 1, 1, 0);
+		
+		//PHI R1
+		data_in = 8'hB1;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 221, 0, 0, 1, 1, 1, 0);
+		
+		//PLO R1
+		data_in = 8'hA1;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 222, 0, 0, 1, 1, 1, 0);
+		
+		//LDI 8'h11
+		data_in = 8'hF8;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 223, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 224, 0, 0, 0, 1, 1, 0);
+		data_in = 8'h11;
+		@(posedge cb);
+		check_cpu_outs(255, 224, 0, 0, 1, 1, 1, 0);
+		
+		//PHI R2
+		data_in = 8'hB2;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 225, 0, 0, 1, 1, 1, 0);
+		
+		//PLO R2
+		data_in = 8'hA2;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 226, 0, 0, 1, 1, 1, 0);
+		
+		//IDL
+		data_in = 8'h00;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 227, 0, 0, 1, 1, 1, 0);
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 227, 0, 0, 1, 1, 1, 0);
+		
+		//Send interrupt
+		intr <= 1;
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 227, 0, 0, 1, 1, 1, 1);
+		
+		//STXD to test P and X
+		data_in = 8'h73;
+		test_long_fetch(227, 16'h5555);
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h11, 0, 1, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h11, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h11, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(8'h11, 8'h11, 0, 0, 0, 0, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h11, 0, 0, 1, 1, 1, 0);
+		
+		//SAV
+		intr <= 0;
+		data_in = 8'h78;
+		test_long_fetch(8'h11, 16'h5556);
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h11, 0, 1, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h11, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(8'hA5, 8'h10, 0, 0, 0, 0, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 0, 1, 1, 1, 0);
+		
+		//LSIE
+		data_in = 8'hCC;
+		test_long_fetch(8'h10, 16'h5557);
+		@(posedge cb);
+		data_in = 8'hC4;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 8'h58, 0, 0, 1, 1, 1, 0);
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 8'h59, 0, 0, 1, 1, 1, 0);
+		
+		//RET
+		data_in = 8'h70;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 8'h5A, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h11, 0, 1, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h11, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 0, 0, 1, 1, 0);
+		data_in = 8'hA5;
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 0, 1, 1, 1, 0);
+		@(posedge cb);
+		
+		//LDX to test return from interrupt
+		data_in = 8'hF0;
+		test_long_fetch(8'h10, 16'h2200 + 228);
+		@(posedge cb);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 1, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h10, 0, 0, 0, 1, 1, 0);
+		@(posedge cb);
+		check_cpu_outs(255, 8'h14, 0, 0, 0, 1, 1, 0);
+		data_in = 69;
+		@(posedge cb);
+		check_cpu_outs(255, 8'h14, 0, 0, 1, 1, 1, 0);
+		
+		//LSIE
+		data_in = 8'hCC;
+		test_long_fetch(8'h14, 16'h2200 + 229);
+		@(posedge cb);
+		data_in = 8'hC4;
+		repeat(4) @(posedge cb);
+		check_cpu_outs(255, 232, 0, 0, 1, 1, 1, 0);
+		
+		design_rst = 1;
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		@(posedge cb);
+		
+		if(failures == 0) begin
+			$display("%c[1;32m",27);
+			`ifdef GL
+				$display ("Monitor: Test (GL) Passed");
+			`else
+				$display ("Monitor: Test (RTL) Passed");
+			`endif
+			$display("%c[0m",27);
+		end else begin
+			$display("%c[1;31m",27);
+			`ifdef GL
+				$display ("Monitor: Test (GL) Failed");
+			`else
+				$display ("Monitor: Test (RTL) Failed");
+			`endif
+			$display("%c[0m",27);
+		end
 		$finish;
 	end
 
@@ -193,17 +847,23 @@ module as1802_tb;
 		CSB  <= 1'b1;		// Force CSB high
 		#2000;
 		RSTB <= 1'b1;	    	// Release reset
-		#100000;
+		#3_000_000;
 		CSB = 1'b0;		// CSB can be released
 	end
 
 	initial begin		// Power-up sequence
 		power1 <= 1'b0;
 		power2 <= 1'b0;
-		#200;
+		power3 <= 1'b0;
+		power4 <= 1'b0;
+		#100;
 		power1 <= 1'b1;
-		#200;
+		#100;
 		power2 <= 1'b1;
+		#100;
+		power3 <= 1'b1;
+		#100;
+		power4 <= 1'b1;
 	end
 
 	wire flash_csb;

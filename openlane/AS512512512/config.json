@@ -2,7 +2,7 @@
     "DESIGN_NAME": "wrapped_as512512512",
     "DESIGN_IS_CORE": 0,
     "VERILOG_FILES": ["dir::../../verilog/rtl/defines.v", "dir::../../verilog/rtl/as512512512/as512512512.v", "dir::../../verilog/rtl/as512512512/wrapped_as512512512.v", "dir::../../verilog/rtl/as512512512/alu.v", "dir::../../verilog/rtl/as512512512/alu_mask_rom.v", "dir::../../verilog/rtl/as512512512/uart.v", "dir::../../verilog/rtl/as512512512/spi.v"],
-    "CLOCK_PERIOD": 35,
+    "CLOCK_PERIOD": 30,
     "CLOCK_PORT": "clk",
     "CLOCK_NET": "clk",
     "FP_SIZING": "absolute",
