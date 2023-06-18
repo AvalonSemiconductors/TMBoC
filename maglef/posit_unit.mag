@@ -1,7 +1,7 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1683542391
+timestamp 1686562816
 << obsli1 >>
 rect 1104 2159 68816 67473
 << obsm1 >>
@@ -84,7 +84,7 @@ string FIXED_BBOX 0 0 70000 70000
 string LEFclass BLOCK
 string LEFview TRUE
 string GDS_END 11873386
-string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/PositUnit/runs/23_05_08_12_32/results/signoff/posit_unit.magic.gds
+string GDS_FILE /media/lucah/e6042058-84c8-448b-be8a-b40bc065b34b/TMBoC/openlane/PositUnit/runs/23_06_12_11_35/results/signoff/posit_unit.magic.gds
 string GDS_START 1534712
 << end >>
 

@@ -65,6 +65,9 @@ module multiplexer(
 	input oeb_as512512512,
 	output rst_as512512512,
 	
+	output [1:0] nand_dsi,
+	input dso_nand,
+	
 	input [9:0] dso_vgatest,
 	output rst_vgatest,
 	
@@ -95,6 +98,7 @@ reg [27:0] design_outs;
 reg [27:0] design_oebs;
 wire [27:0] design_ins = wb_override ? (wb_io_override & design_oebs) : {io_in[0], io_in[37:11]};
 assign dsi_all = design_ins;
+assign nand_dsi = design_ins[1:0];
 
 assign io_oeb = {design_oebs[26:0], 2'b11, 4'b1111, 4'b0000, design_oebs[27]};
 //assign io_out = {design_outs, 2'b00, 4'b0000, 5'b00000};

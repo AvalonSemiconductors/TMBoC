@@ -82,6 +82,8 @@ module user_project_wrapper (user_clock2,
  wire \dsi_all[7] ;
  wire \dsi_all[8] ;
  wire \dsi_all[9] ;
+ wire \dsi_nand[0] ;
+ wire \dsi_nand[1] ;
  wire \dso_6502[0] ;
  wire \dso_6502[10] ;
  wire \dso_6502[11] ;
@@ -263,6 +265,7 @@ module user_project_wrapper (user_clock2,
  wire \dso_multiplier[5] ;
  wire \dso_multiplier[6] ;
  wire \dso_multiplier[7] ;
+ wire dso_nand;
  wire \dso_posit[0] ;
  wire \dso_posit[1] ;
  wire \dso_posit[2] ;
@@ -318,6 +321,7 @@ module user_project_wrapper (user_clock2,
     \dso_posit[1] ,
     \dso_posit[0] }));
  multiplexer proj_multiplexer (.design_clk_o(design_clk),
+    .dso_nand(dso_nand),
     .dso_tune(dso_tune),
     .oeb_6502(oeb_6502),
     .oeb_as1802(oeb_as1802),
@@ -691,6 +695,8 @@ module user_project_wrapper (user_clock2,
     io_out[2],
     io_out[1],
     io_out[0]}),
+    .nand_dsi({\dsi_nand[1] ,
+    \dsi_nand[0] }),
     .wbs_adr_i({wbs_adr_i[31],
     wbs_adr_i[30],
     wbs_adr_i[29],

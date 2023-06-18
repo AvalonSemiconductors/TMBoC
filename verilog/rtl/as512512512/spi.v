@@ -43,10 +43,10 @@ always @(posedge clk) begin
                 if(!counter[0]) begin
                     DO <= data_out_buff[7];
                     data_out_buff <= {data_out_buff[6:0], 1'b0};
-                    data_in_buff <= {data_in_buff[6:0], DI};
                     SCLK <= 0;
                 end else begin
                     SCLK <= 1;
+                    data_in_buff <= {data_in_buff[6:0], DI};
                 end
             end
         end else begin

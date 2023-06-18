@@ -131,6 +131,7 @@ module as512512512_tb;
 	`define ASR 75
 	`define LSC 76
 	`define RSC 77
+	`define EXT 78
 	`define DO_SAVE 16
 
 	`define BRANCH 384
@@ -481,6 +482,14 @@ module as512512512_tb;
 			//str32 r12.0 r3.12+14
 			457: ROM_val = `STORE + `W_DISPLACEMENT + `LONG_DISPLACEMENT + (1 << 9) + (12 << 14) + (3 << 23) + (12 << 27);
 			458: ROM_val = 32'h0000000E;
+			//ldi32 r12.0 0x80000005
+			459: ROM_val = `COPY + `IMMEDIATE + (1 << 9) + (12 << 14);
+			460: ROM_val = 32'h80000005;
+			//ext32 r12.2 r12.0
+			461: ROM_val = `EXT + `DO_SAVE + (1 << 9) + (12 << 14) + (2 << 18) + (12 << 23);
+			//str64 r12.0 r3.12+16
+			462: ROM_val = `STORE + `W_DISPLACEMENT + `LONG_DISPLACEMENT + (3 << 9) + (12 << 14) + (3 << 23) + (12 << 27);
+			463: ROM_val = 32'h00000010;
 		endcase
 	end
 	
@@ -794,12 +803,12 @@ module as512512512_tb;
 			while(M0 != 1) @(posedge clock);
 		end
 
+		SDI = 1;
 		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
 		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 0;
-		SDI = 1;
 		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
 		repeat(16) @(posedge clock);
@@ -807,34 +816,34 @@ module as512512512_tb;
 		failures += SDO != 1;
 		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
+		SDI = 0;
 		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 0;
-		SDI = 0;
 		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
+		SDI = 1;
 		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 1;
-		SDI = 1;
 		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
-		repeat(16) @(posedge clock);
-		failures += SCLK != 1;
-		failures += SDO != 0;
 		SDI = 0;
 		repeat(16) @(posedge clock);
+		failures += SCLK != 1;
+		failures += SDO != 0;
+		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
+		SDI = 1;
 		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 0;
-		SDI = 1;
 		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
+		SDI = 0;
 		repeat(16) @(posedge clock);
 		failures += SCLK != 1;
 		failures += SDO != 1;
-		SDI = 0;
 		repeat(16) @(posedge clock);
 		failures += SCLK != 0;
 		repeat(16) @(posedge clock);
@@ -890,6 +899,19 @@ module as512512512_tb;
 		
 		if(failures == 0) $display("PASSED: Bitshifts");
 		test_step = 11;
+		
+		repeat(3) begin
+			@(posedge clock);
+			while(M0 != 1) @(posedge clock);
+		end
+		
+		failures += RAM[16] != 16'hFFFF;
+		failures += RAM[17] != 16'hFFFF;
+		failures += RAM[18] != 16'h8000;
+		failures += RAM[19] != 16'h0005;
+		
+		if(failures == 0) $display("PASSED: Sign-extend");
+		test_step = 12;
 
 		if(failures == 0) begin
 			$display("%c[1;32m",27);

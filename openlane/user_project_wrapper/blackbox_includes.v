@@ -68,3 +68,4 @@
 `include "../../verilog/rtl/VGATest/bitmap.v"
 `include "../../verilog/rtl/VGATest/vgatest.v"
 `include "../../verilog/rtl/VGATest/wrapped_vgatest.v"
+`include "../../verilog/rtl/Blackbox/tholin_nand_scaled.v"

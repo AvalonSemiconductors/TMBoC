@@ -127,6 +127,9 @@ wire rst_as512512512;
 wire [9:0] dso_vgatest;
 wire rst_vgatest;
 
+wire [1:0] dsi_nand;
+wire dso_nand;
+
 wire design_clk;
 
 multiplexer proj_multiplexer(
@@ -195,6 +198,9 @@ multiplexer proj_multiplexer(
 	
 	.dso_vgatest(dso_vgatest),
 	.rst_vgatest(rst_vgatest),
+	
+	.nand_dsi(dsi_nand),
+	.dso_nand(dso_nand),
 	
 	.design_clk_o(design_clk)
 );
@@ -354,6 +360,16 @@ wrapped_vgatest wrapped_vgatest(
 	.io_in(dsi_all[0]),
 	.io_out(dso_vgatest)
 );
+/*
+tholin_nand_scaled tholin_nand_scaled(
+`ifdef USE_POWER_PINS
+	.vccd1(vccd1),	// User area 1 1.8V power
+	.vssd1(vssd1),	// User area 1 digital ground
+`endif
+	.A(dsi_nand[0]),
+	.B(dsi_nand[1]),
+	.Y(dso_nand)
+);*/
 
 endmodule	// user_project_wrapper
 

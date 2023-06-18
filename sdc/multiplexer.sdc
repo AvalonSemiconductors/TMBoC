@@ -1,6 +1,6 @@
 ###############################################################################
 # Created by write_sdc
-# Mon May  8 10:28:46 2023
+# Sun Jun 18 14:08:42 2023
 ###############################################################################
 current_design multiplexer
 ###############################################################################
@@ -191,6 +191,7 @@ set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_multiplier[5]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_multiplier[6]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_multiplier[7]}]
+set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_nand}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_posit[0]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_posit[1]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {dso_posit[2]}]
@@ -431,6 +432,8 @@ set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_out[7]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_out[8]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_out[9]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {nand_dsi[0]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {nand_dsi[1]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {rst_6502}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {rst_LCD}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {rst_as1802}]
@@ -599,6 +602,8 @@ set_load -pin_load 0.0334 [get_ports {io_out[3]}]
 set_load -pin_load 0.0334 [get_ports {io_out[2]}]
 set_load -pin_load 0.0334 [get_ports {io_out[1]}]
 set_load -pin_load 0.0334 [get_ports {io_out[0]}]
+set_load -pin_load 0.0334 [get_ports {nand_dsi[1]}]
+set_load -pin_load 0.0334 [get_ports {nand_dsi[0]}]
 set_load -pin_load 0.0334 [get_ports {wbs_dat_o[31]}]
 set_load -pin_load 0.0334 [get_ports {wbs_dat_o[30]}]
 set_load -pin_load 0.0334 [get_ports {wbs_dat_o[29]}]
@@ -631,6 +636,7 @@ set_load -pin_load 0.0334 [get_ports {wbs_dat_o[3]}]
 set_load -pin_load 0.0334 [get_ports {wbs_dat_o[2]}]
 set_load -pin_load 0.0334 [get_ports {wbs_dat_o[1]}]
 set_load -pin_load 0.0334 [get_ports {wbs_dat_o[0]}]
+set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_nand}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {dso_tune}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {oeb_6502}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {oeb_as1802}]

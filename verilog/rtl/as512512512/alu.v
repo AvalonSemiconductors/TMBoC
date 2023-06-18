@@ -12,6 +12,7 @@
 `define OP_ASR 4'b1011
 `define OP_LSC 4'b1100
 `define OP_RSC 4'b1101
+`define OP_EXT 4'b1110
 
 `define WORD_SIZE 512
 `define BLOCK_COUNT 32
@@ -56,6 +57,9 @@ wire [`BLOCK_COUNT-1:0] op_mask_output_base;
 alu_mask_rom_32 alu_mask_rom_32_2(op_size, op_mask_output_base);
 wire [`BLOCK_COUNT-1:0] op_mask_output = op_mask_output_base << op_offset1;
 
+wire [`OP_SIZE+4:0] op_size_bits = (op_size + 1) << 4;
+wire [`OP_SIZE+4:0] op_size_bitsn1 = op_size_bits - 1;
+
 wire [`WORD_SIZE-1:0] op_mask_bits1;
 genvar i;
 generate
@@ -83,6 +87,7 @@ wire [`OP_SIZE+3:0] shift_by2 = op_offset2 << 4;
 
 wire [`WORD_SIZE-1:0] arg1 = (in1 & op_mask_bits1) >> shift_by1;
 wire [`WORD_SIZE-1:0] arg2 = (in2 & op_mask_bits2) >> shift_by2;
+wire in_sign = arg2[op_size_bitsn1];
 wire [`WORD_SIZE-1:0] inv_arg2 = ((~in2) & op_mask_bits2) >> shift_by2;
 
 assign in1_shifted = arg1;
@@ -90,8 +95,6 @@ assign in2_shifted = arg2;
 
 wire [`WORD_SIZE-1:0] orig1 = in1 & (~op_mask_bits_out);
 
-wire [`OP_SIZE+4:0] aaa = (op_size + 1) << 4;
-wire [`OP_SIZE+4:0] aaan1 = aaa - 1;
 wire add_carry = (operation == `OP_SUB) + ((operation == `OP_SBC | operation == `OP_ADC) & carry_in);
 wire [`WORD_SIZE:0] add_res = arg1 + ((operation == `OP_SUB || operation == `OP_SBC) ? inv_arg2 : arg2) + add_carry;
 wire [`WORD_SIZE-1:0] and_res = arg1 & arg2;
@@ -120,9 +123,10 @@ always @(*) begin
 `endif
 		`OP_RSH: ALU_res = rsh_res;
 		`OP_LSH: ALU_res = lsh_res;
-		`OP_ASR: ALU_res = rsh_res | (arg2 & (1 << aaan1));
+		`OP_ASR: ALU_res = rsh_res | (arg2 & (1 << op_size_bitsn1));
 		`OP_LSC: ALU_res = lsh_res | carry_in;
-		`OP_RSC: ALU_res = rsh_res | (carry_in << aaan1);
+		`OP_RSC: ALU_res = rsh_res | (carry_in << op_size_bitsn1);
+		`OP_EXT: ALU_res = {`WORD_SIZE{in_sign}};
 	endcase
 end
 
@@ -159,7 +163,7 @@ wire [`WORD_SIZE-1:0] ALU_res_masked = ALU_res_shifted & op_mask_bits_out;
 
 //TODO: Sign extend
 
-assign carry = operation == `OP_ADD || operation == `OP_ADC || operation == `OP_SUB || operation == `OP_SBC ? add_res[aaa] : ((operation == `OP_RSH || operation == `OP_RSC) ? arg2[0] : ((operation == `OP_LSH || operation == `OP_LSC) ? arg2[aaan1] : carry_in));
+assign carry = operation == `OP_ADD || operation == `OP_ADC || operation == `OP_SUB || operation == `OP_SBC ? add_res[op_size_bits] : ((operation == `OP_RSH || operation == `OP_RSC) ? arg2[0] : ((operation == `OP_LSH || operation == `OP_LSC) ? arg2[op_size_bitsn1] : carry_in));
 assign zero = ALU_res_masked == 0;
 assign res = orig1 | ALU_res_masked;
 
